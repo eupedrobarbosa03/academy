@@ -29,8 +29,9 @@ Project Page -> 🔗 [Academy Control](https://eupedrobarbosa03.github.io/academ
 
 ```
 - ✅ Controle Workouts: É necessário haver instrutores e alunos existentes. O horário precisa conter ":".  O dia precisa estar entre "segunda-feira" até "domingo".
----
 ```
+
+---
 
 ```
 - ✅ Controle Instructor -> add: É necessário colocar o nome do instrutor sem números e não pode estar vazio. Idade (age) precisa ser igual ou maior que 18 anos. Especialidade (Specialty) não pode conter números. Número de telefone (Telephone) não pode conter letras e é livre para colocar qualquer números sem caracteres especiais, como "()".
