@@ -27,17 +27,26 @@ Project Page -> 🔗 [Academy Control](https://eupedrobarbosa03.github.io/academ
 
 ## Validations ✅ ##
 
+```
 - ✅ Controle Workouts: É necessário haver instrutores e alunos existentes. O horário precisa conter ":".  O dia precisa estar entre "segunda-feira" até "domingo".
---
+---
+```
+
+```
 - ✅ Controle Instructor -> add: É necessário colocar o nome do instrutor sem números e não pode estar vazio. Idade (age) precisa ser igual ou maior que 18 anos. Especialidade (Specialty) não pode conter números. Número de telefone (Telephone) não pode conter letras e é livre para colocar qualquer números sem caracteres especiais, como "()".
 - ✅ Controle Instructor -> update: Mesmas validações do "add", porém com: O nome do instrutor precisa estar cadastrado para atualizar.
 - ✅ Controle Instructor -> delete: É necessário colocar o nome do instrutor sem números e não pode estar vazio. É necessário que o nome do instrutor esteja cadastrado para deletar.
---
+```
+
+---
+
+```
 - ✅ Controle Student -> add: É necessário colocar o nome do aluno sem números e não pode estar vazio. Idade (age) precisa ser igual ou maior que 10 anos. Foco (Focus) do aluno não pode conter números e não pode estar vazio. Tipo de benefício (type of benefit) precisa ser "normal" ou "hard". Peso (weight) precisa ser maior 0.
 - ✅ Controle Student -> update: Mesmas validações do "add", porém com: O nome do aluno precisa estar cadastrado para atualizar.
 - ✅ Controle Student -> delete: É necessário colocar o nome do aluno sem números e não pode estar vazio. É necessário que o nome do aluno esteja cadastro para deletar.
---
+```
 
+---
 
 ## How to use 📜 ##
 
