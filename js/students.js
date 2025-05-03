@@ -31,7 +31,7 @@ export class Student {
 
     inputsValidations() {
     
-        const ageMinimum = 18;
+        const ageMinimum = 10;
     
         if (!this.name || this.name.trim() === "") {
             showInfo("Necessary insert name!", "red");
