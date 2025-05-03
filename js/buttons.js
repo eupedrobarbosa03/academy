@@ -1,0 +1,9 @@
+export const buttonWorkouts = document.querySelector("#button-workouts")
+export const buttonInstructor = document.querySelector("#button-instructor");
+export const buttonStudent = document.querySelector("#button-student");
+export const buttonAdd = document.querySelector("#button-add");
+export const buttonUpdate = document.querySelector("#button-update");
+export const buttonDelete = document.querySelector("#button-delete");
+export const buttonViewAll = document.querySelector("#button-view-all");
+export const buttonLeave = document.querySelector(".icon-leave");
+export const buttonConfirm = document.querySelector(".button-confirm-control");

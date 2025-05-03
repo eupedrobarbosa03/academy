@@ -1,0 +1,284 @@
+@font-face {
+    font-family: 'Kanit';
+    src: url('../assets/fonts/Kanit/Kanit-Light.ttf');
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Kanit', Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+#main-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    padding: 1rem 2rem;
+}
+
+#header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 100%;
+}
+
+#title-academy-header {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+#title-academy-header span {
+    font-size: .8rem;
+}
+
+#navbar-container-options-control {
+    display: flex;
+    gap: 5px;
+}
+
+.button-style {
+    background-color: #14f;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    border: none;
+    color: #f5f5f5;
+    cursor: pointer;
+    opacity: .9;
+    text-transform: uppercase;
+    font-size: .7rem;
+}
+
+.button-style:hover {
+    opacity: 1;
+}
+
+#section-control {
+    flex: 2;
+    background-color: #f1f1f1;
+    box-shadow: 1px 1px 1px #33333340;
+    margin-top: 40px;
+    min-width: 60%;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    transition: 1s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#section-control.show-section {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#header-container-section-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#title-option-selected {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.section-box-control {
+    flex: 2;
+    margin-top: 50px;
+    width: 100%;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#section-control-instructor,
+#section-control-student,
+#section-control-workouts {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    display: none;
+    pointer-events: none;
+}
+
+#section-control-instructor.show-section-instructor,
+#section-control-student.show-section-student,
+#section-control-workouts.show-section-workouts {
+    display: flex;
+    pointer-events: all;
+}
+
+.box-model-container-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: .5rem;
+    background-color: transparent;
+    border: none;
+    transition: .6s;
+    border: 1px solid #33333320;
+}
+
+input[type="text"]:focus {
+    outline: none;
+}
+
+input[type="text"].box-error {
+    border: 1px solid red;
+}
+
+.button-confirm-control {
+    align-self: flex-start;
+}
+
+#message-info {
+    font-size: .7rem;
+    opacity: 0;
+    transition: .1s;
+    position: absolute;
+    top: 80%;
+}
+
+#message-info.show-info {
+    opacity: 1;
+}
+
+.section-view-all {
+    height: 80vh;
+    position: absolute;
+    box-shadow: 1px 1px 2px #33333340;
+    width: 50%;
+    background-color: #f7f7f7;
+    transition: .5s ease-in-out all;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.section-view-all.show-section {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.icon-leave {
+    align-self: flex-end;
+    opacity: .2;
+    font-size: 1.2rem;
+    transition: .2 ease-in all;
+}
+
+.icon-leave:hover {
+    opacity: 1;
+}
+
+#section-container-list-all-instructors,
+#section-container-list-all-students,
+#section-container-list-all-workouts {
+    display: none;
+    flex: 2;
+    margin-top: 80px;
+}
+
+#section-container-list-all-instructors.show,
+#section-container-list-all-students.show,
+#section-container-list-all-workouts.show {
+    display: block;
+}
+
+#section-container-list-all-instructors h2, 
+#section-container-list-all-students h2,
+#section-container-list-all-workouts h2 {
+    font-size: .9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#container-list-instructor,
+#container-list-student,
+#container-list-workouts {
+    margin-top: 10px;
+    overflow: auto;
+}
+
+#list-instructors,
+#list-students,
+#list-workouts {
+    list-style: none;
+    height: 50vh;
+}
+
+#list-instructors li,
+#list-students li,
+#list-workouts li{
+    display: flex;
+    height: 50px;
+    border: 1px solid #33333320;
+    border-left: 4px solid #14f;
+    margin-top: 2px;
+    padding: 0 .8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-size: .7rem;
+}
+
+#list-instructors li {
+    border-left: 4px solid #14f;
+}
+
+#list-students li {
+    border-left: 4px solid #ff6803;
+}
+
+#list-workouts li {
+    border-left: 4px solid #040404
+}
+
+.first-value-list span,
+.first-value-list-2 span,
+.second-value-list span,
+.third-value-list span {
+    opacity: .4;
+}
+
+#list-instructors li.remove,
+#list-students li.remove {
+    display: none;
+}
+
+#list-students li div {
+    display: flex;
+    gap: 10px;
+}
+
+#list-workouts li div {
+    display: flex;
+    gap: 10px;
+}
