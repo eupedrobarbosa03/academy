@@ -14,7 +14,7 @@
 - ✅ Menu de controle para Adicionar, atualizar, remover e mostrar todos as informações dos treinos, instrutores e alunos controlados.
 - ✅ Interface simples, sólida e com algumas transações interativas.
 - ✅ Interface responsiva, porém mais "ideal" para desktop.
-- ✅ Bordas laterais únicas para cada tipo de informação. Exemplo: Informçãoes dos Treinos: Bordas laterais pretas.
+- ✅ Bordas laterais únicas para cada tipo de informação. Exemplo: Informações dos Treinos: Bordas laterais pretas.
 ```
 
 ---
