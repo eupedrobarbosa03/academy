@@ -17,16 +17,24 @@ Project Page -> 🔗 [Academy Control](https://eupedrobarbosa03.github.io/academ
 - ✅ Bordas laterais únicas para cada tipo de informação. Exemplo: Informçãoes dos Treinos: Bordas laterais pretas.
 ```
 
+---
+
 ## Tecnologies 🛠️ ## 
+```
 - HTML5
 - CSS3
 - JAVASCRIPT
+```
 
 ## Applied Concepts 📖 ## 
+```
 - ✅ ESModules
 - ✅ POO
 - ✅ DOM
 - ✅ Templates
+```
+
+---
 
 ## Validations ✅ ##
 
