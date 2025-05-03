@@ -43,10 +43,10 @@ Project Page -> 🔗 [Academy Control](https://eupedrobarbosa03.github.io/academ
 
 `É recomendável ler as validações!`
 
-`- Vá para página do sistema, link disponibilizado no começo deste readme.
-- Para agendar treinos, é necessário possuir pelo menos 1 instrutor e 1 aluno.
-- Para cadastrar um instrutor, clique no botão 'Instructor' e insira as informações requeridas.
-- Para cadastrar um aluno, clique no botão 'Student' e insira as informações requeridas.
-- Para inserir um treino, clique no botão "Workouts' e insira as informações requeridas.
-- Para as funcionalidades: update e delete dos controles 'Instructor e Student', clique na opção desejada e siga as "validations" neste readme.
-- Caso queira ver a lista de informações atualizada do controle selecionado, siga o exemplo: 'Selecione o controle "Workouts, Instructor ou Student", clique em "all"' para ver a lista completa.`
+`- Vá para página do sistema, link disponibilizado no começo deste readme.`
+`- Para agendar treinos, é necessário possuir pelo menos 1 instrutor e 1 aluno.`
+`- Para cadastrar um instrutor, clique no botão 'Instructor' e insira as informações requeridas.`
+`- Para cadastrar um aluno, clique no botão 'Student' e insira as informações requeridas.`
+`- Para inserir um treino, clique no botão "Workouts' e insira as informações requeridas.`
+`- Para as funcionalidades: update e delete dos controles 'Instructor e Student', clique na opção desejada e siga as "validations" neste readme.`
+`- Caso queira ver a lista de informações atualizada do controle selecionado, siga o exemplo: 'Selecione o controle "Workouts, Instructor ou Student", clique em "all"' para ver a lista completa.`
