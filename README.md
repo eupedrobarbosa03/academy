@@ -3,6 +3,8 @@
 Project Page -> 🔗 [Academy Control](https://eupedrobarbosa03.github.io/academy-control/)
 
 ## Features 💻 ##
+
+```
 - ✅ Adicionar Treinos, instrutores e alunos.
 - ✅ Atualizar instrutores e alunos. 
 - ✅ Deletar instrutores e alunos. 
@@ -13,6 +15,7 @@ Project Page -> 🔗 [Academy Control](https://eupedrobarbosa03.github.io/academ
 - ✅ Interface simples, sólida e com algumas transações interativas.
 - ✅ Interface responsiva, porém mais "ideal" para desktop.
 - ✅ Bordas laterais únicas para cada tipo de informação. Exemplo: Informçãoes dos Treinos: Bordas laterais pretas.
+```
 
 ## Tecnologies 🛠️ ## 
 - HTML5
