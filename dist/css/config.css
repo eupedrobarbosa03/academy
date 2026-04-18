@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Ub-Bold';
+    src: url('../assets/fonts/Ubuntu/Ubuntu-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Ub-Light';
+    src: url('../assets/fonts/Ubuntu/Ubuntu-Light.ttf');
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+}
