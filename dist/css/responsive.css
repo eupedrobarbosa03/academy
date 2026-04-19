@@ -1,0 +1,45 @@
+#menu-navbar {
+    font-size: 1.7rem;
+    cursor: pointer;
+    transition: .5s;
+    padding: .7rem;
+    border-radius: 100%;
+    display: none;
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+}
+
+@media screen and (max-width: 770px) {
+
+    body {
+        overflow: auto;
+    }
+
+    #menu-navbar {
+        display: block;
+    }
+
+    .title-container {
+        display: none;
+    }
+
+    .main-container-academy {
+        flex-direction: column;
+    }
+
+    .navbar-container-options {
+        display: none;
+    }
+
+    .navbar-container-options.show {
+        display: flex;
+    }
+
+    .button-option {
+        width: 350px;
+        height: 60px;
+        font-size: 1rem;
+    }
+
+}
