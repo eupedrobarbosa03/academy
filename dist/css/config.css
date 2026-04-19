@@ -6,10 +6,12 @@ html {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 body {
     height: 100vh;
+    overflow: hidden;
     background-color: rgb(240, 240, 240);
     display: flex;
     flex-direction: column;

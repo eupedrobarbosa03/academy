@@ -83,6 +83,7 @@
 .main-container-academy {
     display: flex;
     flex: 1;
+    font-family: 'Ub-Light', 'Courier New';
 }
 
 .navbar-container-options {
@@ -121,6 +122,23 @@
 }
 
 .section-option {
-    flex: 6;
+    flex: 5.5;
+    box-sizing: border-box;
+    padding: 2rem;
+}
+
+.section-container-informations-academy {
     border: 1px solid red;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.box-information {
+    height: 200px;
+    width: 300px;
+    background-color: #fffdfd;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .20);
 }
