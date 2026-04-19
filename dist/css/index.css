@@ -96,6 +96,10 @@
     align-items: center;
     padding: 2.5rem 0;
     gap: 5px;
+    transition: .5s;
+    &:hover {
+        flex: 1.3;
+    }
 }
 
 .button-option {
@@ -124,21 +128,83 @@
 .section-option {
     flex: 5.5;
     box-sizing: border-box;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .section-container-informations-academy {
-    border: 1px solid red;
     align-items: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    height: 80%;
+    overflow: auto;
 }
 
 .box-information {
-    height: 200px;
+    height: 150px;
     width: 300px;
-    background-color: #fffdfd;
+    background-color: rgba(255, 253, 253);
     box-shadow: 1px 1px 10px rgba(0, 0, 0, .20);
+    transition: .5s;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 0;
+    border-radius: 10px;
+    &:hover {
+        background-color: rgba(255, 253, 253, .10);
+    }
+}
+
+.box-information h2 {
+    font-family: 'Ub-Bold';
+    text-transform: uppercase;
+    font-size: .9rem;
+    text-align: center;
+}
+
+.total {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+}
+
+#total-students {
+    color: rgb(15, 131, 15);
+}
+
+#total-instructors {
+    color: rgb(231, 130, 15);
+}
+
+#total-workouts {
+    color: blue;
+}
+
+.total-payment {
+    font-size: 2.5rem;
+}
+
+#container-total-payment-students,
+#container-total-payment-instructors {
+    width: 455px;
+    border: none;
+    color: #fff;
+}
+
+#container-total-payment-students {
+    background-color: rgba(15, 153, 15, 0.795);
+    &:hover {
+        background-color: rgba(15, 131, 15, .60);
+    }
+}
+
+#container-total-payment-instructors {
+    background-color: rgba(243, 129, 22);
+    &:hover {
+        background-color: rgb(231, 130, 15, .80);
+    }
 }
