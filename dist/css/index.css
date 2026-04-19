@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'Ub-Bold';
+    src: url('../assets/fonts/Ubuntu/Ubuntu-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Ub-Light';
+    src: url('../assets/fonts/Ubuntu/Ubuntu-Light.ttf');
+}
+
+.header-container-academy {
+    display: flex;
+    background-color: #fffdfd;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .20);
+    min-height: 90px;
+    padding: 1rem 2rem;
+    font-family: 'Ub-Light', 'Courier New';
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-greet-user-more-change-theme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+#button-change-theme {
+    background-color: transparent;
+    border: none;
+    border-radius: 100%;
+    transition: .5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.05)
+    }
+}
+
+#icon-change-theme {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.sun {
+    color: #fff;
+}
+
+.moon {
+    color: #000;
+}
+
+.user {
+    font-size: 1rem;
+    font-family: 'Ub-Bold';
+}
+
+.container-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(42, 107, 230);
+    color: #fff;
+    border-radius: 100%;
+    height: 40px;
+    pointer-events: none;
+    width: 40px;
+}

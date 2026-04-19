@@ -1,13 +1,3 @@
-@font-face {
-    font-family: 'Ub-Bold';
-    src: url('../assets/fonts/Ubuntu/Ubuntu-Bold.ttf');
-}
-
-@font-face {
-    font-family: 'Ub-Light';
-    src: url('../assets/fonts/Ubuntu/Ubuntu-Light.ttf');
-}
-
 html {
     scroll-behavior: smooth;
 }
@@ -20,4 +10,5 @@ html {
 
 body {
     height: 100vh;
+    background-color: rgb(240, 240, 240);
 }
