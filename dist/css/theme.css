@@ -20,4 +20,30 @@ body.theme {
 
 .box-information.theme {
     background-color: rgb(19, 19, 19);
+    transition: .3s;
+    &:hover {
+        background-color: rgba(19, 19, 19, .1);
+    }
+}
+
+.box-information h2.theme {
+    color: #fff;
+}
+
+.navbar-container-options.theme {
+    background-color: #000;
+}
+
+.button-option.theme {
+    background-color: rgba(19, 19, 19);
+    &:hover {
+        background-color: rgba(19, 19, 19, .5);
+    }
+}
+
+#menu-navbar.theme {
+    color: #fff;
+    &hover {
+        background-color: rgba(19, 19, 19, .5);
+    }
 }

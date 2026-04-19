@@ -4,20 +4,22 @@ const iconChangeTheme = document.querySelector("#icon-change-theme") as HTMLDivE
 const academyIcon = document.querySelector("#icon-academy") as HTMLImageElement;
 
 const listElements: Record<string, any> = {
-    boxInformation: document.querySelectorAll<HTMLDivElement>(".box-information")
+    containerBoxInformation: document.querySelectorAll<HTMLDivElement>(".box-information"),
+    buttonOption: document.querySelectorAll<HTMLButtonElement>(".button-option"),
+    boxInformation: document.querySelectorAll<HTMLDivElement>(".box-information h2")
 };
-
 
 const singleElements: Record<string, HTMLElement> = {
     body: document.body,
     headerContainer: document.querySelector(".header-container-academy") as HTMLDivElement,
     academyTitle: document.querySelector(".title-container h2") as HTMLDivElement,
-    user: document.querySelector(".user") as HTMLParagraphElement
+    user: document.querySelector(".user") as HTMLParagraphElement,
+    navbarContainer: document.querySelector(".navbar-container-options") as HTMLDivElement,
+    menu: document.querySelector("#menu-navbar") as HTMLDivElement
 };
 
 class Theme {
     constructor() {};
-
 
     dark() {
         localStorage.setItem("theme-academy", "dark");
@@ -55,6 +57,7 @@ class Theme {
 };
 
 const theme = new Theme();
+theme.storage();
 
 changeTheme.addEventListener("click", () => {
     theme.storage() === "light" ? theme.dark() : theme.light();

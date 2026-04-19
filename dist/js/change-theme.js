@@ -4,13 +4,17 @@ const changeTheme = document.querySelector("[data-change-theme]");
 const iconChangeTheme = document.querySelector("#icon-change-theme");
 const academyIcon = document.querySelector("#icon-academy");
 const listElements = {
-    boxInformation: document.querySelectorAll(".box-information")
+    containerBoxInformation: document.querySelectorAll(".box-information"),
+    buttonOption: document.querySelectorAll(".button-option"),
+    boxInformation: document.querySelectorAll(".box-information h2")
 };
 const singleElements = {
     body: document.body,
     headerContainer: document.querySelector(".header-container-academy"),
     academyTitle: document.querySelector(".title-container h2"),
-    user: document.querySelector(".user")
+    user: document.querySelector(".user"),
+    navbarContainer: document.querySelector(".navbar-container-options"),
+    menu: document.querySelector("#menu-navbar")
 };
 class Theme {
     constructor() { }
@@ -52,6 +56,7 @@ class Theme {
 }
 ;
 const theme = new Theme();
+theme.storage();
 changeTheme.addEventListener("click", () => {
     theme.storage() === "light" ? theme.dark() : theme.light();
 });
