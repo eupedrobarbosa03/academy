@@ -1,0 +1,23 @@
+body.theme {
+    background-color: #0f0f0f;
+    transition: .5s;
+}
+
+.title-container h2.theme {
+    color: #fff;
+    transition: .5s;
+}
+
+.header-container-academy.theme {
+    background-color: #050505;
+    transition: .5s;
+}
+
+.user.theme {
+    color: #fff;
+    transition: .5s;
+}
+
+.box-information.theme {
+    background-color: rgb(19, 19, 19);
+}
