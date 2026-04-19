@@ -6,7 +6,8 @@ const academyIcon = document.querySelector("#icon-academy") as HTMLImageElement;
 const listElements: Record<string, any> = {
     containerBoxInformation: document.querySelectorAll<HTMLDivElement>(".box-information"),
     buttonOption: document.querySelectorAll<HTMLButtonElement>(".button-option"),
-    boxInformation: document.querySelectorAll<HTMLDivElement>(".box-information h2")
+    boxInformation: document.querySelectorAll<HTMLDivElement>(".box-information h2"),
+    boxWorkout: document.querySelectorAll<HTMLDivElement>(".box-workout")
 };
 
 const singleElements: Record<string, HTMLElement> = {

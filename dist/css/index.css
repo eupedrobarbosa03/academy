@@ -208,3 +208,40 @@
         background-color: rgb(231, 130, 15, .80);
     }
 }
+
+.section-academy-workouts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-actions-workouts {
+    border: 1px solid blue;
+    flex: 0;
+    padding: 1.5rem;
+}
+
+.container-workouts {
+    flex: 1;
+    margin-top: 20px;
+}
+
+.workouts {
+    height: 470px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.box-workout {
+    border: 1px solid #33333350;
+    min-height: 70px;
+    cursor: pointer;
+    background-color: #fffdfd;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .20);
+    transition: .2s;
+    &:hover {
+        background-color: rgba(255, 253, 253, .10);
+    }
+}

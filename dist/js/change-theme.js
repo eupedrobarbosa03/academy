@@ -6,7 +6,8 @@ const academyIcon = document.querySelector("#icon-academy");
 const listElements = {
     containerBoxInformation: document.querySelectorAll(".box-information"),
     buttonOption: document.querySelectorAll(".button-option"),
-    boxInformation: document.querySelectorAll(".box-information h2")
+    boxInformation: document.querySelectorAll(".box-information h2"),
+    boxWorkout: document.querySelectorAll(".box-workout")
 };
 const singleElements = {
     body: document.body,
