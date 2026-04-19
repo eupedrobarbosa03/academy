@@ -41,6 +41,10 @@ body.theme {
     }
 }
 
+.button-option.theme.option-selected {
+    background-color: rgba(19, 19, 19, .5);
+}
+
 #menu-navbar.theme {
     color: #fff;
     &hover {
