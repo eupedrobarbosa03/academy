@@ -1,0 +1,11 @@
+import { changeSection } from "./change-section.js";
+import { changeTheme } from "./change-theme.js";
+import { exitSectionAddItems } from "./exit-section-add-items.js";
+import { menuMobile } from "./menu-mobile.js";
+import { openSectionAddItems } from "./open-section-add-item.js";
+
+changeSection();
+changeTheme();
+menuMobile();
+openSectionAddItems();
+exitSectionAddItems();

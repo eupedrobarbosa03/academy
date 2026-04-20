@@ -1,13 +1,14 @@
 if (!localStorage.getItem("theme-academy"))
     localStorage.setItem("theme-academy", "light");
-const changeTheme = document.querySelector("[data-change-theme]");
+const buttonChangeTheme = document.querySelector("[data-change-theme]");
 const iconChangeTheme = document.querySelector("#icon-change-theme");
 const academyIcon = document.querySelector("#icon-academy");
 const listElements = {
     containerBoxInformation: document.querySelectorAll(".box-information"),
     buttonOption: document.querySelectorAll(".button-option"),
     boxInformation: document.querySelectorAll(".box-information h2"),
-    boxWorkout: document.querySelectorAll(".box-workout")
+    boxWorkout: document.querySelectorAll(".box-workout"),
+    exitTheSection: document.querySelectorAll(".exit-the-section")
 };
 const singleElements = {
     body: document.body,
@@ -16,7 +17,8 @@ const singleElements = {
     user: document.querySelector(".user"),
     navbarContainer: document.querySelector(".navbar-container-options"),
     menu: document.querySelector("#menu-navbar"),
-    inputSearch: document.querySelector("#input-search-workouts")
+    inputSearch: document.querySelector("#input-search-workouts"),
+    sectionAdditionWorkouts: document.querySelector(".section-container-addition-items")
 };
 class Theme {
     constructor() { }
@@ -57,9 +59,10 @@ class Theme {
     ;
 }
 ;
-const theme = new Theme();
-theme.storage();
-changeTheme.addEventListener("click", () => {
-    theme.storage() === "light" ? theme.dark() : theme.light();
-});
-export {};
+export function changeTheme() {
+    const theme = new Theme();
+    theme.storage();
+    buttonChangeTheme.addEventListener("click", () => {
+        theme.storage() === "light" ? theme.dark() : theme.light();
+    });
+}

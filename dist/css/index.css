@@ -310,3 +310,38 @@
         background-color: rgba(255, 253, 253, .10);
     }
 }
+
+.section-container-addition-items {
+    background-color: #fffdfd;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .20);
+    min-width: 0;
+    min-height: 0;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .5s;
+    opacity: 0;
+    pointer-events: none;
+    padding: 1rem;
+}
+
+.section-container-addition-items.show {
+    opacity: 1;
+    pointer-events: all;
+    min-height: 90%;
+    min-width: 70%;
+}
+
+.exit-the-section {
+    width: 100%;
+    cursor: pointer;
+    text-align: right;
+    font-size: 1.2rem;
+    color: rgba(51, 51, 51, 0.63);
+    transition: .3s;
+    &:hover {
+        color: rgba(255, 0, 0, 0.767);
+    }
+}

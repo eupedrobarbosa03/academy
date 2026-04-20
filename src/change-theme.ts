@@ -1,5 +1,5 @@
 if (!localStorage.getItem("theme-academy")) localStorage.setItem("theme-academy", "light");
-const changeTheme = document.querySelector("[data-change-theme]") as HTMLButtonElement;
+const buttonChangeTheme = document.querySelector("[data-change-theme]") as HTMLButtonElement;
 const iconChangeTheme = document.querySelector("#icon-change-theme") as HTMLDivElement;
 const academyIcon = document.querySelector("#icon-academy") as HTMLImageElement;
 
@@ -7,7 +7,8 @@ const listElements: Record<string, any> = {
     containerBoxInformation: document.querySelectorAll<HTMLDivElement>(".box-information"),
     buttonOption: document.querySelectorAll<HTMLButtonElement>(".button-option"),
     boxInformation: document.querySelectorAll<HTMLDivElement>(".box-information h2"),
-    boxWorkout: document.querySelectorAll<HTMLDivElement>(".box-workout")
+    boxWorkout: document.querySelectorAll<HTMLDivElement>(".box-workout"),
+    exitTheSection: document.querySelectorAll<HTMLDivElement>(".exit-the-section")
 };
 
 const singleElements: Record<string, HTMLElement> = {
@@ -17,7 +18,8 @@ const singleElements: Record<string, HTMLElement> = {
     user: document.querySelector(".user") as HTMLParagraphElement,
     navbarContainer: document.querySelector(".navbar-container-options") as HTMLDivElement,
     menu: document.querySelector("#menu-navbar") as HTMLDivElement,
-    inputSearch: document.querySelector("#input-search-workouts") as HTMLDivElement
+    inputSearch: document.querySelector("#input-search-workouts") as HTMLDivElement,
+    sectionAdditionWorkouts: document.querySelector(".section-container-addition-items") as HTMLDivElement
 };
 
 class Theme {
@@ -58,10 +60,12 @@ class Theme {
 
 };
 
-const theme = new Theme();
-theme.storage();
+export function changeTheme() {
+    const theme = new Theme();
+    theme.storage();
 
-changeTheme.addEventListener("click", () => {
-    theme.storage() === "light" ? theme.dark() : theme.light();
-});
+    buttonChangeTheme.addEventListener("click", () => {
+        theme.storage() === "light" ? theme.dark() : theme.light();
+    });
+}
 
