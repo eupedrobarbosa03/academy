@@ -216,14 +216,57 @@
 }
 
 .container-actions-workouts {
-    border: 1px solid blue;
     flex: 0;
     padding: 1.5rem;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-search-workouts {
+    display: flex;
+    border: 1px solid red;
+    height: 40px;
+    width: 300px;
+}
+
+#input-search-workouts {
+    width: 250px;
+}
+
+#button-search-workouts {
+    width: 50px;
+}
+
+.button-to-mark-workouts {
+    outline: none;
+    border: none;
+    color: #fff;
+    height: 40px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: rgba(56, 102, 255);
+    border-radius: 10px;
+    transition: .3s;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(56, 102, 255, .90);
+    }
+}
+
+.button-to-mark-workouts p {
+    font-size: .8rem;
+    font-family: 'Ub-light';
+    text-transform: uppercase;
 }
 
 .container-workouts {
     flex: 1;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .workouts {
