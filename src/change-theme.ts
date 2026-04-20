@@ -16,7 +16,8 @@ const singleElements: Record<string, HTMLElement> = {
     academyTitle: document.querySelector(".title-container h2") as HTMLDivElement,
     user: document.querySelector(".user") as HTMLParagraphElement,
     navbarContainer: document.querySelector(".navbar-container-options") as HTMLDivElement,
-    menu: document.querySelector("#menu-navbar") as HTMLDivElement
+    menu: document.querySelector("#menu-navbar") as HTMLDivElement,
+    inputSearch: document.querySelector("#input-search-workouts") as HTMLDivElement
 };
 
 class Theme {

@@ -217,8 +217,7 @@
 
 .container-actions-workouts {
     flex: 0;
-    padding: 1.5rem;
-    border: 1px solid red;
+    padding: 1.5rem 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -226,13 +225,12 @@
 
 .container-search-workouts {
     display: flex;
-    border: 1px solid red;
     height: 40px;
-    width: 300px;
+    width: 500px;
 }
 
 #input-search-workouts {
-    width: 250px;
+    width: 450px;
 }
 
 #button-search-workouts {
@@ -262,6 +260,30 @@
     font-size: .8rem;
     font-family: 'Ub-light';
     text-transform: uppercase;
+}
+
+#input-search-workouts {
+    border-top: 1px solid rgba(0, 0, 0, .20);
+    border-right: 0px;
+    border-left: 1px solid rgba(0, 0, 0, .20);
+    border-bottom: 1px solid rgba(0, 0, 0, .20);
+    padding: 0 .5rem;
+    background-color: transparent;
+}
+
+#input-search-workouts::placeholder {
+    font-size: .8rem;
+}
+
+#button-search-workouts {
+    background-color: rgba(56, 102, 255);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+    &:hover {
+        background-color: rgba(56, 102, 255, .90);
+    }
 }
 
 .container-workouts {

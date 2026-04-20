@@ -15,7 +15,8 @@ const singleElements = {
     academyTitle: document.querySelector(".title-container h2"),
     user: document.querySelector(".user"),
     navbarContainer: document.querySelector(".navbar-container-options"),
-    menu: document.querySelector("#menu-navbar")
+    menu: document.querySelector("#menu-navbar"),
+    inputSearch: document.querySelector("#input-search-workouts")
 };
 class Theme {
     constructor() { }

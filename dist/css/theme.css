@@ -58,3 +58,11 @@ body.theme {
         background-color: rgba(19, 19, 19, .5);
     }
 }
+
+#input-search-workouts.theme {
+    border-top: 1px solid rgba(187, 187, 187, 0.2);
+    border-right: 0px;
+    border-left: 1px solid rgba(187, 187, 187, 0.2);
+    border-bottom: 1px solid rgba(187, 187, 187, 0.2);
+    color: #fff;
+}
