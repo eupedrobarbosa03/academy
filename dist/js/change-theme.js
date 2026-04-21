@@ -11,7 +11,9 @@ const listElements = {
     exitTheSection: document.querySelectorAll(".exit-the-section"),
     inputSearchWorkouts: document.querySelectorAll("#input-search-workouts"),
     boxContainerInput: document.querySelectorAll(".box-container-input input"),
-    boxContainerLabel: document.querySelectorAll(".box-container-input label")
+    boxContainerLabel: document.querySelectorAll(".box-container-input label"),
+    boxContainerSelect: document.querySelectorAll("select"),
+    boxContainerOption: document.querySelectorAll("option")
 };
 const singleElements = {
     body: document.body,

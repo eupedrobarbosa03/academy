@@ -7,9 +7,9 @@
     
     <link rel="shortcut icon" href="assets/icons/gym.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/config.css">
+    <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
     <script type="module" src="js/main.js" defer></script>
 </head>
@@ -96,7 +96,42 @@
                 <div class="box-container-input">
                     <label for="student-name-for-mark-workouts">Nome do aluno</label>
                     <input type="text" placeholder="Digite o nome do aluno" id="input-student-name-mark-workouts">
-                    <p id="message-error-student-name-workouts" class="message-error">Aluno não encontrado</p>
+                    <p id="message-error-student-name-workouts" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="instructor-option-workouts">Escolha o professor</label>
+                    <select id="list-instructors">
+                        <option disabled selected>Selecione um instrutor</option>
+                        <option value="Henrique">Henrique</option>
+                        <option value="Henrique">Henrique</option>
+                        <option value="Henrique">Henrique</option>
+                    </select>
+                    <p id="message-error-option-instructor" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="name-workouts">Treino</label>
+                    <input type="text" placeholder="Digite o nome do treino" id="input-workouts">
+                    <p id="message-error-workouts" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="date-workout">Data</label>
+                    <input type="date" id="input-workouts">
+                    <p id="message-error-date-workouts" class="message-error">Escolha uma data</p>
+                </div>
+                <div class="box-container-input">
+                    <label for="option-time-workouts">Horário</label>
+                    <select id="option-time-workouts">
+                        <option disabled selected>Selecione um horário</option>
+                        <option value="08:00">08:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="22:00">22:00</option>
+                    </select>
+                    <p id="message-error-time-workouts" class="message-error"></p>
                 </div>
             </div>
             <div class="container-button-save-workouts">

@@ -373,18 +373,28 @@
 
 .box-container-input label {
     font-size: .8rem;
-    margin-bottom: .2rem;
+    margin-bottom: .4rem;
 }
 
-.box-container-input input {
+.box-container-input input,
+.box-container-input select {
     height: 50px;
     width: 300px;
     background-color: transparent;
-    padding: 0 .5rem;
+    padding: 0 1rem;
     border: 1px solid rgba(0, 0, 0, .20);
+    border-radius: 10px;
+}
+
+option {
+    padding: .5rem;
 }
 
 .box-container-input input.box-input-error {
+    border: 1px solid rgb(241, 71, 71);
+}
+
+select.box-input-error {
     border: 1px solid rgb(241, 71, 71);
 }
 
@@ -423,6 +433,7 @@
     transition: .3s;
     text-transform: uppercase;
     font-size: .7rem;
+    border-radius: 10px;
     &:hover {
         background-color: rgba(56, 102, 255, .90);
     }

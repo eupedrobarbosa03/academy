@@ -74,8 +74,18 @@ body.theme {
     color: rgba(255, 255, 255, 0.582);
 }
 
+.box-container-input select.theme {
+    color: rgba(255, 255, 255, 0.582);
+    border: 1px solid rgba(187, 187, 187, 0.2);
+}
+
 .box-container-input label.theme {
     color: rgba(255, 255, 255, 0.582);
+}
+
+option.theme {
+    background-color: rgba(0, 0, 0, .90);
+    color: rgba(255, 253, 253, .50)
 }
 
 .section-container-addition-items.theme {

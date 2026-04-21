@@ -11,7 +11,9 @@ const listElements: Record<string, any> = {
     exitTheSection: document.querySelectorAll<HTMLDivElement>(".exit-the-section"),
     inputSearchWorkouts: document.querySelectorAll<HTMLInputElement>("#input-search-workouts"),
     boxContainerInput: document.querySelectorAll<HTMLInputElement>(".box-container-input input"),
-    boxContainerLabel: document.querySelectorAll<HTMLLabelElement>(".box-container-input label")
+    boxContainerLabel: document.querySelectorAll<HTMLLabelElement>(".box-container-input label"),
+    boxContainerSelect: document.querySelectorAll<HTMLSelectElement>("select"),
+    boxContainerOption: document.querySelectorAll<HTMLOptionElement>("option")
 };
 
 const singleElements: Record<string, HTMLElement> = {
