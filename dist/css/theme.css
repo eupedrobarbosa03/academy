@@ -68,6 +68,16 @@ body.theme {
     color: #fff;
 }
 
+.box-container-input input.theme {
+    border: none;
+    border: 1px solid rgba(187, 187, 187, 0.2);
+    color: rgba(255, 255, 255, 0.582);
+}
+
+.box-container-input label.theme {
+    color: rgba(255, 255, 255, 0.582);
+}
+
 .section-container-addition-items.theme {
     background-color: #1b1b1b;
 }

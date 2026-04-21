@@ -314,34 +314,116 @@
 .section-container-addition-items {
     background-color: #fffdfd;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, .20);
-    min-width: 0;
-    min-height: 0;
     position: absolute;
     z-index: 1;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     transition: .5s;
-    opacity: 0;
+    display: none;
     pointer-events: none;
     padding: 1rem;
+    overflow: auto;
 }
 
 .section-container-addition-items.show {
-    opacity: 1;
+    display: flex;
+    flex-direction: column;
     pointer-events: all;
-    min-height: 90%;
-    min-width: 70%;
+    height: 90%;
+    width: 70%;
 }
 
 .exit-the-section {
-    width: 100%;
     cursor: pointer;
-    text-align: right;
+    flex: 1;
+    position: absolute;
     font-size: 1.2rem;
+    right: 20px;
+    top: 20px;
     color: rgba(51, 51, 51, 0.63);
     transition: .3s;
     &:hover {
         color: rgba(255, 0, 0, 0.767);
+    }
+}
+
+.container-area-mark-to-workouts {
+    margin-top: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-inputs-workouts {
+    font-family: 'Ub-Light';
+    display: flex;
+    flex-wrap: wrap;
+    flex: 5;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.box-container-input {
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.box-container-input label {
+    font-size: .8rem;
+    margin-bottom: .2rem;
+}
+
+.box-container-input input {
+    height: 50px;
+    width: 300px;
+    background-color: transparent;
+    padding: 0 .5rem;
+    border: 1px solid rgba(0, 0, 0, .20);
+}
+
+.box-container-input input.box-input-error {
+    border: 1px solid rgb(241, 71, 71);
+}
+
+.box-container-input input::placeholder {
+    font-size: .8rem;
+}
+
+.message-error {
+    margin-top: .4rem;
+    font-weight: bold;
+    font-size: .7rem;
+    color: rgb(241, 71, 71);
+    opacity: 0;
+    transition: .3s;
+}
+
+.message-error.show-error {
+    opacity: 1;
+}
+
+.container-button-save-workouts {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 0 .5rem;
+}
+
+.button-save-workouts {
+    background-color: rgba(56, 102, 255);
+    color: #fff;
+    border: none;
+    height: 40px;
+    width: 80px;
+    cursor: pointer;
+    transition: .3s;
+    text-transform: uppercase;
+    font-size: .7rem;
+    &:hover {
+        background-color: rgba(56, 102, 255, .90);
     }
 }

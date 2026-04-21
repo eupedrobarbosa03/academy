@@ -8,7 +8,10 @@ const listElements = {
     buttonOption: document.querySelectorAll(".button-option"),
     boxInformation: document.querySelectorAll(".box-information h2"),
     boxWorkout: document.querySelectorAll(".box-workout"),
-    exitTheSection: document.querySelectorAll(".exit-the-section")
+    exitTheSection: document.querySelectorAll(".exit-the-section"),
+    inputSearchWorkouts: document.querySelectorAll("#input-search-workouts"),
+    boxContainerInput: document.querySelectorAll(".box-container-input input"),
+    boxContainerLabel: document.querySelectorAll(".box-container-input label")
 };
 const singleElements = {
     body: document.body,
@@ -17,7 +20,6 @@ const singleElements = {
     user: document.querySelector(".user"),
     navbarContainer: document.querySelector(".navbar-container-options"),
     menu: document.querySelector("#menu-navbar"),
-    inputSearch: document.querySelector("#input-search-workouts"),
     sectionAdditionWorkouts: document.querySelector(".section-container-addition-items")
 };
 class Theme {
