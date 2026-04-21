@@ -69,8 +69,13 @@
         height: auto;
     }
 
-    .information-action-check {
+    .information-action-check,
+    .information-action-cancel {
         display: none;
+    }
+
+    #section-container-addition-workouts {
+        width: 95%;
     }
 
 }

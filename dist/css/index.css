@@ -188,29 +188,12 @@
     color: rgb(51, 144, 250);
 }
 
+#total-workouts-canceled {
+    color: rgba(250, 25, 25, 0.849);
+}
+
 .total-payment {
     font-size: 2.5rem;
-}
-
-#container-total-payment-students,
-#container-total-payment-instructors {
-    width: 455px;
-    border: none;
-    color: #fff;
-}
-
-#container-total-payment-students {
-    background-color: rgba(15, 153, 15, 0.795);
-    &:hover {
-        background-color: rgba(15, 131, 15, .60);
-    }
-}
-
-#container-total-payment-instructors {
-    background-color: rgba(243, 129, 22);
-    &:hover {
-        background-color: rgb(231, 130, 15, .80);
-    }
 }
 
 .section-academy-workouts {
@@ -385,6 +368,7 @@
 
 .section-container-addition-items {
     background-color: #fffdfd;
+    border-radius: 10px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, .20);
     position: absolute;
     z-index: 1;
