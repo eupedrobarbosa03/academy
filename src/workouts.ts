@@ -1,6 +1,4 @@
-
-
-export function checkWorkout() {
+function checkAndCancelWorkout() {
     const boxWorkout = document.querySelectorAll<HTMLDivElement>(".box-workout");
     const events = ["mouseover", "mouseout"]
     boxWorkout.forEach((workout) => {
@@ -19,4 +17,31 @@ export function checkWorkout() {
             });
         });
     });
+};
+
+function openSectionAddWorkouts() {
+    const buttonAddWorkouts = document.querySelector(".button-to-mark-workouts") as HTMLButtonElement;
+
+    buttonAddWorkouts.addEventListener("click", () => {
+        const sectionAddWorkouts = document.querySelector("#section-container-addition-workouts") as HTMLDivElement;
+        sectionAddWorkouts.classList.add("show")
+    });
+}
+
+function exitSectionAddIWorkouts() {
+    const exitTheSection = document.querySelector(".exit-the-section") as HTMLDivElement;
+    const sectionAddItems = document.querySelectorAll<HTMLDivElement>(".section-container-addition-items");
+    exitTheSection.addEventListener("click", () => {
+        sectionAddItems.forEach((section) => section.classList.remove("show"));
+    });
+    window.addEventListener("keyup", (e) => {
+        if (e.key === "Escape")
+            sectionAddItems.forEach((section) => section.classList.remove("show"))
+    });
+};
+
+export function sectionWorkouts() {
+    openSectionAddWorkouts();
+    exitSectionAddIWorkouts();
+    checkAndCancelWorkout();
 };

@@ -69,7 +69,8 @@ body.theme {
     color: rgba(255, 255, 255, 0.856);
 }
 
-#input-search-workouts.theme {
+#input-search-workouts.theme,
+#input-search-students.theme {
     border-top: 1px solid rgba(187, 187, 187, 0.2);
     border-right: 0px;
     border-left: 1px solid rgba(187, 187, 187, 0.2);

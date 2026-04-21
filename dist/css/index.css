@@ -192,35 +192,43 @@
     font-size: 2.5rem;
 }
 
-.section-academy-workouts {
+.section-academy-workouts,
+.section-academy-students {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.container-actions-workouts {
-    flex: 0;
+.container-actions-workouts,
+.container-actions-students {
+    flex: 1;
     padding: 1.5rem 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.container-search-workouts {
+.container-search-workouts,
+.container-search-students {
     display: flex;
     height: 40px;
-    width: 500px;
 }
 
-#input-search-workouts {
-    width: 450px;
+
+#input-search-workouts,
+#input-search-students {
+    width: 350px;
+    border-radius: 10px 0px 0px 10px;
 }
 
-#button-search-workouts {
+#button-search-workouts,
+#button-search-students {
     width: 50px;
+    border-radius: 0px 10px 10px 0px;
 }
 
-.button-to-mark-workouts {
+.button-to-mark-workouts,
+.button-to-register-students {
     outline: none;
     border: none;
     color: #fff;
@@ -239,13 +247,19 @@
     }
 }
 
-.button-to-mark-workouts p {
+.button-to-mark-workouts p,
+.button-to-register-students p {
     font-size: .8rem;
     font-family: 'Ub-light';
     text-transform: uppercase;
 }
 
-#input-search-workouts {
+.button-to-register-students p {
+    font-size: .65rem;
+}
+
+#input-search-workouts,
+#input-search-students {
     border-top: 1px solid rgba(0, 0, 0, .20);
     border-right: 0px;
     border-left: 1px solid rgba(0, 0, 0, .20);
@@ -254,11 +268,13 @@
     background-color: transparent;
 }
 
-#input-search-workouts::placeholder {
+#input-search-workouts::placeholder,
+#input-search-students::placeholder {
     font-size: .8rem;
 }
 
-#button-search-workouts {
+#button-search-workouts,
+#button-search-students {
     background-color: rgba(56, 102, 255);
     color: #fff;
     border: none;
@@ -274,7 +290,8 @@
     margin-top: 10px;
 }
 
-.workouts {
+.workouts,
+.students {
     height: 470px;
     overflow: auto;
     display: flex;
@@ -491,4 +508,36 @@ select.box-input-error {
     &:hover {
         background-color: rgba(56, 102, 255, .90);
     }
+}
+
+
+.container-students {
+    flex: 1;
+    margin-top: 10px;
+}
+
+.container-search-students {
+    display: flex;
+}
+
+#button-filter-students {
+    background-color: rgba(56, 102, 255);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 80px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+    text-transform: uppercase;
+    border-radius: 10px;
+    &:hover {
+        background-color: rgba(56, 102, 255, .90);
+    }
+}
+
+#button-filter-students p {
+    font-size: .65rem;
 }
