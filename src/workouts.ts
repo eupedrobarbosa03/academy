@@ -1,5 +1,3 @@
-const buttonCheckWorkout = document.querySelectorAll<HTMLDivElement>(".icon-check-workout")
-
 export function checkWorkout() {
     const boxWorkout = document.querySelectorAll<HTMLDivElement>(".box-workout");
     const events = ["mouseover", "mouseout"]
@@ -12,7 +10,7 @@ export function checkWorkout() {
                     const indexBoxInformation = indexBoxWorkout.querySelector(".information-action-check") as HTMLDivElement;
                     indexBoxInformation.classList.toggle("show")
                 };
-            })
-        })
-    })
+            });
+        });
+    });
 };

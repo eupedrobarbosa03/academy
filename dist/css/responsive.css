@@ -10,7 +10,7 @@
     }
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 844px) {
 
     body {
         overflow: auto;
@@ -40,6 +40,37 @@
         width: 350px;
         height: 60px;
         font-size: 1rem;
+    }
+
+    #input-search-workouts {
+        width: 300px;
+    }
+
+    .container-search-workouts {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .container-actions-workouts {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .box-workout {
+        overflow-x: auto;
+        overflow-y: hidden;
+
+    }
+    
+    .box-workout {
+        height: auto;
+    }
+
+    .information-action-check {
+        display: none;
     }
 
 }
