@@ -13,7 +13,11 @@ const listElements: Record<string, any> = {
     boxContainerInput: document.querySelectorAll<HTMLInputElement>(".box-container-input input"),
     boxContainerLabel: document.querySelectorAll<HTMLLabelElement>(".box-container-input label"),
     boxContainerSelect: document.querySelectorAll<HTMLSelectElement>("select"),
-    boxContainerOption: document.querySelectorAll<HTMLOptionElement>("option")
+    boxContainerOption: document.querySelectorAll<HTMLOptionElement>("option"),
+    informationWorkoutParagraph: document.querySelectorAll<HTMLInputElement>(".box-workout p"),
+    informationWorkoutSpan: document.querySelectorAll<HTMLInputElement>(".box-workout p span"),
+    iconCheckWorkout: document.querySelectorAll<HTMLDivElement>(".icon-check-workout"),
+    informationActionCheck: document.querySelectorAll<HTMLDivElement>(".information-action-check")
 };
 
 const singleElements: Record<string, HTMLElement> = {

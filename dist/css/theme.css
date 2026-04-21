@@ -60,6 +60,15 @@ body.theme {
     }
 }
 
+.box-workout p.theme {
+    font-size: .75rem;
+    color: rgba(224, 224, 224, 0.5);
+}
+
+.box-workout p span.theme {
+    color: rgba(255, 255, 255, 0.856);
+}
+
 #input-search-workouts.theme {
     border-top: 1px solid rgba(187, 187, 187, 0.2);
     border-right: 0px;
@@ -97,4 +106,20 @@ option.theme {
     &:hover {
         color: rgba(255, 0, 0, 0.767);
     }
+}
+
+.icon-check-workout.theme {
+    color: rgba(255, 255, 255, 0.562);
+    &:hover {
+        color: rgb(59, 216, 59);
+    }
+}
+
+.information-action-check.theme {
+    background-color: #1b1b1b;
+    color: #fff;
+}
+
+.information-action-check.theme p {
+    font-size: .5rem;
 }

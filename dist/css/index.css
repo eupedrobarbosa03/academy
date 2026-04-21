@@ -301,14 +301,68 @@
 
 .box-workout {
     border: 1px solid #33333350;
-    min-height: 70px;
+    height: 50px;
+    padding: 1rem;
     cursor: pointer;
     background-color: #fffdfd;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, .20);
     transition: .2s;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
     &:hover {
         background-color: rgba(255, 253, 253, .10);
     }
+}
+
+.container-informations-workouts {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+}
+
+.box-workout p {
+    font-size: .75rem;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.box-workout p span {
+    color: #000;
+}
+
+.single-container-action-box-workout {
+    position: relative;
+}
+
+.icon-check-workout {
+    transition: .3s;
+    color: rgba(0, 0, 0, 0.5);
+    &:hover {
+        color: rgba(0, 0, 0, .20);
+    }
+}
+
+.information-action-check {
+    position: absolute;
+    background-color: #fffdfd;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .20);
+    top: 25px;
+    right: -15px;
+    padding: .5rem;
+    opacity: 0;
+    transition: .3s;
+}
+
+.information-action-check.show {
+    opacity: 1;
+}
+
+.information-action-check p {
+    font-size: .5rem;
 }
 
 .section-container-addition-items {

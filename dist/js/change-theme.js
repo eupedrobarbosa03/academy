@@ -13,7 +13,11 @@ const listElements = {
     boxContainerInput: document.querySelectorAll(".box-container-input input"),
     boxContainerLabel: document.querySelectorAll(".box-container-input label"),
     boxContainerSelect: document.querySelectorAll("select"),
-    boxContainerOption: document.querySelectorAll("option")
+    boxContainerOption: document.querySelectorAll("option"),
+    informationWorkoutParagraph: document.querySelectorAll(".box-workout p"),
+    informationWorkoutSpan: document.querySelectorAll(".box-workout p span"),
+    iconCheckWorkout: document.querySelectorAll(".icon-check-workout"),
+    informationActionCheck: document.querySelectorAll(".information-action-check")
 };
 const singleElements = {
     body: document.body,
