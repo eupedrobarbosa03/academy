@@ -115,11 +115,18 @@ option.theme {
     }
 }
 
-.information-action-check.theme {
+.icon-cancel-workout.theme {
+    color: rgba(255, 255, 255, 0.562);
+    &:hover {
+        color: rgba(255, 0, 0, 0.767);
+    }
+}
+
+.information-action.theme {
     background-color: #1b1b1b;
     color: #fff;
 }
 
-.information-action-check.theme p {
+.information-action.theme p {
     font-size: .5rem;
 }

@@ -137,7 +137,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    height: 80%;
+    height: 90%;
     overflow: auto;
 }
 
@@ -182,6 +182,10 @@
 
 #total-workouts {
     color: rgb(51, 51, 243);
+}
+
+#total-workouts-completed {
+    color: rgb(51, 144, 250);
 }
 
 .total-payment {
@@ -334,9 +338,12 @@
 
 .single-container-action-box-workout {
     position: relative;
+    display: flex;
+    gap: 10px;
 }
 
-.icon-check-workout {
+.icon-check-workout,
+.icon-cancel-workout {
     transition: .3s;
     color: rgba(0, 0, 0, 0.5);
     &:hover {
@@ -344,24 +351,35 @@
     }
 }
 
-.information-action-check {
+.information-action-check,
+.information-action-cancel {
     position: absolute;
     background-color: #fffdfd;
     width: auto;
     border-radius: 10px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, .20);
-    top: 25px;
-    right: -15px;
     padding: .5rem;
     opacity: 0;
     transition: .3s;
 }
 
-.information-action-check.show {
+.information-action-check {
+    top: 20px;
+    right: 5px;
+}
+
+.information-action-cancel {
+    top: 20px;   
+    right: -17px;
+}
+
+.information-action-check.show,
+.information-action-cancel.show {
     opacity: 1;
 }
 
-.information-action-check p {
+.information-action-check p,
+.information-action-cancel p {
     font-size: .5rem;
 }
 

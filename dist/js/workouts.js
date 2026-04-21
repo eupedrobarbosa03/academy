@@ -1,4 +1,3 @@
-const buttonCheckWorkout = document.querySelectorAll(".icon-check-workout");
 export function checkWorkout() {
     const boxWorkout = document.querySelectorAll(".box-workout");
     const events = ["mouseover", "mouseout"];
@@ -11,7 +10,11 @@ export function checkWorkout() {
                     const indexBoxInformation = indexBoxWorkout.querySelector(".information-action-check");
                     indexBoxInformation.classList.toggle("show");
                 }
-                ;
+                else if (target.classList.contains("icon-cancel-workout")) {
+                    const indexBoxWorkout = target.closest(".box-workout");
+                    const indexBoxInformation = indexBoxWorkout.querySelector(".information-action-cancel");
+                    indexBoxInformation.classList.toggle("show");
+                }
             });
         });
     });

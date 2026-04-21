@@ -17,7 +17,8 @@ const listElements = {
     informationWorkoutParagraph: document.querySelectorAll(".box-workout p"),
     informationWorkoutSpan: document.querySelectorAll(".box-workout p span"),
     iconCheckWorkout: document.querySelectorAll(".icon-check-workout"),
-    informationActionCheck: document.querySelectorAll(".information-action-check")
+    iconCancelWorkout: document.querySelectorAll(".icon-cancel-workout"),
+    informationAction: document.querySelectorAll(".information-action")
 };
 const singleElements = {
     body: document.body,

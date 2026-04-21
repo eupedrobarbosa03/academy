@@ -1,3 +1,5 @@
+
+
 export function checkWorkout() {
     const boxWorkout = document.querySelectorAll<HTMLDivElement>(".box-workout");
     const events = ["mouseover", "mouseout"]
@@ -9,7 +11,11 @@ export function checkWorkout() {
                     const indexBoxWorkout = target.closest(".box-workout") as HTMLDivElement;
                     const indexBoxInformation = indexBoxWorkout.querySelector(".information-action-check") as HTMLDivElement;
                     indexBoxInformation.classList.toggle("show")
-                };
+                } else if (target.classList.contains("icon-cancel-workout")) {
+                    const indexBoxWorkout = target.closest(".box-workout") as HTMLDivElement;
+                    const indexBoxInformation = indexBoxWorkout.querySelector(".information-action-cancel") as HTMLDivElement;
+                    indexBoxInformation.classList.toggle("show")
+                }
             });
         });
     });

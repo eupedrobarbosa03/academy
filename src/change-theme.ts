@@ -17,7 +17,8 @@ const listElements: Record<string, any> = {
     informationWorkoutParagraph: document.querySelectorAll<HTMLInputElement>(".box-workout p"),
     informationWorkoutSpan: document.querySelectorAll<HTMLInputElement>(".box-workout p span"),
     iconCheckWorkout: document.querySelectorAll<HTMLDivElement>(".icon-check-workout"),
-    informationActionCheck: document.querySelectorAll<HTMLDivElement>(".information-action-check")
+    iconCancelWorkout: document.querySelectorAll<HTMLDivElement>(".icon-cancel-workout"),
+    informationAction: document.querySelectorAll<HTMLDivElement>(".information-action")
 };
 
 const singleElements: Record<string, HTMLElement> = {
