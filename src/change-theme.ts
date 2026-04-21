@@ -3,33 +3,8 @@ const buttonChangeTheme = document.querySelector("[data-change-theme]") as HTMLB
 const iconChangeTheme = document.querySelector("#icon-change-theme") as HTMLDivElement;
 const academyIcon = document.querySelector("#icon-academy") as HTMLImageElement;
 
-const listElements: Record<string, any> = {
-    containerBoxInformation: document.querySelectorAll<HTMLDivElement>(".box-information"),
-    buttonOption: document.querySelectorAll<HTMLButtonElement>(".button-option"),
-    boxInformation: document.querySelectorAll<HTMLDivElement>(".box-information h2"),
-    boxWorkout: document.querySelectorAll<HTMLDivElement>(".box-workout"),
-    exitTheSection: document.querySelectorAll<HTMLDivElement>(".exit-the-section"),
-    inputSearchWorkouts: document.querySelectorAll<HTMLInputElement>("#input-search-workouts"),
-    boxContainerInput: document.querySelectorAll<HTMLInputElement>(".box-container-input input"),
-    boxContainerLabel: document.querySelectorAll<HTMLLabelElement>(".box-container-input label"),
-    boxContainerSelect: document.querySelectorAll<HTMLSelectElement>("select"),
-    boxContainerOption: document.querySelectorAll<HTMLOptionElement>("option"),
-    informationWorkoutParagraph: document.querySelectorAll<HTMLInputElement>(".box-workout p"),
-    informationWorkoutSpan: document.querySelectorAll<HTMLInputElement>(".box-workout p span"),
-    iconCheckWorkout: document.querySelectorAll<HTMLDivElement>(".icon-check-workout"),
-    iconCancelWorkout: document.querySelectorAll<HTMLDivElement>(".icon-cancel-workout"),
-    informationAction: document.querySelectorAll<HTMLDivElement>(".information-action")
-};
-
-const singleElements: Record<string, HTMLElement> = {
-    body: document.body,
-    headerContainer: document.querySelector(".header-container-academy") as HTMLDivElement,
-    academyTitle: document.querySelector(".title-container h2") as HTMLDivElement,
-    user: document.querySelector(".user") as HTMLParagraphElement,
-    navbarContainer: document.querySelector(".navbar-container-options") as HTMLDivElement,
-    menu: document.querySelector("#menu-navbar") as HTMLDivElement,
-    sectionAdditionWorkouts: document.querySelector(".section-container-addition-items") as HTMLDivElement
-};
+type Element = HTMLDivElement | HTMLInputElement | HTMLParagraphElement
+const listElements = document.querySelectorAll<Element>(".element-theme")
 
 class Theme {
     constructor() {};
@@ -39,12 +14,7 @@ class Theme {
         iconChangeTheme.removeAttribute("class");
         iconChangeTheme.setAttribute("class", "fa-solid fa-sun sun");
         academyIcon.src = `assets/icons/academy_icon_light.png`;
-        Object.values(singleElements).forEach((singleElement) =>
-            singleElement.classList.add("theme"));
-        for (let i = 0; i < Object.values(listElements).length; i++) {
-            const elements = [...Object.values(listElements)[i]];
-            elements.forEach((element) => element.classList.add("theme"));
-        };
+        listElements.forEach((element) => element.classList.add("theme"))
     };
 
     light() {
@@ -52,12 +22,7 @@ class Theme {
         iconChangeTheme.removeAttribute("class");
         iconChangeTheme.setAttribute("class", "fa-solid fa-moon moon");
         academyIcon.src = `assets/icons/academy_icon_dark.png`;
-        Object.values(singleElements).forEach((singleElement) =>
-            singleElement.classList.remove("theme"));
-        for (let i = 0; i < Object.values(listElements).length; i++) {
-            const elements = [...Object.values(listElements)[i]];
-            elements.forEach((element) => element.classList.remove("theme"));
-        };
+        listElements.forEach((element) => element.classList.remove("theme"))
     };
 
     storage() {

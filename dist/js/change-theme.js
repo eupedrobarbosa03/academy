@@ -3,32 +3,7 @@ if (!localStorage.getItem("theme-academy"))
 const buttonChangeTheme = document.querySelector("[data-change-theme]");
 const iconChangeTheme = document.querySelector("#icon-change-theme");
 const academyIcon = document.querySelector("#icon-academy");
-const listElements = {
-    containerBoxInformation: document.querySelectorAll(".box-information"),
-    buttonOption: document.querySelectorAll(".button-option"),
-    boxInformation: document.querySelectorAll(".box-information h2"),
-    boxWorkout: document.querySelectorAll(".box-workout"),
-    exitTheSection: document.querySelectorAll(".exit-the-section"),
-    inputSearchWorkouts: document.querySelectorAll("#input-search-workouts"),
-    boxContainerInput: document.querySelectorAll(".box-container-input input"),
-    boxContainerLabel: document.querySelectorAll(".box-container-input label"),
-    boxContainerSelect: document.querySelectorAll("select"),
-    boxContainerOption: document.querySelectorAll("option"),
-    informationWorkoutParagraph: document.querySelectorAll(".box-workout p"),
-    informationWorkoutSpan: document.querySelectorAll(".box-workout p span"),
-    iconCheckWorkout: document.querySelectorAll(".icon-check-workout"),
-    iconCancelWorkout: document.querySelectorAll(".icon-cancel-workout"),
-    informationAction: document.querySelectorAll(".information-action")
-};
-const singleElements = {
-    body: document.body,
-    headerContainer: document.querySelector(".header-container-academy"),
-    academyTitle: document.querySelector(".title-container h2"),
-    user: document.querySelector(".user"),
-    navbarContainer: document.querySelector(".navbar-container-options"),
-    menu: document.querySelector("#menu-navbar"),
-    sectionAdditionWorkouts: document.querySelector(".section-container-addition-items")
-};
+const listElements = document.querySelectorAll(".element-theme");
 class Theme {
     constructor() { }
     ;
@@ -37,12 +12,7 @@ class Theme {
         iconChangeTheme.removeAttribute("class");
         iconChangeTheme.setAttribute("class", "fa-solid fa-sun sun");
         academyIcon.src = `assets/icons/academy_icon_light.png`;
-        Object.values(singleElements).forEach((singleElement) => singleElement.classList.add("theme"));
-        for (let i = 0; i < Object.values(listElements).length; i++) {
-            const elements = [...Object.values(listElements)[i]];
-            elements.forEach((element) => element.classList.add("theme"));
-        }
-        ;
+        listElements.forEach((element) => element.classList.add("theme"));
     }
     ;
     light() {
@@ -50,12 +20,7 @@ class Theme {
         iconChangeTheme.removeAttribute("class");
         iconChangeTheme.setAttribute("class", "fa-solid fa-moon moon");
         academyIcon.src = `assets/icons/academy_icon_dark.png`;
-        Object.values(singleElements).forEach((singleElement) => singleElement.classList.remove("theme"));
-        for (let i = 0; i < Object.values(listElements).length; i++) {
-            const elements = [...Object.values(listElements)[i]];
-            elements.forEach((element) => element.classList.remove("theme"));
-        }
-        ;
+        listElements.forEach((element) => element.classList.remove("theme"));
     }
     ;
     storage() {

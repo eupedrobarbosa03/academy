@@ -13,50 +13,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
     <script type="module" src="js/main.js" defer></script>
 </head>
-<body>
-    <header class="header-container-academy">
-        <i class="fa-solid fa-bars" id="menu-navbar"></i>
+<body class="element-theme">
+    <header class="header-container-academy element-theme">
+        <i class="fa-solid fa-bars element-theme" id="menu-navbar"></i>
         <div class="title-container">
             <img src="assets/icons/academy_icon_dark.png" id="icon-academy" width="36" height="36" alt="academy icon">
-            <h2>Academy</h2>
+            <h2 class="element-theme">Academy</h2>
         </div>
         <div class="container-greet-user-more-change-theme">
             <button data-change-theme id="button-change-theme">
                 <i id="icon-change-theme" class="fa-solid fa-moon moon"></i>
             </button>
-            <p class="user">USER</p>
+            <p class="user element-theme">USER</p>
             <div class="container-profile">
                 <p>U</p>
             </div>
         </div>
     </header>
     <main class="main-container-academy">
-        <nav class="navbar-container-options">
-            <button class="button-option" id="dashboard">Dashboard</button>
-            <button class="button-option" id="academy-workouts">Treinos</button>
-            <button class="button-option" id="academy-students">Alunos</button>
-            <button class="button-option" id="academy-instructors">Instrutores</button>
+        <nav class="navbar-container-options element-theme">
+            <button class="button-option element-theme" id="dashboard">Dashboard</button>
+            <button class="button-option element-theme" id="academy-workouts">Treinos</button>
+            <button class="button-option element-theme" id="academy-students">Alunos</button>
+            <button class="button-option element-theme" id="academy-instructors">Instrutores</button>
         </nav>
         <section data-section="dashboard" class="section-option" style="display: none;">
             <section class="section-container-informations-academy">
-                <div class="box-information">
-                    <h2>Total de Alunos</h2>
+                <div class="box-information element-theme">
+                    <h2 class="element-theme">Total de Alunos</h2>
                     <p id="total-students" class="total">23</p>
                 </div>
-                <div class="box-information">
-                    <h2>Total de Instrutores</h2>
+                <div class="box-information element-theme">
+                    <h2 class="element-theme">Total de Instrutores</h2>
                     <p id="total-instructors" class="total">10</p>
                 </div>
-                <div class="box-information">
-                    <h2>Total de Treinos</h2>
+                <div class="box-information element-theme">
+                    <h2 class="element-theme">Total de Treinos</h2>
                     <p id="total-workouts" class="total">10</p>
                 </div>
-                <div class="box-information">
-                    <h2>Total de treinos concluídos</h2>
+                <div class="box-information element-theme">
+                    <h2 class="element-theme">Total de treinos concluídos</h2>
                     <p id="total-workouts-completed" class="total">10</p>
                 </div>
-                <div class="box-information">
-                    <h2>Total de treinos cancelados</h2>
+                <div class="box-information element-theme">
+                    <h2 class="element-theme">Total de treinos cancelados</h2>
                     <p id="total-workouts-canceled" class="total">10</p>
                 </div>
             </section>
@@ -64,7 +64,7 @@
         <section data-section="academy-workouts" class="section-option section-academy-workouts">
             <div class="container-actions-workouts">
                 <div class="container-search-workouts">
-                    <input type="text" placeholder="Pesquisar treinos: digite o nome do aluno" id="input-search-workouts">
+                    <input type="text" placeholder="Pesquisar treinos: digite o nome do aluno" id="input-search-workouts" class="element-theme">
                     <button id="button-search-workouts">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
@@ -76,37 +76,37 @@
             </div>
             <div class="container-workouts">
                 <div class="workouts">
-                    <div class="box-workout">
+                    <div class="box-workout element-theme">
                         <div class="container-informations-workouts">
-                            <p>
+                            <p class="element-theme">
                                 Aluno:
-                                <span class="informations-workouts-box-workout">Pedro</span>
+                                <span class="informations-workouts-box-workout element-theme">Pedro</span>
                             </p>
-                            <p>
+                            <p class="element-theme">
                                 Professor:
-                                <span class="informations-workouts-box-workout">Henrique</span>
+                                <span class="informations-workouts-box-workout element-theme">Henrique</span>
                             </p>
-                            <p>
+                            <p class="element-theme">
                                 Treino:
-                                <span class="informations-workouts-box-workout">Costas</span>
+                                <span class="informations-workouts-box-workout element-theme">Costas</span>
                             </p>
-                            <p>
+                            <p class="element-theme">
                                 Data:
-                                <span class="informations-workouts-box-workout">27/05/2026</span>
+                                <span class="informations-workouts-box-workout element-theme">27/05/2026</span>
                             </p>
-                            <p>
+                            <p class="element-theme">
                                 Horário:
-                                <span class="informations-workouts-box-workout">12:00</span>
+                                <span class="informations-workouts-box-workout element-theme">12:00</span>
                             </p>
                         </div>
                         <div class="single-container-action-box-workout">
-                            <i class="fa-solid fa-check icon-check-workout"></i>
-                            <i class="fa-solid fa-xmark icon-cancel-workout"></i>
-                            <div class="information-action-check information-action">
-                                <p>Concluir</p>
+                            <i class="fa-solid fa-check icon-check-workout element-theme"></i>
+                            <i class="fa-solid fa-xmark icon-cancel-workout element-theme"></i>
+                            <div class="information-action-check information-action element-theme">
+                                <p class="element-theme">Concluir</p>
                             </div>
-                            <div class="information-action-cancel information-action">
-                                <p>Cancelar</p>
+                            <div class="information-action-cancel information-action element-theme">
+                                <p class="element-theme">Cancelar</p>
                             </div>
                         </div>
                     </div>
@@ -121,47 +121,47 @@
         </section>
     </main>
 
-    <section class="section-container-addition-items" id="section-container-addition-workouts">
-        <i class="fa-solid fa-xmark exit-the-section"></i>
+    <section class="section-container-addition-items element-theme" id="section-container-addition-workouts">
+        <i class="fa-solid fa-xmark exit-the-section element-theme"></i>
         <div class="container-area-mark-to-workouts">
             <div class="container-inputs-workouts">
                 <div class="box-container-input">
-                    <label for="student-name-for-mark-workouts">Nome do aluno</label>
-                    <input type="text" placeholder="Digite o nome do aluno" id="input-student-name-mark-workouts">
+                    <label for="student-name-for-mark-workouts" class="element-theme">Nome do aluno</label>
+                    <input type="text" placeholder="Digite o nome do aluno" id="input-student-name-mark-workouts" class="element-theme">
                     <p id="message-error-student-name-workouts" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="instructor-option-workouts">Escolha o professor</label>
-                    <select id="list-instructors">
-                        <option disabled selected>Selecione um instrutor</option>
-                        <option value="Henrique">Henrique</option>
-                        <option value="Henrique">Henrique</option>
-                        <option value="Henrique">Henrique</option>
+                    <label for="instructor-option-workouts" class="element-theme">Escolha o professor</label>
+                    <select id="list-instructors" class="element-theme">
+                        <option disabled selected class="element-theme">Selecione um instrutor</option>
+                        <option value="Henrique" class="element-theme">Henrique</option>
+                        <option value="Henrique" class="element-theme">Henrique</option>
+                        <option value="Henrique" class="element-theme">Henrique</option>
                     </select>
                     <p id="message-error-option-instructor" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="name-workouts">Treino</label>
-                    <input type="text" placeholder="Digite o nome do treino" id="input-workouts">
+                    <label for="name-workouts" class="element-theme">Treino</label>
+                    <input type="text" placeholder="Digite o nome do treino" id="input-workouts" class="element-theme">
                     <p id="message-error-workouts" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="date-workout">Data</label>
-                    <input type="date" id="input-workouts">
+                    <label for="date-workout" class="element-theme">Data</label>
+                    <input type="date" id="input-workouts" class="element-theme">
                     <p id="message-error-date-workouts" class="message-error">Escolha uma data</p>
                 </div>
                 <div class="box-container-input">
-                    <label for="option-time-workouts">Horário</label>
-                    <select id="option-time-workouts">
-                        <option disabled selected>Selecione um horário</option>
-                        <option value="08:00">08:00</option>
-                        <option value="10:00">10:00</option>
-                        <option value="12:00">12:00</option>
-                        <option value="14:00">14:00</option>
-                        <option value="16:00">16:00</option>
-                        <option value="18:00">18:00</option>
-                        <option value="20:00">20:00</option>
-                        <option value="22:00">22:00</option>
+                    <label for="option-time-workouts" class="element-theme">Horário</label>
+                    <select id="option-time-workouts" class="element-theme">
+                        <option disabled selected class="element-theme">Selecione um horário</option>
+                        <option value="08:00" class="element-theme">08:00</option>
+                        <option value="10:00" class="element-theme">10:00</option>
+                        <option value="12:00" class="element-theme">12:00</option>
+                        <option value="14:00" class="element-theme">14:00</option>
+                        <option value="16:00" class="element-theme">16:00</option>
+                        <option value="18:00" class="element-theme">18:00</option>
+                        <option value="20:00" class="element-theme">20:00</option>
+                        <option value="22:00" class="element-theme">22:00</option>
                     </select>
                     <p id="message-error-time-workouts" class="message-error"></p>
                 </div>
