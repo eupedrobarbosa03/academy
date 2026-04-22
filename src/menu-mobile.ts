@@ -1,8 +1,14 @@
-export function menuMobile() {
-    const menu = document.querySelector("#menu-navbar") as HTMLDivElement;
-    const navbar = document.querySelector(".navbar-container-options") as HTMLDivElement;
+class Menu {
+    private menu: HTMLDivElement;
+    private navbar: HTMLDivElement;
+    constructor() {
+        this.menu = document.querySelector("#menu-navbar") as HTMLDivElement;
+        this.navbar = document.querySelector(".navbar-container-options") as HTMLDivElement;
+    };
 
-    menu.addEventListener("click", () => {
-        navbar.classList.toggle("show")
-    });;
-}
+    mobile() {
+        this.menu.addEventListener("click", () => this.navbar.classList.toggle("show"))
+    };
+};
+
+export const menu = new Menu();
