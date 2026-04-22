@@ -1,5 +1,7 @@
 if (!localStorage.getItem("theme-academy")) localStorage.setItem("theme-academy", "light");
 
+type Element = HTMLDivElement | HTMLImageElement | HTMLParagraphElement | HTMLBodyElement;
+
 class Theme {
     private listElements;
     private buttonChangeTheme;
