@@ -133,6 +133,13 @@ option.theme {
     }
 }
 
+.icon-edit-student.theme {
+    color: rgba(255, 255, 255, 0.562);
+    &:hover {
+        color: rgba(252, 199, 28, 0.767);
+    } 
+}
+
 .information-action.theme {
     background-color: #1b1b1b;
     color: #fff;

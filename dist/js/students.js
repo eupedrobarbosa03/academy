@@ -1,9 +1,10 @@
 function showBoxActionInformation() {
     const boxStudent = document.querySelectorAll(".box-student");
     const events = ["mouseover", "mouseout"];
-    const iconsButtons = ["icon-remove-student"];
+    const iconsButtons = ["icon-remove-student", "icon-edit-student"];
     const containerInformations = [
-        "information-action-remove-student"
+        "information-action-remove-student",
+        "information-action-edit-student"
     ];
     boxStudent.forEach((box) => events.forEach((typeEvent) => {
         box.addEventListener(typeEvent, (e) => {

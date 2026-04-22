@@ -69,7 +69,8 @@
 
     .information-action-check,
     .information-action-cancel,
-    .information-action-remove-student {
+    .information-action-remove-student,
+    .information-action-edit-student {
         display: none;
     }
 

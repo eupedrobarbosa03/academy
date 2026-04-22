@@ -349,7 +349,8 @@
 
 .icon-check-workout,
 .icon-cancel-workout,
-.icon-remove-student {
+.icon-remove-student,
+.icon-edit-student {
     transition: .3s;
     color: rgba(0, 0, 0, 0.5);
     &:hover {
@@ -359,7 +360,8 @@
 
 .information-action-check,
 .information-action-cancel,
-.information-action-remove-student {
+.information-action-remove-student,
+.information-action-edit-student {
     position: absolute;
     background-color: #fffdfd;
     width: auto;
@@ -380,22 +382,29 @@
     right: -17px;
 }
 
-.information-action-remove-student {
+
+.information-action-edit-student {
     top: 20px;
-    right: -17px;
-    z-index: 1;
+    right: 12px;
 }
 
 
+.information-action-remove-student {
+    top: 20px;
+    right: -17px;
+}
+
 .information-action-check.show,
 .information-action-cancel.show,
-.information-action-remove-student.show {
+.information-action-remove-student.show,
+.information-action-edit-student.show {
     opacity: 1;
 }
 
 .information-action-check p,
 .information-action-cancel p,
-.information-action-remove-student p {
+.information-action-remove-student p,
+.information-action-edit-student p {
     font-size: .5rem;
 }
 
@@ -478,7 +487,7 @@
 
 option {
     color: rgba(0, 0, 0, 0.95);
-    padding: .5rem;
+    padding: .1rem;
 }
 
 .box-container-input input.box-input-error {
@@ -542,6 +551,6 @@ select.box-input-error {
 
 .container-actions-box-students {
     display: flex;
-    gap: 5px;
+    gap: 10px;
     position: relative;
 }
