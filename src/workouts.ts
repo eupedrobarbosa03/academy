@@ -1,13 +1,20 @@
-function showBoxActionInformation() {
-    const boxWorkout = document.querySelectorAll<HTMLDivElement>(".box-workout");
-    const events = ["mouseover", "mouseout"];
-    const iconsButtons = ["icon-cancel-workout", "icon-check-workout"];
-    const containerInformations = [
-        "information-action-check",
-        "information-action-cancel"
-    ];
-    boxWorkout.forEach((workout) => {
-        events.forEach((typeEvent) => {
+import { sectionCloseAllAddOfCategory } from "./utils.js";
+
+class Workout {};
+
+class Section {
+    constructor() {};
+
+    showBoxActionInformation() {
+        const boxWorkout = document.querySelectorAll<HTMLDivElement>(".box-workout");
+        const events = ["mouseover", "mouseout"];
+        const iconsButtons = ["icon-cancel-workout", "icon-check-workout"];
+        const containerInformations = [
+            "information-action-check",
+            "information-action-cancel"
+        ];
+
+        boxWorkout.forEach((workout) => events.forEach((typeEvent) => {
             workout.addEventListener(typeEvent, (e) => {
                 const target = e.target as HTMLDivElement;
                 iconsButtons.forEach((button) => {
@@ -18,34 +25,32 @@ function showBoxActionInformation() {
                         indexQuery.classList.toggle("show")
                     };
                 }) 
-            });
+            })
+        }))
+
+    };
+
+    openSectionAddWorkouts() {
+        const buttonAddWorkouts = document.querySelector(".button-to-mark-workouts") as HTMLButtonElement;
+
+        buttonAddWorkouts.addEventListener("click", () => {
+            const sectionAddWorkouts = document.querySelector("#section-container-addition-workouts") as HTMLDivElement;
+            sectionAddWorkouts.classList.add("show")
         });
-    });
+    };
+
+    closeSectionAddOfCategory() {
+        sectionCloseAllAddOfCategory();
+    }
+
 };
 
-function openSectionAddWorkouts() {
-    const buttonAddWorkouts = document.querySelector(".button-to-mark-workouts") as HTMLButtonElement;
+const section = new Section();
 
-    buttonAddWorkouts.addEventListener("click", () => {
-        const sectionAddWorkouts = document.querySelector("#section-container-addition-workouts") as HTMLDivElement;
-        sectionAddWorkouts.classList.add("show")
-    });
-}
-
-function exitSectionAddIWorkouts() {
-    const exitTheSection = document.querySelector(".exit-the-section") as HTMLDivElement;
-    const sectionAddItems = document.querySelectorAll<HTMLDivElement>(".section-container-addition-items");
-    exitTheSection.addEventListener("click", () => {
-        sectionAddItems.forEach((section) => section.classList.remove("show"));
-    });
-    window.addEventListener("keyup", (e) => {
-        if (e.key === "Escape")
-            sectionAddItems.forEach((section) => section.classList.remove("show"))
-    });
-};
-
-export function sectionWorkouts() {
-    openSectionAddWorkouts();
-    exitSectionAddIWorkouts();
-    showBoxActionInformation();
+export class Workouts {
+    static actions() {
+        section.openSectionAddWorkouts();
+        section.closeSectionAddOfCategory();
+        section.showBoxActionInformation();
+    };
 };

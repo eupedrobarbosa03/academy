@@ -438,7 +438,8 @@
     width: 70%;
 }
 
-.exit-the-section {
+
+.close-the-section {
     cursor: pointer;
     flex: 1;
     position: absolute;
@@ -452,14 +453,16 @@
     }
 }
 
-.container-area-mark-to-workouts {
+.container-area-mark-to-workouts,
+.container-area-register-students {
     margin-top: 40px;
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-.container-inputs-workouts {
+.container-inputs-workouts,
+.container-inputs-students {
     font-family: 'Ub-Light';
     display: flex;
     flex-wrap: wrap;
@@ -521,7 +524,8 @@ select.box-input-error {
     opacity: 1;
 }
 
-.container-button-save-workouts {
+.container-button-save-workouts,
+.container-button-save-register-student {
     flex: 1;
     display: flex;
     align-items: flex-end;
@@ -529,7 +533,8 @@ select.box-input-error {
     padding: 0 .5rem;
 }
 
-.button-save-workouts {
+.button-save-workouts,
+.button-save-register-student {
     background-color: rgba(56, 102, 255);
     color: #fff;
     border: none;

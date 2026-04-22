@@ -1,11 +1,11 @@
 import { section } from "./change-section.js";
 import { theme } from "./change-theme.js";
 import { menu } from "./menu-mobile.js";
-import { sectionStudents } from "./students.js";
-import { sectionWorkouts } from "./workouts.js";
+import { Students } from "./students.js";
+import { Workouts } from "./workouts.js";
 section.change();
 theme.change();
 theme.storage();
 menu.mobile();
-sectionWorkouts();
-sectionStudents();
+Workouts.actions();
+Students.actions();
