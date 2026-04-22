@@ -39,7 +39,7 @@ class Section {
         });
     };
 
-    closeSectionAddOfCategory() {
+    closeSectionAddWorkouts() {
         sectionCloseAllAddOfCategory();
     }
 
@@ -50,7 +50,7 @@ const section = new Section();
 export class Workouts {
     static actions() {
         section.openSectionAddWorkouts();
-        section.closeSectionAddOfCategory();
+        section.closeSectionAddWorkouts();
         section.showBoxActionInformation();
     };
 };

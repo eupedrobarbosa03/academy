@@ -202,14 +202,16 @@
 }
 
 .section-academy-workouts,
-.section-academy-students {
+.section-academy-students,
+.section-academy-instructors {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 .container-actions-workouts,
-.container-actions-students {
+.container-actions-students,
+.container-actions-instructors {
     flex: 1;
     padding: 1.5rem 0;
     display: flex;
@@ -218,26 +220,17 @@
 }
 
 .container-search-workouts,
-.container-search-students {
+.container-search-students,
+.container-search-instructors {
     display: flex;
     height: 40px;
 }
 
 
-#input-search-workouts,
-#input-search-students {
-    width: 350px;
-    border-radius: 10px 0px 0px 10px;
-}
-
-#button-search-workouts,
-#button-search-students {
-    width: 50px;
-    border-radius: 0px 10px 10px 0px;
-}
 
 .button-to-mark-workouts,
-.button-to-register-students {
+.button-to-register-students,
+.button-to-register-instructors {
     outline: none;
     border: none;
     color: #fff;
@@ -257,18 +250,23 @@
 }
 
 .button-to-mark-workouts p,
-.button-to-register-students p {
+.button-to-register-students p,
+.button-to-register-instructors {
     font-size: .8rem;
     font-family: 'Ub-light';
     text-transform: uppercase;
 }
 
-.button-to-register-students p {
+.button-to-register-students p,
+.button-to-register-instructors p {
     font-size: .65rem;
 }
 
 #input-search-workouts,
-#input-search-students {
+#input-search-students,
+#input-search-instructors {
+    width: 350px;
+    border-radius: 10px 0px 0px 10px;
     border-top: 1px solid rgba(0, 0, 0, .20);
     border-right: 0px;
     border-left: 1px solid rgba(0, 0, 0, .20);
@@ -278,12 +276,16 @@
 }
 
 #input-search-workouts::placeholder,
-#input-search-students::placeholder {
+#input-search-students::placeholder, 
+#input-search-instructors::placeholder {
     font-size: .8rem;
 }
 
 #button-search-workouts,
-#button-search-students {
+#button-search-students,
+#button-search-instructors {
+    width: 50px;
+    border-radius: 0px 10px 10px 0px;
     background-color: rgba(56, 102, 255);
     color: #fff;
     border: none;
@@ -295,13 +297,15 @@
 }
 
 .container-workouts,
-.container-students {
+.container-students,
+.container-instructors {
     flex: 1;
     margin-top: 10px;
 }
 
 .workouts,
-.students {
+.students,
+.instructors {
     height: 470px;
     overflow: auto;
     display: flex;
@@ -311,7 +315,8 @@
 }
 
 .box-workout,
-.box-student {
+.box-student,
+.box-instructor {
     border: 1px solid #33333350;
     height: 50px;
     padding: 1rem;
@@ -330,20 +335,23 @@
 }
 
 .container-informations-workouts,
-.container-informations-students {
+.container-informations-students,
+.container-informations-instructors {
     flex: 1;
     display: flex;
     gap: 20px;
 }
 
 .box-workout p,
-.box-student p {
+.box-student p,
+.box-instructor p {
     font-size: .68rem;
     color: rgba(0, 0, 0, 0.5);
 }
 
 .box-workout p span,
-.box-student p span {
+.box-student p span,
+.box-instructor p span {
     color: #000;
 }
 
@@ -356,7 +364,9 @@
 .icon-check-workout,
 .icon-cancel-workout,
 .icon-remove-student,
-.icon-edit-student {
+.icon-edit-student,
+.icon-remove-instructor,
+.icon-edit-instructor {
     transition: .3s;
     color: rgba(0, 0, 0, 0.5);
     &:hover {
@@ -367,7 +377,9 @@
 .information-action-check,
 .information-action-cancel,
 .information-action-remove-student,
-.information-action-edit-student {
+.information-action-edit-student,
+.information-action-remove-instructor,
+.information-action-edit-instructor {
     position: absolute;
     background-color: #fffdfd;
     width: auto;
@@ -388,14 +400,14 @@
     right: -17px;
 }
 
-
-.information-action-edit-student {
+.information-action-edit-student,
+.information-action-edit-instructor {
     top: 20px;
     right: 12px;
 }
 
-
-.information-action-remove-student {
+.information-action-remove-student,
+.information-action-remove-instructor {
     top: 20px;
     right: -17px;
 }
@@ -403,14 +415,18 @@
 .information-action-check.show,
 .information-action-cancel.show,
 .information-action-remove-student.show,
-.information-action-edit-student.show {
+.information-action-edit-student.show,
+.information-action-remove-instructor.show,
+.information-action-edit-instructor.show {
     opacity: 1;
 }
 
 .information-action-check p,
 .information-action-cancel p,
 .information-action-remove-student p,
-.information-action-edit-student p {
+.information-action-edit-student p,
+.information-action-remove-instructor p,
+.information-action-edit-instructor p {
     font-size: .5rem;
 }
 
@@ -454,7 +470,8 @@
 }
 
 .container-area-mark-to-workouts,
-.container-area-register-students {
+.container-area-register-students,
+.container-area-register-instructors {
     margin-top: 40px;
     flex: 1;
     display: flex;
@@ -462,7 +479,8 @@
 }
 
 .container-inputs-workouts,
-.container-inputs-students {
+.container-inputs-students,
+.container-inputs-instructors {
     font-family: 'Ub-Light';
     display: flex;
     flex-wrap: wrap;
@@ -550,11 +568,13 @@ select.box-input-error {
     }
 }
 
-.container-search-students {
+.container-search-students,
+.container-search-instructors {
     display: flex;
 }
 
-.container-actions-box-students {
+.container-actions-box-students,
+.container-actions-box-instructors {
     display: flex;
     gap: 10px;
     position: relative;

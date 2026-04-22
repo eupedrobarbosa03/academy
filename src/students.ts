@@ -28,7 +28,7 @@ class Section {
         }))
     };
 
-    openSectionAddWorkouts() {
+    openSectionAddStudents() {
         const buttonAddWStudents = document.querySelector(".button-to-register-students") as HTMLButtonElement;
 
         buttonAddWStudents.addEventListener("click", () => {
@@ -37,7 +37,7 @@ class Section {
         });
     };
 
-    closeSectionAddOfCategory() {
+    closeSectionAddStudents() {
         sectionCloseAllAddOfCategory();
     };
 
@@ -48,7 +48,7 @@ const section = new Section();
 export class Students {
     static actions() {
         section.showBoxActionInformation();
-        section.openSectionAddWorkouts();
-        section.closeSectionAddOfCategory();
+        section.openSectionAddStudents();
+        section.closeSectionAddStudents();
     };
 }

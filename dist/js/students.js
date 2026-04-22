@@ -29,7 +29,7 @@ class Section {
         }));
     }
     ;
-    openSectionAddWorkouts() {
+    openSectionAddStudents() {
         const buttonAddWStudents = document.querySelector(".button-to-register-students");
         buttonAddWStudents.addEventListener("click", () => {
             const sectionAddWorkouts = document.querySelector("#section-container-addition-students");
@@ -37,7 +37,7 @@ class Section {
         });
     }
     ;
-    closeSectionAddOfCategory() {
+    closeSectionAddStudents() {
         sectionCloseAllAddOfCategory();
     }
     ;
@@ -46,8 +46,8 @@ const section = new Section();
 export class Students {
     static actions() {
         section.showBoxActionInformation();
-        section.openSectionAddWorkouts();
-        section.closeSectionAddOfCategory();
+        section.openSectionAddStudents();
+        section.closeSectionAddStudents();
     }
     ;
 }

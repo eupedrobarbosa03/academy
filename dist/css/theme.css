@@ -52,7 +52,8 @@ body.theme {
 }
 
 .box-workout.theme,
-.box-student.theme {
+.box-student.theme,
+.box-instructor.theme {
     background-color: #1b1b1b;
     transition: .5s;
     &:hover {
@@ -61,18 +62,21 @@ body.theme {
 }
 
 .box-workout p.theme,
-.box-student p.theme {
+.box-student p.theme,
+.box-instructor p.theme {
     font-size: .68rem;
     color: rgba(224, 224, 224, 0.5);
 }
 
 .box-workout p span.theme,
-.box-student p span.theme {
+.box-student p span.theme,
+.box-instructor p span.theme {
     color: rgba(255, 255, 255, 0.856);
 }
 
 #input-search-workouts.theme,
-#input-search-students.theme {
+#input-search-students.theme,
+#input-search-instructors.theme {
     border-top: 1px solid rgba(187, 187, 187, 0.2);
     border-right: 0px;
     border-left: 1px solid rgba(187, 187, 187, 0.2);
@@ -119,17 +123,12 @@ select.theme.box-input-error {
     }
 }
 
-.icon-check-workout.theme {
-    color: rgba(255, 255, 255, 0.562);
-    &:hover {
-        color: rgb(59, 216, 59);
-    }
-}
-
 .icon-cancel-workout.theme,
 .icon-check-workout.theme,
 .icon-remove-student.theme,
-.icon-edit-student.theme {
+.icon-edit-student.theme,
+.icon-remove-instructor.theme,
+.icon-edit-instructor.theme {
     color: rgba(255, 255, 255, 0.562);
     &:hover {
         color: rgba(255, 255, 255, 0.2)
