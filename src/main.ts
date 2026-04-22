@@ -1,5 +1,6 @@
 import { section } from "./change-section.js";
 import { theme } from "./change-theme.js";
+import { Instructors } from "./instructors.js";
 import { menu } from "./menu-mobile.js";
 import { Students } from "./students.js";
 import { Workouts } from "./workouts.js";
@@ -10,3 +11,4 @@ theme.storage();
 menu.mobile();
 Workouts.actions();
 Students.actions();
+Instructors.actions();
