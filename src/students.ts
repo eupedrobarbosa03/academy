@@ -26,11 +26,20 @@ class Section {
                 });
             });
         }))
-    }
+    };
+
+    openSectionAddWorkouts() {
+        const buttonAddWStudents = document.querySelector(".button-to-register-students") as HTMLButtonElement;
+
+        buttonAddWStudents.addEventListener("click", () => {
+            const sectionAddWorkouts = document.querySelector("#section-container-addition-students") as HTMLDivElement;
+            sectionAddWorkouts.classList.add("show")
+        });
+    };
 
     closeSectionAddOfCategory() {
         sectionCloseAllAddOfCategory();
-    }
+    };
 
 }
 
@@ -39,5 +48,7 @@ const section = new Section();
 export class Students {
     static actions() {
         section.showBoxActionInformation();
+        section.openSectionAddWorkouts();
+        section.closeSectionAddOfCategory();
     };
 }

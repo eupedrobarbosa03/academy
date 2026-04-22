@@ -100,11 +100,19 @@ option.theme {
     color: rgba(255, 253, 253, .50)
 }
 
+.box-container-input input.theme.box-input-error {
+    border: 1px solid rgb(241, 71, 71);
+}
+
+select.theme.box-input-error {
+    border: 1px solid rgb(241, 71, 71);
+}
+
 .section-container-addition-items.theme {
     background-color: #1b1b1b;
 }
 
-.exit-the-section.theme {
+.close-the-section.theme {
     color: rgba(255, 255, 255, 0.562);
     &:hover {
         color: rgba(255, 0, 0, 0.767);

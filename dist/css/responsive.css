@@ -75,7 +75,8 @@
         display: none;
     }
 
-    #section-container-addition-workouts {
+    #section-container-addition-workouts,
+    #section-container-addition-students {
         width: 95%;
     }
 
