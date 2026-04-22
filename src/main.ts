@@ -1,10 +1,10 @@
-import { changeSection } from "./change-section.js";
+import { section } from "./change-section.js";
 import { changeTheme } from "./change-theme.js";
 import { menu } from "./menu-mobile.js";
 import { sectionStudents } from "./students.js";
 import { sectionWorkouts } from "./workouts.js";
 
-changeSection();
+section.change();
 changeTheme();
 menu.mobile();
 sectionWorkouts();
