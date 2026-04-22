@@ -119,11 +119,9 @@
     cursor: pointer;
     &:hover {
         background-color: rgba(33, 131, 223, .70);
-        width: 150px;
     }
     &.option-selected {
         background-color: rgba(33, 131, 223, .70);
-        width: 150px;
     }
 }
 
