@@ -299,7 +299,8 @@
     gap: 5px;
 }
 
-.box-workout {
+.box-workout,
+.box-student {
     border: 1px solid #33333350;
     height: 50px;
     padding: 1rem;
@@ -317,18 +318,21 @@
     }
 }
 
-.container-informations-workouts {
+.container-informations-workouts,
+.container-informations-students {
     flex: 1;
     display: flex;
     gap: 20px;
 }
 
-.box-workout p {
-    font-size: .75rem;
+.box-workout p,
+.box-student p {
+    font-size: .68rem;
     color: rgba(0, 0, 0, 0.5);
 }
 
-.box-workout p span {
+.box-workout p span,
+.box-student p span {
     color: #000;
 }
 
@@ -339,7 +343,8 @@
 }
 
 .icon-check-workout,
-.icon-cancel-workout {
+.icon-cancel-workout,
+.icon-remove-student {
     transition: .3s;
     color: rgba(0, 0, 0, 0.5);
     &:hover {
@@ -348,7 +353,8 @@
 }
 
 .information-action-check,
-.information-action-cancel {
+.information-action-cancel,
+.information-action-remove-student {
     position: absolute;
     background-color: #fffdfd;
     width: auto;
@@ -370,12 +376,14 @@
 }
 
 .information-action-check.show,
-.information-action-cancel.show {
+.information-action-cancel.show,
+.information-action-remove-student.show {
     opacity: 1;
 }
 
 .information-action-check p,
-.information-action-cancel p {
+.information-action-cancel p,
+.information-action-remove-student p {
     font-size: .5rem;
 }
 
@@ -520,24 +528,8 @@ select.box-input-error {
     display: flex;
 }
 
-#button-filter-students {
-    background-color: rgba(56, 102, 255);
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    width: 80px;
+.container-actions-box-students {
     display: flex;
     gap: 5px;
-    align-items: center;
-    justify-content: center;
-    transition: .3s;
-    text-transform: uppercase;
-    border-radius: 10px;
-    &:hover {
-        background-color: rgba(56, 102, 255, .90);
-    }
-}
-
-#button-filter-students p {
-    font-size: .65rem;
+    position: relative;
 }

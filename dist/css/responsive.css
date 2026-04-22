@@ -52,25 +52,24 @@
         justify-content: center;
     }
 
-    .container-actions-workouts {
+    .container-actions-workouts,
+    .container-actions-students {
         align-items: center;
         justify-content: center;
         flex-direction: column;
         gap: 20px;
     }
 
-    .box-workout {
+    .box-workout,
+    .box-student {
         overflow-x: auto;
         overflow-y: hidden;
-
-    }
-    
-    .box-workout {
         height: auto;
     }
 
     .information-action-check,
-    .information-action-cancel {
+    .information-action-cancel,
+    .information-action-remove-student {
         display: none;
     }
 

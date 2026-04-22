@@ -52,7 +52,8 @@ body.theme {
     }
 }
 
-.box-workout.theme {
+.box-workout.theme,
+.box-student.theme {
     background-color: #1b1b1b;
     transition: .5s;
     &:hover {
@@ -60,12 +61,14 @@ body.theme {
     }
 }
 
-.box-workout p.theme {
-    font-size: .75rem;
+.box-workout p.theme,
+.box-student p.theme {
+    font-size: .68rem;
     color: rgba(224, 224, 224, 0.5);
 }
 
-.box-workout p span.theme {
+.box-workout p span.theme,
+.box-student p span.theme {
     color: rgba(255, 255, 255, 0.856);
 }
 
@@ -117,6 +120,13 @@ option.theme {
 }
 
 .icon-cancel-workout.theme {
+    color: rgba(255, 255, 255, 0.562);
+    &:hover {
+        color: rgba(255, 0, 0, 0.767);
+    }
+}
+
+.icon-remove-student.theme {
     color: rgba(255, 255, 255, 0.562);
     &:hover {
         color: rgba(255, 0, 0, 0.767);
