@@ -1,26 +1,31 @@
 if (!localStorage.getItem("theme-academy"))
     localStorage.setItem("theme-academy", "light");
-const buttonChangeTheme = document.querySelector("[data-change-theme]");
-const iconChangeTheme = document.querySelector("#icon-change-theme");
-const academyIcon = document.querySelector("#icon-academy");
-const listElements = document.querySelectorAll(".element-theme");
 class Theme {
-    constructor() { }
+    listElements;
+    buttonChangeTheme;
+    iconChangeTheme;
+    academyIcon;
+    constructor() {
+        this.listElements = document.querySelectorAll(".element-theme");
+        this.buttonChangeTheme = document.querySelector("[data-change-theme]");
+        this.iconChangeTheme = document.querySelector("#icon-change-theme");
+        this.academyIcon = document.querySelector("#icon-academy");
+    }
     ;
     dark() {
         localStorage.setItem("theme-academy", "dark");
-        iconChangeTheme.removeAttribute("class");
-        iconChangeTheme.setAttribute("class", "fa-solid fa-sun sun");
-        academyIcon.src = `assets/icons/academy_icon_light.png`;
-        listElements.forEach((element) => element.classList.add("theme"));
+        this.iconChangeTheme.removeAttribute("class");
+        this.iconChangeTheme.setAttribute("class", "fa-solid fa-sun sun");
+        this.academyIcon.src = `assets/icons/academy_icon_light.png`;
+        this.listElements.forEach((element) => element.classList.add("theme"));
     }
     ;
     light() {
         localStorage.setItem("theme-academy", "light");
-        iconChangeTheme.removeAttribute("class");
-        iconChangeTheme.setAttribute("class", "fa-solid fa-moon moon");
-        academyIcon.src = `assets/icons/academy_icon_dark.png`;
-        listElements.forEach((element) => element.classList.remove("theme"));
+        this.iconChangeTheme.removeAttribute("class");
+        this.iconChangeTheme.setAttribute("class", "fa-solid fa-moon moon");
+        this.academyIcon.src = `assets/icons/academy_icon_dark.png`;
+        this.listElements.forEach((element) => element.classList.remove("theme"));
     }
     ;
     storage() {
@@ -31,12 +36,11 @@ class Theme {
         return getTheme;
     }
     ;
+    change() {
+        this.buttonChangeTheme.addEventListener("click", () => {
+            this.storage() === "light" ? this.dark() : this.light();
+        });
+    }
 }
 ;
-export function changeTheme() {
-    const theme = new Theme();
-    theme.storage();
-    buttonChangeTheme.addEventListener("click", () => {
-        theme.storage() === "light" ? theme.dark() : theme.light();
-    });
-}
+export const theme = new Theme();
