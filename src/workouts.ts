@@ -27,7 +27,6 @@ class Section {
                 }) 
             })
         }))
-
     };
 
     openSectionAddWorkouts() {

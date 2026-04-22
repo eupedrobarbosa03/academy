@@ -14,6 +14,7 @@ class Section {
             this.sections.forEach((section) => {
                 section.style.display = 'none';
                 if (id === section.getAttribute("data-section")) section.style.display = 'block'
+                
             })
         }))
     };

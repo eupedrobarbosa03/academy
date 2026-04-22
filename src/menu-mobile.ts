@@ -7,7 +7,7 @@ class Menu {
     };
 
     mobile() {
-        this.menu.addEventListener("click", () => this.navbar.classList.toggle("show"))
+        this.menu.addEventListener("click", () => this.navbar.classList.toggle("show"));
     };
 };
 
