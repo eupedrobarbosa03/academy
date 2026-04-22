@@ -119,25 +119,14 @@ option.theme {
     }
 }
 
-.icon-cancel-workout.theme {
-    color: rgba(255, 255, 255, 0.562);
-    &:hover {
-        color: rgba(255, 0, 0, 0.767);
-    }
-}
-
-.icon-remove-student.theme {
-    color: rgba(255, 255, 255, 0.562);
-    &:hover {
-        color: rgba(255, 0, 0, 0.767);
-    }
-}
-
+.icon-cancel-workout.theme,
+.icon-check-workout.theme,
+.icon-remove-student.theme,
 .icon-edit-student.theme {
     color: rgba(255, 255, 255, 0.562);
     &:hover {
-        color: rgba(252, 199, 28, 0.767);
-    } 
+        color: rgba(255, 255, 255, 0.2)
+    }
 }
 
 .information-action.theme {
