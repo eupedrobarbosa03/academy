@@ -43,18 +43,15 @@
     }
 
     #input-search-workouts,
-    #input-search-students {
+    #input-search-students,
+    #input-search-instructors {
         width: 300px;
     }
 
-    .container-search-workouts {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
 
     .container-actions-workouts,
-    .container-actions-students {
+    .container-actions-students,
+    .container-actions-instructors {
         align-items: center;
         justify-content: center;
         flex-direction: column;
@@ -62,7 +59,8 @@
     }
 
     .box-workout,
-    .box-student {
+    .box-student,
+    .box-instructor {
         overflow-x: auto;
         overflow-y: hidden;
         height: auto;
