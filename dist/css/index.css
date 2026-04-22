@@ -96,6 +96,10 @@
     align-items: center;
     padding: 2.5rem 0;
     gap: 5px;
+    transition: .5s;
+    &:hover {
+        flex: 1.3;
+    }
 }
 
 .button-option {
@@ -115,9 +119,11 @@
     cursor: pointer;
     &:hover {
         background-color: rgba(33, 131, 223, .70);
+        width: 150px;
     }
     &.option-selected {
         background-color: rgba(33, 131, 223, .70);
+        width: 150px;
     }
 }
 
@@ -290,7 +296,8 @@
     }
 }
 
-.container-workouts {
+.container-workouts,
+.container-students {
     flex: 1;
     margin-top: 10px;
 }
@@ -302,6 +309,7 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    overflow: hidden;
 }
 
 .box-workout,
@@ -537,12 +545,6 @@ select.box-input-error {
     &:hover {
         background-color: rgba(56, 102, 255, .90);
     }
-}
-
-
-.container-students {
-    flex: 1;
-    margin-top: 10px;
 }
 
 .container-search-students {

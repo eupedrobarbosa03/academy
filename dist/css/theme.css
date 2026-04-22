@@ -39,10 +39,9 @@ body.theme {
     &:hover {
         background-color: rgba(19, 19, 19, .5);
     }
-}
-
-.button-option.theme.option-selected {
-    background-color: rgba(19, 19, 19, .5);
+    &.option-selected {
+        background-color: rgba(19, 19, 19, .5);
+    }
 }
 
 #menu-navbar.theme {

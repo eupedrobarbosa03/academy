@@ -40,9 +40,16 @@
         width: 350px;
         height: 60px;
         font-size: 1rem;
+        &:hover {
+            width: 350px;
+        }
+        &.option-selected {
+            width: 350px;
+        }
     }
 
-    #input-search-workouts {
+    #input-search-workouts,
+    #input-search-students {
         width: 300px;
     }
 
