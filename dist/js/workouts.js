@@ -1,20 +1,24 @@
-function checkAndCancelWorkout() {
+function showBoxActionInformation() {
     const boxWorkout = document.querySelectorAll(".box-workout");
     const events = ["mouseover", "mouseout"];
+    const iconsButtons = ["icon-cancel-workout", "icon-check-workout"];
+    const containerInformations = [
+        "information-action-check",
+        "information-action-cancel"
+    ];
     boxWorkout.forEach((workout) => {
         events.forEach((typeEvent) => {
             workout.addEventListener(typeEvent, (e) => {
                 const target = e.target;
-                if (target.classList.contains("icon-check-workout")) {
-                    const indexBoxWorkout = target.closest(".box-workout");
-                    const indexBoxInformation = indexBoxWorkout.querySelector(".information-action-check");
-                    indexBoxInformation.classList.toggle("show");
-                }
-                else if (target.classList.contains("icon-cancel-workout")) {
-                    const indexBoxWorkout = target.closest(".box-workout");
-                    const indexBoxInformation = indexBoxWorkout.querySelector(".information-action-cancel");
-                    indexBoxInformation.classList.toggle("show");
-                }
+                iconsButtons.forEach((button) => {
+                    if (target.classList.contains(button)) {
+                        const indexInformation = containerInformations.findIndex((information) => information.includes(`${button.split("-")[1]}`));
+                        const indexTarget = target.closest(".box-workout");
+                        const indexQuery = indexTarget.querySelector(`.${containerInformations[indexInformation]}`);
+                        indexQuery.classList.toggle("show");
+                    }
+                    ;
+                });
             });
         });
     });
@@ -42,6 +46,6 @@ function exitSectionAddIWorkouts() {
 export function sectionWorkouts() {
     openSectionAddWorkouts();
     exitSectionAddIWorkouts();
-    checkAndCancelWorkout();
+    showBoxActionInformation();
 }
 ;

@@ -375,6 +375,13 @@
     right: -17px;
 }
 
+.information-action-remove-student {
+    top: 20px;
+    right: -17px;
+    z-index: 1;
+}
+
+
 .information-action-check.show,
 .information-action-cancel.show,
 .information-action-remove-student.show {

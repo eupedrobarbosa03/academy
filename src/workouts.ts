@@ -1,19 +1,23 @@
-function checkAndCancelWorkout() {
+function showBoxActionInformation() {
     const boxWorkout = document.querySelectorAll<HTMLDivElement>(".box-workout");
-    const events = ["mouseover", "mouseout"]
+    const events = ["mouseover", "mouseout"];
+    const iconsButtons = ["icon-cancel-workout", "icon-check-workout"];
+    const containerInformations = [
+        "information-action-check",
+        "information-action-cancel"
+    ];
     boxWorkout.forEach((workout) => {
         events.forEach((typeEvent) => {
             workout.addEventListener(typeEvent, (e) => {
                 const target = e.target as HTMLDivElement;
-                if (target.classList.contains("icon-check-workout")) {
-                    const indexBoxWorkout = target.closest(".box-workout") as HTMLDivElement;
-                    const indexBoxInformation = indexBoxWorkout.querySelector(".information-action-check") as HTMLDivElement;
-                    indexBoxInformation.classList.toggle("show")
-                } else if (target.classList.contains("icon-cancel-workout")) {
-                    const indexBoxWorkout = target.closest(".box-workout") as HTMLDivElement;
-                    const indexBoxInformation = indexBoxWorkout.querySelector(".information-action-cancel") as HTMLDivElement;
-                    indexBoxInformation.classList.toggle("show")
-                }
+                iconsButtons.forEach((button) => {
+                    if (target.classList.contains(button)) {
+                        const indexInformation = containerInformations.findIndex((information) => information.includes(`${button.split("-")[1]}`));
+                        const indexTarget = target.closest(".box-workout") as HTMLDivElement;
+                        const indexQuery = indexTarget.querySelector(`.${containerInformations[indexInformation]}`) as HTMLDivElement;
+                        indexQuery.classList.toggle("show")
+                    };
+                }) 
             });
         });
     });
@@ -43,5 +47,5 @@ function exitSectionAddIWorkouts() {
 export function sectionWorkouts() {
     openSectionAddWorkouts();
     exitSectionAddIWorkouts();
-    checkAndCancelWorkout();
+    showBoxActionInformation();
 };
