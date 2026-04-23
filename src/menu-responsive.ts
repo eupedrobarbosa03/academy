@@ -6,7 +6,7 @@ class Menu {
         this.navbar = document.querySelector(".navbar-container-options") as HTMLDivElement;
     };
 
-    mobile() {
+    responsive() {
         this.menu.addEventListener("click", () => this.navbar.classList.toggle("show"));
     };
 };

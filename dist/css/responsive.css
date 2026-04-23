@@ -76,7 +76,9 @@
 
     #section-container-addition-workouts,
     #section-container-addition-students,
-    #section-container-addition-instructors {
+    #section-container-addition-instructors,
+    #section-container-edit-students,
+    #section-container-edit-instructors {
         width: 95%;
     }
 

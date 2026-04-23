@@ -1,6 +1,3 @@
-class Instructor {
-}
-;
 class Section {
     constructor() { }
     ;
@@ -36,13 +33,47 @@ class Section {
         });
     }
     ;
+    openSectionEditStudents() {
+        const iconButtonEditInstructor = document.querySelectorAll(".icon-edit-instructor");
+        const sectionEditInstructor = document.querySelector("#section-container-edit-instructors");
+        iconButtonEditInstructor.forEach((button) => button.addEventListener("click", () => {
+            sectionEditInstructor.classList.add("show");
+        }));
+    }
+    ;
+}
+;
+class Instructor {
+    constructor() { }
+    ;
+    edit() {
+        const boxInstructor = document.querySelectorAll(".box-instructor");
+        boxInstructor.forEach((box) => box.addEventListener("click", (e) => {
+            const target = e.target;
+            if (target.classList.contains("icon-edit-instructor")) {
+                const indexTarget = target.closest(".box-instructor");
+                if (!indexTarget)
+                    return;
+                const inputName = document.getElementById("input-instructor-name-edit");
+                const inputCPF = document.querySelector("#input-instructor-cpf-edit");
+                const inputTelephone = document.querySelector("#input-instructor-telephone-edit");
+                inputName.value = 'Alessandro';
+                inputCPF.value = '123.456.789.10';
+                inputTelephone.value = "(61) 99131-3359";
+            }
+        }));
+    }
+    ;
 }
 ;
 const section = new Section();
+const instructor = new Instructor();
 export class Instructors {
     static actions() {
         section.showBoxActionInformation();
         section.openSectionAddInstructors();
+        section.openSectionEditStudents();
+        instructor.edit();
     }
     ;
 }

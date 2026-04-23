@@ -474,7 +474,8 @@
 .container-area-mark-to-workouts,
 .container-area-register-students,
 .container-area-register-instructors,
-.container-area-edit-students {
+.container-area-edit-students,
+.container-area-edit-instructors {
     margin-top: 40px;
     flex: 1;
     display: flex;
@@ -548,7 +549,8 @@ select.box-input-error {
 .container-button-save-workouts,
 .container-button-save-register-student,
 .container-button-save-register-instructor,
-.container-button-save-edit-student {
+.container-button-save-edit-student,
+.container-button-save-edit-instructor {
     flex: 1;
     display: flex;
     align-items: flex-end;
@@ -559,7 +561,8 @@ select.box-input-error {
 .button-save-workouts,
 .button-save-register-student,
 .button-save-register-instructor,
-.button-save-edit-student {
+.button-save-edit-student,
+.button-save-edit-instructor {
     background-color: rgba(56, 102, 255);
     color: #fff;
     border: none;
@@ -587,6 +590,7 @@ select.box-input-error {
     position: relative;
 }
 
-#input-student-cpf-edit {
+#input-student-cpf-edit,
+#input-instructor-cpf-edit {
     pointer-events: none;
 }
