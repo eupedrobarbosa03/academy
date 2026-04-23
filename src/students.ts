@@ -1,6 +1,4 @@
-import { sectionCloseAllAddOfCategory } from "./utils.js";
-
-class Student {};
+import { theme } from "./change-theme.js";
 
 class Section {
     constructor() {};
@@ -37,18 +35,50 @@ class Section {
         });
     };
 
-    closeSectionAddStudents() {
-        sectionCloseAllAddOfCategory();
+    openSectionEditStudents() {
+        const iconButtonEditStudent = document.querySelectorAll<HTMLDivElement>(".icon-edit-student");
+        const sectionEditStudent = document.querySelector("#section-container-edit-students") as HTMLDivElement;
+        iconButtonEditStudent.forEach((button) => button.addEventListener("click", () => {
+            sectionEditStudent.classList.add("show")
+        }));
     };
 
-}
+
+};
+
+class Student {
+    constructor() {};
+
+    edit() {
+        const boxStudent = document.querySelectorAll<HTMLDivElement>(".box-student");
+        boxStudent.forEach((box) => box.addEventListener("click", (e) => {
+            const target = e.target as HTMLDivElement;
+            if (target.classList.contains("icon-edit-student")) {
+                const indexTarget = target.closest(".box-student");
+                if (!indexTarget) return;
+                const inputName = document.getElementById("input-student-name-edit") as HTMLInputElement;
+                const inputCPF = document.querySelector("#input-student-cpf-edit") as HTMLInputElement;
+                const inputTelephone = document.querySelector("#input-student-telephone-edit") as HTMLInputElement;
+                console.log(inputName);
+                inputName.value = "Joãozin";
+                inputCPF.value = "123-456-789-10";
+                inputTelephone.value = "(61) 99131-3359"
+            }
+
+        }))
+    };
+
+};
+
 
 const section = new Section();
+const student = new Student();
 
 export class Students {
     static actions() {
         section.showBoxActionInformation();
         section.openSectionAddStudents();
-        section.closeSectionAddStudents();
+        section.openSectionEditStudents();
+        student.edit();
     };
 }

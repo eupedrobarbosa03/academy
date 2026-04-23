@@ -430,7 +430,8 @@
     font-size: .5rem;
 }
 
-.section-container-addition-items {
+.section-container-addition-items,
+.section-container-edit-items {
     background-color: #fffdfd;
     border-radius: 10px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, .20);
@@ -446,7 +447,8 @@
     overflow: auto;
 }
 
-.section-container-addition-items.show {
+.section-container-addition-items.show,
+.section-container-edit-items.show {
     display: flex;
     flex-direction: column;
     pointer-events: all;
@@ -471,7 +473,8 @@
 
 .container-area-mark-to-workouts,
 .container-area-register-students,
-.container-area-register-instructors {
+.container-area-register-instructors,
+.container-area-edit-students {
     margin-top: 40px;
     flex: 1;
     display: flex;
@@ -544,7 +547,8 @@ select.box-input-error {
 
 .container-button-save-workouts,
 .container-button-save-register-student,
-.container-button-save-register-instructor {
+.container-button-save-register-instructor,
+.container-button-save-edit-student {
     flex: 1;
     display: flex;
     align-items: flex-end;
@@ -554,7 +558,8 @@ select.box-input-error {
 
 .button-save-workouts,
 .button-save-register-student,
-.button-save-register-instructor {
+.button-save-register-instructor,
+.button-save-edit-student {
     background-color: rgba(56, 102, 255);
     color: #fff;
     border: none;
@@ -580,4 +585,8 @@ select.box-input-error {
     display: flex;
     gap: 10px;
     position: relative;
+}
+
+#input-student-cpf-edit {
+    pointer-events: none;
 }

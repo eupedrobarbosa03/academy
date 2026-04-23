@@ -115,7 +115,7 @@
                 </div>
             </div>
         </section>
-        <section data-section="academy-students" class="section-option section-academy-students" style="display: none;">
+        <section data-section="academy-students" class="section-option section-academy-students">
             <div class="container-actions-students">
                 <div class="container-search-students">
                     <div class="container-search-students">
@@ -144,7 +144,7 @@
                             </p>
                             <p class="element-theme">
                                 CPF:
-                                <span class="informations-students-box-student element-theme" id="info-cpf-student">123.345.678-10</span>
+                                <span class="informations-students-box-student info-cpf-student element-theme">123.345.678-10</span>
                             </p>
                             <p class="element-theme">
                                 Telefone
@@ -182,7 +182,7 @@
                             </p>
                             <p class="element-theme">
                                 CPF:
-                                <span class="informations-students-box-student element-theme">123.345.678-10</span>
+                                <span class="informations-students-box-student info-cpf-student element-theme">123.345.678-10</span>
                             </p>
                             <p class="element-theme">
                                 Telefone
@@ -208,7 +208,7 @@
                             </div>
                         </div>
                     </div>
-                                        <div class="box-student element-theme">
+                    <div class="box-student element-theme">
                         <div class="container-informations-students">
                             <p class="element-theme">
                                 Matrícula:
@@ -220,7 +220,7 @@
                             </p>
                             <p class="element-theme">
                                 CPF:
-                                <span class="informations-students-box-student element-theme">123.345.678-10</span>
+                                <span class="informations-students-box-student info-cpf-student element-theme">123.345.678-10</span>
                             </p>
                             <p class="element-theme">
                                 Telefone
@@ -249,7 +249,7 @@
                 </div>
             </div>
         </section>
-        <section data-section="academy-instructors" class="section-option section-academy-instructors">
+        <section data-section="academy-instructors" class="section-option section-academy-instructors" style="display: none;">
             <div class="container-actions-instructors">
                 <div class="container-search-instructors">
                     <div class="container-search-instructors">
@@ -274,7 +274,7 @@
                             </p>
                             <p class="element-theme">
                                 CPF:
-                                <span class="informations-instructors-box-instructor element-theme" id="info-cpf-instructor">123.345.678-10</span>
+                                <span class="informations-instructors-box-instructor info-cpf-instructor element-theme">123.345.678-10</span>
                             </p>
                             <p class="element-theme">
                                 Telefone
@@ -419,6 +419,41 @@
             </div>
             <div class="container-button-save-register-instructor">
                 <button class="button-save-register-instructor">Salvar</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container-edit-items element-theme" id="section-container-edit-students">
+        <i class="fa-solid fa-xmark close-the-section element-theme"></i>
+        <div class="container-area-edit-students">
+            <div class="container-inputs-students">
+                <div class="box-container-input">
+                    <label for="student-name-for-edit" class="element-theme">Nome do aluno</label>
+                    <input type="text" placeholder="Digite o nome do aluno" id="input-stundent-name-edit" class="element-theme">
+                    <p id="message-error-name-student-edit" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label class="element-theme">CPF</label>
+                    <input type="text" id="input-student-cpf-edit" class="element-theme">
+                </div>
+                <div class="box-container-input">
+                    <label for="student-telephone-for-edit" class="element-theme">Telefone</label>
+                    <input type="text" placeholder="Digite o telefone do aluno" id="input-student-telephone-edit" class="element-theme">
+                    <p id="message-error-telephone-student-edit" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="student-plan-for-edit" class="element-theme">Selecione um plano</label>
+                    <select id="student-plan-for-edit" class="element-theme">
+                        <option selected disabled class="element-theme">------------</option>
+                        <option value="basic" class="element-theme">Básico</option>
+                        <option value="plus" class="element-theme">Plus</option>
+                        <option value="ultra-plus" class="element-theme">Ultra Plus</option>
+                    </select>
+                    <p id="message-error-plan-student-edit" class="message-error"></p>
+                </div>
+            </div>
+            <div class="container-button-save-edit-student">
+                <button class="button-save-edit-student">Salvar</button>
             </div>
         </div>
     </section>

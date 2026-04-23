@@ -1,5 +1,3 @@
-import { sectionCloseAllAddOfCategory } from "./utils.js";
-
 class Workout {};
 
 class Section {
@@ -38,10 +36,6 @@ class Section {
         });
     };
 
-    closeSectionAddWorkouts() {
-        sectionCloseAllAddOfCategory();
-    }
-
 };
 
 const section = new Section();
@@ -49,7 +43,6 @@ const section = new Section();
 export class Workouts {
     static actions() {
         section.openSectionAddWorkouts();
-        section.closeSectionAddWorkouts();
         section.showBoxActionInformation();
     };
 };

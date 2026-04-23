@@ -1,4 +1,4 @@
-import { sectionCloseAllAddOfCategory } from "./utils.js";
+import { sectionCloseAllActionsOfCategory } from "./utils.js";
 class Instructor {
 }
 ;
@@ -38,7 +38,7 @@ class Section {
     }
     ;
     closeSectionAddInstructors() {
-        sectionCloseAllAddOfCategory();
+        sectionCloseAllActionsOfCategory();
     }
     ;
 }

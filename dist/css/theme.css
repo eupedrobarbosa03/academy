@@ -112,7 +112,8 @@ select.theme.box-input-error {
     border: 1px solid rgb(241, 71, 71);
 }
 
-.section-container-addition-items.theme {
+.section-container-addition-items.theme,
+.section-container-edit-items.theme {
     background-color: #1b1b1b;
 }
 
