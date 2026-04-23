@@ -1,3 +1,5 @@
+import { sectionCloseAllAddOfCategory } from "./utils.js";
+
 class Instructor {};
 
 class Section {
@@ -26,6 +28,19 @@ class Section {
             })
         }))
     };
+
+    openSectionAddInstructors() {
+        const buttonAddWStudents = document.querySelector(".button-to-register-instructors") as HTMLButtonElement;
+
+        buttonAddWStudents.addEventListener("click", () => {
+            const sectionAddWorkouts = document.querySelector("#section-container-addition-instructors") as HTMLDivElement;
+            sectionAddWorkouts.classList.add("show")
+        });
+    };
+
+    closeSectionAddInstructors() {
+        sectionCloseAllAddOfCategory();
+    };
 };
 
 const section = new Section();
@@ -33,5 +48,7 @@ const section = new Section();
 export class Instructors {
     static actions() {
         section.showBoxActionInformation();
+        section.openSectionAddInstructors();
+        section.closeSectionAddInstructors();
     };
 }

@@ -1,3 +1,4 @@
+import { sectionCloseAllAddOfCategory } from "./utils.js";
 class Instructor {
 }
 ;
@@ -28,12 +29,26 @@ class Section {
         }));
     }
     ;
+    openSectionAddInstructors() {
+        const buttonAddWStudents = document.querySelector(".button-to-register-instructors");
+        buttonAddWStudents.addEventListener("click", () => {
+            const sectionAddWorkouts = document.querySelector("#section-container-addition-instructors");
+            sectionAddWorkouts.classList.add("show");
+        });
+    }
+    ;
+    closeSectionAddInstructors() {
+        sectionCloseAllAddOfCategory();
+    }
+    ;
 }
 ;
 const section = new Section();
 export class Instructors {
     static actions() {
         section.showBoxActionInformation();
+        section.openSectionAddInstructors();
+        section.closeSectionAddInstructors();
     }
     ;
 }

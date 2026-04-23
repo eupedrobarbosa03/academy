@@ -32,7 +32,7 @@
     </header>
     <main class="main-container-academy">
         <nav class="navbar-container-options element-theme">
-            <button class="button-option element-theme" id="dashboard">Dashboard</button>
+            <button class="button-option element-theme option-selected" id="dashboard">Dashboard</button>
             <button class="button-option element-theme" id="academy-workouts">Treinos</button>
             <button class="button-option element-theme" id="academy-students">Alunos</button>
             <button class="button-option element-theme" id="academy-instructors">Instrutores</button>
@@ -119,7 +119,7 @@
             <div class="container-actions-students">
                 <div class="container-search-students">
                     <div class="container-search-students">
-                        <input type="text" id="input-search-students" placeholder="Pesquisar aluno por nome, CPF ou matrícula" class="element-theme">
+                        <input type="text" id="input-search-students" placeholder="Pesquisar aluno por nome, matrícula ou CPF" class="element-theme">
                         <button id="button-search-students">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
@@ -270,7 +270,7 @@
                         <div class="container-informations-instructors">
                             <p class="element-theme">
                                 Instrutor:
-                                <span class="informations-instructors-box-instructor element-theme">Alessandro</span>
+                                <span class="informations-instructors-box-instructor element-theme">Alessandro Rocha</span>
                             </p>
                             <p class="element-theme">
                                 CPF:
@@ -279,6 +279,10 @@
                             <p class="element-theme">
                                 Telefone
                                 <span class="informations-instructors-box-instructor element-theme">(61) 92345-4042</span>
+                            </p>
+                            <p class="element-theme">
+                                Especialidade
+                                <span class="informations-instructors-box-instructor element-theme">Costas</span>
                             </p>
                             <p class="element-theme">
                                 Status
@@ -384,6 +388,37 @@
             </div>
             <div class="container-button-save-register-student">
                 <button class="button-save-register-student">Salvar</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container-addition-items element-theme" id="section-container-addition-instructors">
+        <i class="fa-solid fa-xmark close-the-section element-theme"></i>
+        <div class="container-area-register-instructors">
+            <div class="container-inputs-instructors">
+                <div class="box-container-input">
+                    <label for="instructor-name-for-register" class="element-theme">Nome do instrutor</label>
+                    <input type="text" placeholder="Digite o nome do instrutor" id="input-instructor-name-register" class="element-theme">
+                    <p id="message-error-name-instructor" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="instructor-cpf-for-register" class="element-theme">CPF</label>
+                    <input type="text" placeholder="Digite o CPF do instrutor" id="input-instructor-cpf-register" class="element-theme">
+                    <p id="message-error-cpf-instructor" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="instructor-telephone-for-register" class="element-theme">Telefone</label>
+                    <input type="text" placeholder="Digite o telefone do instrutor" id="input-instrutor-telephone-register" class="element-theme">
+                    <p id="message-error-telephone-instructor" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="instructor-specialty-for-register" class="element-theme">Especialidade</label>
+                    <input type="text" placeholder="Digite a especialidade do instrutor" id="input-instrutor-specialty-register" class="element-theme">
+                    <p id="message-error-specialty-instructor" class="message-error"></p>
+                </div>
+            </div>
+            <div class="container-button-save-register-instructor">
+                <button class="button-save-register-instructor">Salvar</button>
             </div>
         </div>
     </section>

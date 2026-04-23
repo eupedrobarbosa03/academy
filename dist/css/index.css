@@ -543,7 +543,8 @@ select.box-input-error {
 }
 
 .container-button-save-workouts,
-.container-button-save-register-student {
+.container-button-save-register-student,
+.container-button-save-register-instructor {
     flex: 1;
     display: flex;
     align-items: flex-end;
@@ -552,7 +553,8 @@ select.box-input-error {
 }
 
 .button-save-workouts,
-.button-save-register-student {
+.button-save-register-student,
+.button-save-register-instructor {
     background-color: rgba(56, 102, 255);
     color: #fff;
     border: none;
