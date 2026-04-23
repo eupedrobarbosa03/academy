@@ -59,8 +59,9 @@ class Student {
                 const inputCPF = document.querySelector("#input-student-cpf-edit");
                 const inputTelephone = document.querySelector("#input-student-telephone-edit");
                 console.log(inputName);
-                inputName.value = "Joãozin";
-                inputCPF.value = "123-456-789-10";
+                console.log(inputCPF);
+                inputName.value = 'Pedro Henrique';
+                inputCPF.value = '123.456.789.10';
                 inputTelephone.value = "(61) 99131-3359";
             }
         }));

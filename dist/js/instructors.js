@@ -1,4 +1,3 @@
-import { sectionCloseAllActionsOfCategory } from "./utils.js";
 class Instructor {
 }
 ;
@@ -37,10 +36,6 @@ class Section {
         });
     }
     ;
-    closeSectionAddInstructors() {
-        sectionCloseAllActionsOfCategory();
-    }
-    ;
 }
 ;
 const section = new Section();
@@ -48,7 +43,6 @@ export class Instructors {
     static actions() {
         section.showBoxActionInformation();
         section.openSectionAddInstructors();
-        section.closeSectionAddInstructors();
     }
     ;
 }
