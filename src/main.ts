@@ -21,26 +21,15 @@ window.addEventListener("keyup", (e) => {
         const containerInformationsWorkouts = document.querySelector(".container-informations-workouts") as HTMLDivElement;
 
         const paragraph = document.createElement("p");
-        paragraph.classList.add("element-theme");
         paragraph.innerText = `Teste: `
 
         const spanInformationWorkout = document.createElement("span");
         spanInformationWorkout.classList.add("informations-workouts-box-workout");
-        spanInformationWorkout.classList.add("element-theme");
         spanInformationWorkout.innerText = "Teste 123";
 
         containerInformationsWorkouts.appendChild(paragraph)
         paragraph.appendChild(spanInformationWorkout);
-
-        theme.changeForNewElements("container-informations-workouts p", "all");
-        theme.changeForNewElements("container-informations-workouts p span", "all");
     }
 })
 
-const buttonChangeTheme = document.querySelector("[data-change-theme]") as HTMLButtonElement;
-
-buttonChangeTheme.addEventListener("click", () => {
-    theme.changeForNewElements("container-informations-workouts p", "all");
-    theme.changeForNewElements("container-informations-workouts p span", "all");
-});
 

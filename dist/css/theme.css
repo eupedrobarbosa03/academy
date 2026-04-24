@@ -1,146 +1,149 @@
 body.theme {
     background-color: #0f0f0f;
     transition: .5s;
-}
-
-.title-container h2.theme {
-    color: #fff;
-    transition: .5s;
-}
-
-.header-container-academy.theme {
-    background-color: #050505;
-    transition: .5s;
-}
-
-.user.theme {
-    color: #fff;
-    transition: .5s;
-}
-
-.box-information.theme {
-    background-color: rgb(19, 19, 19);
-    transition: .3s;
-    &:hover {
-        background-color: rgba(19, 19, 19, .1);
+    
+    .title-container h2 {
+        color: #fff;
+        transition: .5s;
     }
-}
 
-.box-information h2.theme {
-    color: #fff;
-}
-
-.navbar-container-options.theme {
-    background-color: #000;
-}
-
-.button-option.theme {
-    background-color: rgba(19, 19, 19);
-    &:hover {
-        background-color: rgba(19, 19, 19, .5);
+    .header-container-academy {
+        background-color: #050505;
+        transition: .5s;
     }
-    &.option-selected {
-        background-color: rgba(19, 19, 19, .5);
+
+    .user {
+        color: #fff;
+        transition: .5s;
     }
-}
 
-#menu-navbar.theme {
-    color: #fff;
-    &hover {
-        background-color: rgba(19, 19, 19, .5);
+    .box-information {
+        background-color: rgb(19, 19, 19);
+        transition: .3s;
+        &:hover {
+            background-color: rgba(19, 19, 19, .1);
+        }
     }
-}
 
-.box-workout.theme,
-.box-student.theme,
-.box-instructor.theme {
-    background-color: #1b1b1b;
-    transition: .5s;
-    &:hover {
-        background-color: rgba(19, 19, 19, .5);
+    .box-information h2 {
+        color: #fff;
     }
-}
 
-.box-workout p.theme,
-.box-student p.theme,
-.box-instructor p.theme {
-    font-size: .68rem;
-    color: rgba(224, 224, 224, 0.5);
-}
-
-.box-workout p span.theme,
-.box-student p span.theme,
-.box-instructor p span.theme {
-    color: rgba(255, 255, 255, 0.856);
-}
-
-#input-search-workouts.theme,
-#input-search-students.theme,
-#input-search-instructors.theme {
-    border-top: 1px solid rgba(187, 187, 187, 0.2);
-    border-right: 0px;
-    border-left: 1px solid rgba(187, 187, 187, 0.2);
-    border-bottom: 1px solid rgba(187, 187, 187, 0.2);
-    color: #fff;
-}
-
-.box-container-input input.theme {
-    border: none;
-    border: 1px solid rgba(187, 187, 187, 0.2);
-    color: rgba(255, 255, 255, 0.582);
-}
-
-.box-container-input select.theme {
-    color: rgba(255, 255, 255, 0.582);
-    border: 1px solid rgba(187, 187, 187, 0.2);
-}
-
-.box-container-input label.theme {
-    color: rgba(255, 255, 255, 0.582);
-}
-
-option.theme {
-    background-color: rgba(0, 0, 0, .90);
-    color: rgba(255, 253, 253, .50)
-}
-
-.box-container-input input.theme.box-input-error {
-    border: 1px solid rgb(241, 71, 71);
-}
-
-select.theme.box-input-error {
-    border: 1px solid rgb(241, 71, 71);
-}
-
-.section-container-addition-items.theme,
-.section-container-edit-items.theme {
-    background-color: #1b1b1b;
-}
-
-.close-the-section.theme {
-    color: rgba(255, 255, 255, 0.562);
-    &:hover {
-        color: rgba(255, 0, 0, 0.767);
+    .navbar-container-options {
+        background-color: #000;
     }
-}
 
-.icon-cancel-workout.theme,
-.icon-check-workout.theme,
-.icon-remove-student.theme,
-.icon-edit-student.theme,
-.icon-remove-instructor.theme,
-.icon-edit-instructor.theme {
-    color: rgba(255, 255, 255, 0.562);
-    &:hover {
-        color: rgba(255, 255, 255, 0.2)
+    .button-option {
+        background-color: rgba(19, 19, 19);
+        &:hover {
+            background-color: rgba(19, 19, 19, .5);
+        }
+        &.option-selected {
+            background-color: rgba(19, 19, 19, .5);
+        }
     }
+
+    #menu-navbar {
+        color: #fff;
+        &hover {
+            background-color: rgba(19, 19, 19, .5);
+        }
+    }
+
+    .box-workout,
+    .box-student,
+    .box-instructor {
+        background-color: #1b1b1b;
+        transition: .5s;
+        &:hover {
+            background-color: rgba(19, 19, 19, .5);
+        }
+    }
+
+    .box-workout p,
+    .box-student p,
+    .box-instructor p {
+        font-size: .68rem;
+        color: rgba(224, 224, 224, 0.5);
+    }
+
+    .box-workout p span,
+    .box-student p span,
+    .box-instructor p span {
+        color: rgba(255, 255, 255, 0.856);
+    }
+
+    #input-search-workouts,
+    #input-search-students,
+    #input-search-instructors {
+        border-top: 1px solid rgba(187, 187, 187, 0.2);
+        border-right: 0px;
+        border-left: 1px solid rgba(187, 187, 187, 0.2);
+        border-bottom: 1px solid rgba(187, 187, 187, 0.2);
+        color: #fff;
+    }
+
+    .box-container-input input {
+        border: none;
+        border: 1px solid rgba(187, 187, 187, 0.2);
+        color: rgba(255, 255, 255, 0.582);
+    }
+
+    .box-container-input select {
+        color: rgba(255, 255, 255, 0.582);
+        border: 1px solid rgba(187, 187, 187, 0.2);
+    }
+
+    .box-container-input label {
+        color: rgba(255, 255, 255, 0.582);
+    }
+
+    option {
+        background-color: rgba(0, 0, 0, .90);
+        color: rgba(255, 253, 253, .50)
+    }
+
+    .box-container-input input.box-input-error {
+        border: 1px solid rgb(241, 71, 71);
+    }
+
+    select.box-input-error {
+        border: 1px solid rgb(241, 71, 71);
+    }
+
+    .section-container-addition-items,
+    .section-container-edit-items {
+        background-color: #1b1b1b;
+    }
+
+    .close-the-section {
+        color: rgba(255, 255, 255, 0.562);
+        &:hover {
+            color: rgba(255, 0, 0, 0.767);
+        }
+    }
+
+    .icon-cancel-workout,
+    .icon-check-workout,
+    .icon-remove-student,
+    .icon-edit-student,
+    .icon-remove-instructor,
+    .icon-edit-instructor {
+        color: rgba(255, 255, 255, 0.562);
+        &:hover {
+            color: rgba(255, 255, 255, 0.2)
+        }
+    }
+
+    .information-action {
+        background-color: #1b1b1b;
+        color: #fff;
+    }
+
+    .information-action p {
+        font-size: .5rem;
+    }
+
+
 }
 
-.information-action.theme {
-    background-color: #1b1b1b;
-    color: #fff;
-}
-
-.information-action.theme p {
-    font-size: .5rem;
-}

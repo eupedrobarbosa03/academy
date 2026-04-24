@@ -1,31 +1,29 @@
 if (!localStorage.getItem("theme-academy"))
     localStorage.setItem("theme-academy", "light");
 export class Theme {
-    listElements;
     buttonChangeTheme;
     iconChangeTheme;
     academyIcon;
     constructor() {
-        this.listElements = document.querySelectorAll(".element-theme");
         this.buttonChangeTheme = document.querySelector("[data-change-theme]");
         this.iconChangeTheme = document.querySelector("#icon-change-theme");
         this.academyIcon = document.querySelector("#icon-academy");
     }
     ;
     dark() {
+        document.body.classList.add("theme");
         localStorage.setItem("theme-academy", "dark");
         this.iconChangeTheme.removeAttribute("class");
         this.iconChangeTheme.setAttribute("class", "fa-solid fa-sun sun");
         this.academyIcon.src = `assets/icons/academy_icon_light.png`;
-        this.listElements.forEach((element) => element.classList.add("theme"));
     }
     ;
     light() {
+        document.body.classList.remove("theme");
         localStorage.setItem("theme-academy", "light");
         this.iconChangeTheme.removeAttribute("class");
         this.iconChangeTheme.setAttribute("class", "fa-solid fa-moon moon");
         this.academyIcon.src = `assets/icons/academy_icon_dark.png`;
-        this.listElements.forEach((element) => element.classList.remove("theme"));
     }
     ;
     storage() {
@@ -36,26 +34,6 @@ export class Theme {
         return getTheme;
     }
     ;
-    changeForNewElements(element, queryType) {
-        const storageTheme = this.storage();
-        const query = {
-            single(element) {
-                const elementQuery = document.querySelector(`.${element}`);
-                storageTheme === "light"
-                    ? elementQuery.classList.remove("theme")
-                    : elementQuery.classList.add("theme");
-            },
-            all(element) {
-                const elementsQuery = document.querySelectorAll(`.${element}`);
-                elementsQuery.forEach((element) => {
-                    storageTheme === "light"
-                        ? element.classList.remove("theme")
-                        : element.classList.add("theme");
-                });
-            },
-        };
-        return query[queryType](element);
-    }
     change() {
         this.buttonChangeTheme.addEventListener("click", () => {
             this.storage() === "light" ? this.dark() : this.light();
