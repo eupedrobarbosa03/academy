@@ -1,8 +1,14 @@
 if (!localStorage.getItem("theme-academy")) localStorage.setItem("theme-academy", "light");
 
-type Element = HTMLDivElement | HTMLImageElement | HTMLParagraphElement | HTMLBodyElement;
+type Element = HTMLDivElement | HTMLImageElement | HTMLParagraphElement | HTMLBodyElement | HTMLInputElement;
 
-class Theme {
+type NewElementTheme = {
+    className: string;
+    query: "single" | "all";
+    elementQuery: any;
+};
+
+export class Theme {
     private listElements;
     private buttonChangeTheme;
     private iconChangeTheme;
@@ -37,12 +43,41 @@ class Theme {
         return getTheme;
     };
 
+    changeForNewElements(element: string, queryType: "single" | "all") {
+
+        const storageTheme = this.storage();
+
+        type Query = {
+            single: (element: string) => void;
+            all: (element: string) => void;
+        }
+
+        const query: Query = {
+            single(element) {
+                const elementQuery = document.querySelector(`.${element}`) as Element;
+                storageTheme === "light"
+                ? elementQuery.classList.remove("theme")
+                : elementQuery.classList.add("theme");
+            },
+            all(element) {
+                const elementsQuery = document.querySelectorAll<Element>(`.${element}`);
+                elementsQuery.forEach((element) => {
+                    storageTheme === "light"
+                    ? element.classList.remove("theme")
+                    : element.classList.add("theme")
+                })
+            },
+        }
+
+        return query[queryType](element);
+
+    }
+
     change() {
         this.buttonChangeTheme.addEventListener("click", () => {
             this.storage() === "light" ? this.dark() : this.light();
         });
     }
-
 };
 
 export const theme = new Theme();
