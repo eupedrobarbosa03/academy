@@ -42,11 +42,6 @@
         height: 60px;
         font-size: 1rem;
         gap: 20px;
-        &:focus {
-            .navbar-container-options {
-                display: none;
-            }
-        }
     }
 
     .button-option i {

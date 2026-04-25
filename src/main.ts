@@ -1,5 +1,5 @@
 import { section } from "./change-section.js";
-import { Theme, theme } from "./change-theme.js";
+import { theme } from "./change-theme.js";
 import { menu } from "./menu-responsive.js";
 import { Students } from "./students.js";
 import { Workouts } from "./workouts.js";
