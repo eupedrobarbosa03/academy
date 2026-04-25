@@ -46,11 +46,13 @@ class Section {
 };
 
 class Instructor {
-    constructor() {};
+    private boxInstructor;;
+    constructor() {
+        this.boxInstructor = document.querySelectorAll<HTMLDivElement>(".box-instructor");
+    };
     
     edit() {
-        const boxInstructor = document.querySelectorAll<HTMLDivElement>(".box-instructor");
-        boxInstructor.forEach((box) => box.addEventListener("click", (e) => {
+        this.boxInstructor.forEach((box) => box.addEventListener("click", (e) => {
             const target = e.target as HTMLDivElement;
             if (target.classList.contains("icon-edit-instructor")) {
                 const indexTarget = target.closest(".box-instructor");
@@ -61,6 +63,18 @@ class Instructor {
                 inputName.value = 'Alessandro'
                 inputCPF.value = '123.456.789.10'
                 inputTelephone.value = "(61) 99131-3359"
+            }
+
+        }))
+    };
+
+    delete() {
+        this.boxInstructor.forEach((box) => box.addEventListener("click", (e) => {
+            const target = e.target as HTMLDivElement;
+            if (target.classList.contains("icon-remove-instructor")) {
+                const indexTarget = target.closest(".box-instructor");
+                if (!indexTarget) return;
+                indexTarget.remove();
             }
 
         }))
@@ -76,5 +90,6 @@ export class Instructors {
         section.openSectionAddInstructors();
         section.openSectionEditStudents();
         instructor.edit();
+        instructor.delete();
     };
 }

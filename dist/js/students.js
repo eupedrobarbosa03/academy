@@ -67,6 +67,19 @@ class Student {
         }));
     }
     ;
+    delete() {
+        const boxStudent = document.querySelectorAll(".box-student");
+        boxStudent.forEach((box) => box.addEventListener("click", (e) => {
+            const target = e.target;
+            if (target.classList.contains("icon-remove-student")) {
+                const indexTarget = target.closest(".box-student");
+                if (!indexTarget)
+                    return;
+                indexTarget.remove();
+            }
+        }));
+    }
+    ;
 }
 ;
 const section = new Section();
@@ -77,6 +90,7 @@ export class Students {
         section.openSectionAddStudents();
         section.openSectionEditStudents();
         student.edit();
+        student.delete();
     }
     ;
 }

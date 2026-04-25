@@ -1,4 +1,39 @@
 class Workout {
+    buttonConclude;
+    buttonCancel;
+    constructor() {
+        this.buttonConclude = document.querySelectorAll(".icon-conclude-workout");
+        this.buttonCancel = document.querySelectorAll(".icon-cancel-workout");
+    }
+    ;
+    conclude() {
+        const dashboardInformationConcludeWorkout = document.querySelector("#total-workouts-conclude");
+        dashboardInformationConcludeWorkout;
+        this.buttonConclude.forEach((button) => button.addEventListener("click", (e) => {
+            const target = e.target;
+            if (target.classList.contains("icon-conclude-workout")) {
+                const targetIndex = target.closest(".box-workout");
+                if (!targetIndex)
+                    return;
+                targetIndex.remove();
+                return 1;
+            }
+        }));
+    }
+    ;
+    cancel() {
+        this.buttonCancel.forEach((button) => button.addEventListener("click", (e) => {
+            const target = e.target;
+            if (target.classList.contains("icon-cancel-workout")) {
+                const targetIndex = target.closest(".box-workout");
+                if (!targetIndex)
+                    return;
+                targetIndex.remove();
+                return 1;
+            }
+        }));
+    }
+    ;
 }
 ;
 class Section {
@@ -7,9 +42,9 @@ class Section {
     showBoxActionInformation() {
         const boxWorkout = document.querySelectorAll(".box-workout");
         const events = ["mouseover", "mouseout"];
-        const iconsButtons = ["icon-cancel-workout", "icon-check-workout"];
+        const iconsButtons = ["icon-cancel-workout", "icon-conclude-workout"];
         const containerInformations = [
-            "information-action-check",
+            "information-action-conclude",
             "information-action-cancel"
         ];
         boxWorkout.forEach((workout) => events.forEach((typeEvent) => {
@@ -39,10 +74,13 @@ class Section {
 }
 ;
 const section = new Section();
+const workout = new Workout();
 export class Workouts {
     static actions() {
         section.openSectionAddWorkouts();
         section.showBoxActionInformation();
+        workout.conclude();
+        workout.cancel();
     }
     ;
 }

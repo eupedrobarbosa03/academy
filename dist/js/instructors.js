@@ -44,11 +44,14 @@ class Section {
 }
 ;
 class Instructor {
-    constructor() { }
+    boxInstructor;
+    ;
+    constructor() {
+        this.boxInstructor = document.querySelectorAll(".box-instructor");
+    }
     ;
     edit() {
-        const boxInstructor = document.querySelectorAll(".box-instructor");
-        boxInstructor.forEach((box) => box.addEventListener("click", (e) => {
+        this.boxInstructor.forEach((box) => box.addEventListener("click", (e) => {
             const target = e.target;
             if (target.classList.contains("icon-edit-instructor")) {
                 const indexTarget = target.closest(".box-instructor");
@@ -64,6 +67,18 @@ class Instructor {
         }));
     }
     ;
+    delete() {
+        this.boxInstructor.forEach((box) => box.addEventListener("click", (e) => {
+            const target = e.target;
+            if (target.classList.contains("icon-remove-instructor")) {
+                const indexTarget = target.closest(".box-instructor");
+                if (!indexTarget)
+                    return;
+                indexTarget.remove();
+            }
+        }));
+    }
+    ;
 }
 ;
 const section = new Section();
@@ -74,6 +89,7 @@ export class Instructors {
         section.openSectionAddInstructors();
         section.openSectionEditStudents();
         instructor.edit();
+        instructor.delete();
     }
     ;
 }
