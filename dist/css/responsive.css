@@ -10,7 +10,30 @@
     }
 }
 
-@media screen and (max-width: 844px) {
+@media (min-width: 768px) and (max-width: 1100px) {
+    .button-option {
+        border: 1px solid red;
+    }
+
+    .navbar-container-options {
+        flex: 1.6;
+        &:hover {
+            flex: 1.8;
+        }
+    }
+
+    .box-workout,
+    .box-student,
+    .box-instructor {
+        overflow-x: auto;
+        overflow-y: hidden;
+        height: auto;
+    }
+
+}
+
+
+@media screen and (max-width: 767px) {
 
     body {
         overflow: auto;
