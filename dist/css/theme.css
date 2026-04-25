@@ -35,13 +35,13 @@ body.theme {
 
     .button-option {
         color: #fff;
-        background-color: rgba(19, 19, 19);
+        background-color: rgba(19, 19, 19, .60);
         &:hover {
-            background-color: rgba(19, 19, 19, .5);
+            background-color: rgba(19, 19, 19, .30);
             color: #fff;
         }
         &.option-selected {
-            background-color: rgba(19, 19, 19, .5);
+            background-color: rgba(19, 19, 19, .30);
             color: #fff;
         }
     }
