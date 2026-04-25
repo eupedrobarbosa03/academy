@@ -99,12 +99,15 @@
     transition: .5s;
     &:hover {
         flex: 1.3;
+        .button-option {
+            width: 160px;
+        }
     }
 }
 
 .button-option {
-    background-color: rgba(33, 131, 223);
-    color: #fffdfd;
+    background-color: rgb(207, 207, 207, .20);
+    color: #000;
     border: none;
     width: 140px;
     height: 40px;
@@ -112,17 +115,17 @@
     text-align: left;
     font-size: .7rem;
     padding: .9rem 1.1rem; 
-    border-radius: 20px;
     display: flex;
     align-items: center;
     transition: .5s;
+    border-radius: 10px;
     gap: 10px;
     cursor: pointer;
     &:hover {
-        background-color: rgba(33, 131, 223, .80);
+        background-color: rgb(207, 207, 207, .50);
     }
     &.option-selected {
-        background-color: rgba(33, 131, 223, .80);
+        background-color: rgb(207, 207, 207, .50);
     }
 }
 
@@ -139,13 +142,14 @@
 
 .section-container-informations-academy {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 .informations-academy {
-    flex: 1;
     display: flex;
     gap: 10px;
-    height: 550px;
     flex-wrap: wrap;
     overflow: auto;
     align-items: center;
@@ -155,14 +159,14 @@
 .box-information {
     height: 150px;
     width: 300px;
-    background-color: rgba(255, 253, 253);
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, .20);
+    background-color: rgb(207, 207, 207, .20);
+    border: 1px solid rgba(51, 51, 51, 0.63);
     transition: .5s;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     display: flex;
     flex-direction: column;
     padding: 1.5rem 0;
-    border-radius: 10px;
+    border-radius: 5px;
     &:hover {
         background-color: rgba(255, 253, 253, .10);
     }
@@ -201,10 +205,6 @@
 
 #total-workouts-canceled {
     color: rgba(250, 25, 25, 0.849);
-}
-
-.total-payment {
-    font-size: 2.5rem;
 }
 
 .section-academy-workouts,
