@@ -20,6 +20,7 @@ class Dashboard {
                     this.students.textContent = `${currentNumber + 1}`;
                     return;
                 }
+                ;
                 this.students.textContent = `${currentNumber - 1}`;
             },
             instructors: () => {
@@ -28,6 +29,7 @@ class Dashboard {
                     this.instructors.textContent = `${currentNumber + 1}`;
                     return;
                 }
+                ;
                 this.instructors.textContent = `${currentNumber - 1}`;
             },
             workouts: () => {

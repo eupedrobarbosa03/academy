@@ -20,16 +20,14 @@ class Dashboard {
                 if (type === "create") {
                     this.students.textContent = `${currentNumber + 1}`;     
                     return;
-                }
-                this.students.textContent = `${currentNumber - 1}`
+                }; this.students.textContent = `${currentNumber - 1}`
             },
             instructors: () => {
                 const currentNumber = Number(this.instructors.textContent);
                 if (type === "create") {
                     this.instructors.textContent = `${currentNumber + 1}`;     
                     return;
-                }
-                this.instructors.textContent = `${currentNumber - 1}`  
+                }; this.instructors.textContent = `${currentNumber - 1}`  
             },
             workouts: () => {
                 const currentNumberWorkoutsConclude = Number(this.concludeWorkouts.textContent)
@@ -37,8 +35,7 @@ class Dashboard {
                 if (type === "conclude") {
                     this.concludeWorkouts.textContent = `${currentNumberWorkoutsConclude + 1}`
                     return;
-                };
-                this.canceledWorkouts.textContent = `${currentNumberWorkoutsCanceled - 1}`
+                }; this.canceledWorkouts.textContent = `${currentNumberWorkoutsCanceled - 1}`
             }
         }
     };
