@@ -1,3 +1,4 @@
+import { dashboard } from "./dashboard.js";
 class Section {
     constructor() { }
     ;
@@ -75,6 +76,7 @@ class Instructor {
                 if (!indexTarget)
                     return;
                 indexTarget.remove();
+                dashboard.update("delete").instructors();
             }
         }));
     }

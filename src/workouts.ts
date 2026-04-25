@@ -1,4 +1,4 @@
-
+import { dashboard } from "./dashboard.js";
 
 class Workout {
     private buttonConclude;
@@ -9,15 +9,13 @@ class Workout {
     };
 
     conclude() {
-        const dashboardInformationConcludeWorkout = document.querySelector("#total-workouts-conclude") as HTMLDivElement;
-        dashboardInformationConcludeWorkout
         this.buttonConclude.forEach((button) => button.addEventListener("click", (e) => {
             const target = e.target as HTMLDivElement;
             if (target.classList.contains("icon-conclude-workout")) {
                 const targetIndex = target.closest(".box-workout");
                 if (!targetIndex) return;
                 targetIndex.remove();
-                return 1;
+                dashboard.update('conclude').workouts();
             }
         }))
     };
@@ -29,7 +27,7 @@ class Workout {
                 const targetIndex = target.closest(".box-workout");
                 if (!targetIndex) return;
                 targetIndex.remove();
-                return 1
+                dashboard.update("cancel").workouts()
             }
         }))
     };

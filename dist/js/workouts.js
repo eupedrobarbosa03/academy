@@ -1,3 +1,4 @@
+import { dashboard } from "./dashboard.js";
 class Workout {
     buttonConclude;
     buttonCancel;
@@ -7,8 +8,6 @@ class Workout {
     }
     ;
     conclude() {
-        const dashboardInformationConcludeWorkout = document.querySelector("#total-workouts-conclude");
-        dashboardInformationConcludeWorkout;
         this.buttonConclude.forEach((button) => button.addEventListener("click", (e) => {
             const target = e.target;
             if (target.classList.contains("icon-conclude-workout")) {
@@ -16,7 +15,7 @@ class Workout {
                 if (!targetIndex)
                     return;
                 targetIndex.remove();
-                return 1;
+                dashboard.update('conclude').workouts();
             }
         }));
     }
@@ -29,7 +28,7 @@ class Workout {
                 if (!targetIndex)
                     return;
                 targetIndex.remove();
-                return 1;
+                dashboard.update("cancel").workouts();
             }
         }));
     }

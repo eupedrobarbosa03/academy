@@ -1,4 +1,4 @@
-import { theme } from "./change-theme.js";
+import { dashboard } from "./dashboard.js";
 
 class Section {
     constructor() {};
@@ -78,6 +78,7 @@ class Student {
                 const indexTarget = target.closest(".box-student");
                 if (!indexTarget) return;
                 indexTarget.remove();
+                dashboard.update("delete").students();
             }
         }))
     };
