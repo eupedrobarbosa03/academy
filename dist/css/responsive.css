@@ -11,6 +11,11 @@
 }
 
 @media (min-width: 768px) and (max-width: 1100px) {
+
+    body {
+        overflow: auto;
+    }
+
     .button-option {
         border: 1px solid red;
     }
