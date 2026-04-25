@@ -32,7 +32,10 @@ class Dashboard {
             workouts: () => {
                 const currentNumberWorkoutsConclude = Number(this.concludeWorkouts.textContent)
                 const currentNumberWorkoutsCanceled = Number(this.canceledWorkouts.textContent)
-                if (type === "conclude") {
+                if (type === "create") {
+                    const currentNumber = Number(this.workouts.textContent);
+                    this.workouts.textContent = `${currentNumber + 1}`;
+                } else if (type === "conclude") {
                     this.concludeWorkouts.textContent = `${currentNumberWorkoutsConclude + 1}`
                     return;
                 }; this.canceledWorkouts.textContent = `${currentNumberWorkoutsCanceled - 1}`
