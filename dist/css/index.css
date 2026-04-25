@@ -116,13 +116,19 @@
     display: flex;
     align-items: center;
     transition: .5s;
+    gap: 10px;
     cursor: pointer;
     &:hover {
-        background-color: rgba(33, 131, 223, .70);
+        background-color: rgba(33, 131, 223, .80);
     }
     &.option-selected {
-        background-color: rgba(33, 131, 223, .70);
+        background-color: rgba(33, 131, 223, .80);
     }
+}
+
+.button-option i {
+    font-size: .8rem;
+    width: 20%;
 }
 
 .section-option {

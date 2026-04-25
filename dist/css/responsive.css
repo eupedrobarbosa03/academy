@@ -36,10 +36,22 @@
         display: flex;
     }
 
+
     .button-option {
-        width: 350px;
+        width: 300px;
         height: 60px;
         font-size: 1rem;
+        gap: 20px;
+        &:focus {
+            .navbar-container-options {
+                display: none;
+            }
+        }
+    }
+
+    .button-option i {
+        width: 5%;
+        font-size: 1.1rem;
     }
 
 
