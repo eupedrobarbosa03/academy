@@ -313,11 +313,11 @@
 .students,
 .instructors {
     height: 470px;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    overflow: hidden;
 }
 
 .box-workout,

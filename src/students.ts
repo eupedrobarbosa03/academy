@@ -3,7 +3,7 @@ import { dashboard } from "./dashboard.js";
 class Section {
     constructor() {};
 
-    showBoxActionInformation() {
+    static showBoxActionInformation() {
         const boxStudent = document.querySelectorAll<HTMLDivElement>(".box-student");
         const events = ["mouseover", "mouseout"]
         const iconsButtons = ["icon-remove-student", "icon-edit-student"];
@@ -12,7 +12,7 @@ class Section {
             "information-action-edit-student"
         ];
         boxStudent.forEach((box) => events.forEach((typeEvent) => {
-            box.addEventListener(typeEvent, (e) => {
+            document.body.addEventListener(typeEvent, (e) => {
                 const target = e.target as HTMLDivElement;
                 iconsButtons.forEach((button) => {
                     if (target.classList.contains(button)) {
@@ -26,20 +26,24 @@ class Section {
         }))
     };
 
-    openSectionAddStudents() {
+    static openSectionAddStudents() {
         const buttonAddWStudents = document.querySelector(".button-to-register-students") as HTMLButtonElement;
-
         buttonAddWStudents.addEventListener("click", () => {
             const sectionAddWorkouts = document.querySelector("#section-container-addition-students") as HTMLDivElement;
             sectionAddWorkouts.classList.add("show")
         });
     };
 
-    openSectionEditStudents() {
-        const iconButtonEditStudent = document.querySelectorAll<HTMLDivElement>(".icon-edit-student");
-        const sectionEditStudent = document.querySelector("#section-container-edit-students") as HTMLDivElement;
-        iconButtonEditStudent.forEach((button) => button.addEventListener("click", () => {
-            sectionEditStudent.classList.add("show")
+    static openSectionEditStudents() {
+        const sectionEditStudents = document.querySelector("#section-container-edit-students") as HTMLDivElement;
+        const boxStudent = document.querySelectorAll<HTMLDivElement>(".box-student");
+        boxStudent.forEach((box) => document.body.addEventListener("click", (e) => {
+            const target = e.target as HTMLDivElement;
+            if (target.classList.contains("icon-edit-student")) {
+                const indexTarget = target.closest(".box-student");
+                if (!indexTarget) return;
+                sectionEditStudents.classList.add("show");
+            }
         }));
     };
 
@@ -51,7 +55,7 @@ class Student {
 
     edit() {
         const boxStudent = document.querySelectorAll<HTMLDivElement>(".box-student");
-        boxStudent.forEach((box) => box.addEventListener("click", (e) => {
+        boxStudent.forEach((box) => document.body.addEventListener("click", (e) => {
             const target = e.target as HTMLDivElement;
             if (target.classList.contains("icon-edit-student")) {
                 const indexTarget = target.closest(".box-student");
@@ -72,7 +76,7 @@ class Student {
 
     delete() {
         const boxStudent = document.querySelectorAll<HTMLDivElement>(".box-student");
-        boxStudent.forEach((box) => box.addEventListener("click", (e) => {
+        boxStudent.forEach((box) => document.body.addEventListener("click", (e) => {
             const target = e.target as HTMLDivElement;
             if (target.classList.contains("icon-remove-student")) {
                 const indexTarget = target.closest(".box-student");
@@ -86,14 +90,13 @@ class Student {
 };
 
 
-const section = new Section();
 const student = new Student();
 
 export class Students {
     static actions() {
-        section.showBoxActionInformation();
-        section.openSectionAddStudents();
-        section.openSectionEditStudents();
+        Section.showBoxActionInformation();
+        Section.openSectionAddStudents();
+        Section.openSectionEditStudents();
         student.edit();
         student.delete();
     };
