@@ -2,7 +2,7 @@ import { dashboard } from "./dashboard.js";
 class Section {
     constructor() { }
     ;
-    showBoxActionInformation() {
+    static showBoxActionInformation() {
         const boxWorkout = document.querySelectorAll(".box-instructor");
         const events = ["mouseover", "mouseout"];
         const iconsButtons = ["icon-remove-instructor", "icon-edit-instructor"];
@@ -11,7 +11,7 @@ class Section {
             "information-action-edit-instructor"
         ];
         boxWorkout.forEach((workout) => events.forEach((typeEvent) => {
-            workout.addEventListener(typeEvent, (e) => {
+            document.body.addEventListener(typeEvent, (e) => {
                 const target = e.target;
                 iconsButtons.forEach((button) => {
                     if (target.classList.contains(button)) {
@@ -26,7 +26,7 @@ class Section {
         }));
     }
     ;
-    openSectionAddInstructors() {
+    static openSectionAddInstructors() {
         const buttonAddWStudents = document.querySelector(".button-to-register-instructors");
         buttonAddWStudents.addEventListener("click", () => {
             const sectionAddWorkouts = document.querySelector("#section-container-addition-instructors");
@@ -34,11 +34,17 @@ class Section {
         });
     }
     ;
-    openSectionEditStudents() {
-        const iconButtonEditInstructor = document.querySelectorAll(".icon-edit-instructor");
-        const sectionEditInstructor = document.querySelector("#section-container-edit-instructors");
-        iconButtonEditInstructor.forEach((button) => button.addEventListener("click", () => {
-            sectionEditInstructor.classList.add("show");
+    static openSectionEditStudents() {
+        const sectionEditInstructors = document.querySelector("#section-container-edit-instructors");
+        const boxInstructor = document.querySelectorAll(".box-instructor");
+        boxInstructor.forEach((box) => document.body.addEventListener("click", (e) => {
+            const target = e.target;
+            if (target.classList.contains("icon-edit-instructor")) {
+                const indexTarget = target.closest(".box-instructor");
+                if (!indexTarget)
+                    return;
+                sectionEditInstructors.classList.add("show");
+            }
         }));
     }
     ;
@@ -52,7 +58,7 @@ class Instructor {
     }
     ;
     edit() {
-        this.boxInstructor.forEach((box) => box.addEventListener("click", (e) => {
+        this.boxInstructor.forEach((box) => document.body.addEventListener("click", (e) => {
             const target = e.target;
             if (target.classList.contains("icon-edit-instructor")) {
                 const indexTarget = target.closest(".box-instructor");
@@ -69,7 +75,7 @@ class Instructor {
     }
     ;
     delete() {
-        this.boxInstructor.forEach((box) => box.addEventListener("click", (e) => {
+        this.boxInstructor.forEach((box) => document.body.addEventListener("click", (e) => {
             const target = e.target;
             if (target.classList.contains("icon-remove-instructor")) {
                 const indexTarget = target.closest(".box-instructor");
@@ -83,13 +89,12 @@ class Instructor {
     ;
 }
 ;
-const section = new Section();
 const instructor = new Instructor();
 export class Instructors {
     static actions() {
-        section.showBoxActionInformation();
-        section.openSectionAddInstructors();
-        section.openSectionEditStudents();
+        Section.showBoxActionInformation();
+        Section.openSectionAddInstructors();
+        Section.openSectionEditStudents();
         instructor.edit();
         instructor.delete();
     }

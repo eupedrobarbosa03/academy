@@ -61,14 +61,6 @@ class Student {
                 const indexTarget = target.closest(".box-student");
                 if (!indexTarget)
                     return;
-                const inputName = document.getElementById("input-student-name-edit");
-                const inputCPF = document.querySelector("#input-student-cpf-edit");
-                const inputTelephone = document.querySelector("#input-student-telephone-edit");
-                console.log(inputName);
-                console.log(inputCPF);
-                inputName.value = 'Pedro Henrique';
-                inputCPF.value = '123.456.789.10';
-                inputTelephone.value = "(61) 99131-3359";
             }
         }));
     }

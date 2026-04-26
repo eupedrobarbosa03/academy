@@ -16,52 +16,48 @@ Instructors.actions();
 
 sectionCloseAllActionsOfCategory();
 
-const appendStudents = document.querySelector(".students") as HTMLDivElement;
+const appendStudents = document.querySelector(".instructors") as HTMLDivElement;
 
 window.addEventListener("keyup", (e) => {
     if (e.key === "Enter") {
-        const boxStudent = document.createElement("div");
-        boxStudent.classList.add("box-student");
-        boxStudent.innerHTML = 
+        const boxInstructor = document.createElement("div");
+        boxInstructor.classList.add("box-instructor");
+        boxInstructor.innerHTML = 
         `
-        <div class="container-informations-students">
-            <p class="">
-                Matrícula:
-                <span class="informations-students-box-student">00-49093</span>
-            </p>
-            <p class="">
-                Aluno:
-                <span class="informations-students-box-student">Pedro</span>
-            </p>
-            <p class="">
-                CPF:
-                <span class="informations-students-box-student info-cpf-student">123.345.678-10</span>
-            </p>
-            <p class="">
-                Telefone
-                <span class="informations-students-box-student">(61) 99131-3359</span>
-            </p>
-            <p class="">
-                Plano
-                <span class="informations-students-box-student">Plus</span>
-            </p>
-            <p class="">
-                Status
-                <span class="informations-students-box-student">Ativo</span>
-            </p>
-        </div>
-        <div class="container-actions-box-students">
-            <i class="fa-solid fa-pen-to-square icon-edit-student"></i>
-            <i class="fa-solid fa-trash icon-remove-student"></i>
-            <div class="information-action-edit-student information-action">
-                <p class="">Editar</p>
-            </div>
-            <div class="information-action-remove-student information-action">
-                <p class="">Remover</p>
-            </div>
-        </div>
+                        <div class="container-informations-instructors">
+                            <p class="">
+                                Instrutor:
+                                <span class="informations-instructors-box-instructor">Alessandro Rocha</span>
+                            </p>
+                            <p class="">
+                                CPF:
+                                <span class="informations-instructors-box-instructor info-cpf-instructor">123.345.678-10</span>
+                            </p>
+                            <p class="">
+                                Telefone
+                                <span class="informations-instructors-box-instructor">(61) 92345-4042</span>
+                            </p>
+                            <p class="">
+                                Especialidade
+                                <span class="informations-instructors-box-instructor">Costas</span>
+                            </p>
+                            <p class="">
+                                Status
+                                <span class="informations-instructors-box-instructor">Ativo</span>
+                            </p>
+                        </div>
+                        <div class="container-actions-box-instructors">
+                            <i class="fa-solid fa-pen-to-square icon-edit-instructor"></i>
+                            <i class="fa-solid fa-trash icon-remove-instructor"></i>
+                            <div class="information-action-edit-instructor information-action">
+                                <p class="">Editar</p>
+                            </div>
+                            <div class="information-action-remove-instructor information-action">
+                                <p class="">Remover</p>
+                            </div>
+                        </div>
         `
-        appendStudents.appendChild(boxStudent);
+        appendStudents.appendChild(boxInstructor);
     }
 })
 

@@ -60,15 +60,6 @@ class Student {
             if (target.classList.contains("icon-edit-student")) {
                 const indexTarget = target.closest(".box-student");
                 if (!indexTarget) return;
-                const inputName = document.getElementById("input-student-name-edit") as HTMLInputElement;
-                const inputCPF = document.querySelector("#input-student-cpf-edit") as HTMLInputElement;
-                const inputTelephone = document.querySelector("#input-student-telephone-edit") as HTMLInputElement;
-                console.log(inputName);
-                console.log(inputCPF);
-
-                inputName.value = 'Pedro Henrique'
-                inputCPF.value = '123.456.789.10'
-                inputTelephone.value = "(61) 99131-3359"
             }
 
         }))

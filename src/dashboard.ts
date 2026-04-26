@@ -38,7 +38,7 @@ class Dashboard {
                 } else if (type === "conclude") {
                     this.concludeWorkouts.textContent = `${currentNumberWorkoutsConclude + 1}`
                     return;
-                }; this.canceledWorkouts.textContent = `${currentNumberWorkoutsCanceled - 1}`
+                }; this.canceledWorkouts.textContent = `${currentNumberWorkoutsCanceled + 1}`
             }
         }
     };

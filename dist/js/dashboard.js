@@ -44,7 +44,7 @@ class Dashboard {
                     return;
                 }
                 ;
-                this.canceledWorkouts.textContent = `${currentNumberWorkoutsCanceled - 1}`;
+                this.canceledWorkouts.textContent = `${currentNumberWorkoutsCanceled + 1}`;
             }
         };
     }
