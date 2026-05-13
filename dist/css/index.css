@@ -157,16 +157,17 @@
 }
 
 .box-information {
-    height: 150px;
-    width: 300px;
+    height: 180px;
+    width: 280px;
     background-color: rgb(207, 207, 207, .20);
-    border: 1px solid rgba(51, 51, 51, 0.63);
+    border: 1px solid rgba(139, 139, 139, 0.63);
     transition: .3s;
     margin-bottom: 5px;
     display: flex;
     flex-direction: column;
-    padding: 1.5rem 0;
     border-radius: 5px;
+    padding: .6rem;
+    gap: 10px;
     &:hover {
         background-color: rgba(255, 253, 253, .10);
     }
@@ -175,35 +176,75 @@
 .box-information h2 {
     font-family: 'Ub-Bold';
     text-transform: uppercase;
-    font-size: .9rem;
+    font-size: .8rem;
     text-align: center;
+    margin-top: 10px;
+}
+
+.container-icon-total {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.box-icon {
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .20);
+}
+
+.icon-total {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.container-content-total {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(139, 139, 139, 0.63);
 }
 
 .total {
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 3.5rem;
+    justify-content: space-evenly;
+    font-size: 3rem;
 }
 
-#total-students {
-    color: rgb(15, 131, 15);
+.total i {
+    font-size: 1.3rem;
 }
 
-#total-instructors {
-    color: rgb(231, 130, 15);
+#box-icon-total-students {
+    background-color: rgb(24, 156, 24);
 }
 
-#total-workouts {
-    color: rgb(51, 51, 243);
+#box-icon-total-instructors {
+    background-color: rgb(40, 103, 240);
 }
 
-#total-workouts-conclude {
-    color: rgb(51, 144, 250);
+#box-icon-total-workouts {
+    background-color: rgb(245, 89, 16);
 }
 
-#total-workouts-canceled {
+.fa-minus {
+    color: rgba(139, 139, 139, 0.63);
+}
+
+.fa-caret-up {
+    color: rgb(31, 192, 31);
+}
+
+.fa-caret-down {
     color: rgba(250, 25, 25, 0.849);
 }
 
