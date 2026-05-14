@@ -1,4 +1,4 @@
-export interface Instructor {
+export interface InstructorType {
     name: string;
     cpf: string;
     telephone: string;
