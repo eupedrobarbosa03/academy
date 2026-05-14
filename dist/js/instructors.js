@@ -59,12 +59,14 @@ class Instructor {
     inputCPF;
     inputTelephone;
     inputSpecialty;
+    instructors;
     constructor() {
         this.boxInstructor = document.querySelectorAll(".box-instructor");
         this.inputName = document.querySelector("#input-instructor-name-register");
         this.inputCPF = document.querySelector("#input-instructor-cpf-register");
         this.inputTelephone = document.querySelector("#input-instructor-telephone-register");
         this.inputSpecialty = document.querySelector("#input-instructor-specialty-register");
+        this.instructors = storage.get("instructors");
     }
     ;
     validations() {
@@ -82,10 +84,9 @@ class Instructor {
                     return Utils.showError("message-error-cpf-instructor", this.inputCPF.id, `CPF inválido. Verifique o formato.`);
                 }
                 ;
-                const instructors = storage.get("instructors");
-                if (!instructors)
+                if (!this.instructors)
                     return null;
-                const existingCFP = instructors.find((instructor) => instructor.cpf === this.inputCPF.value);
+                const existingCFP = this.instructors.find((instructor) => instructor.cpf === this.inputCPF.value);
                 if (existingCFP)
                     return Utils.showError("message-error-cpf-instructor", this.inputCPF.id, "O CPF informado está em uso.");
                 Utils.hideError();
@@ -93,12 +94,32 @@ class Instructor {
                     const format = `${this.inputCPF.value.slice(0, 3)}.${this.inputCPF.value.slice(3, 6)}.${this.inputCPF.value.slice(6, 9)}-${this.inputCPF.value.slice(9, 11)}`;
                     this.inputCPF.value = format;
                 }
+                ;
+                return true;
+            },
+            telephone: () => {
+                if (!this.inputTelephone.value.match(academyRegex.telephone)) {
+                    return Utils.showError("message-error-telephone-instructor", this.inputTelephone.id, "Número de telefone inválido.");
+                }
+                Utils.hideError();
+                if (!this.instructors)
+                    return null;
+                const existingTelephone = this.instructors.find((instructor) => instructor.telephone === this.inputTelephone.value);
+                if (existingTelephone)
+                    return Utils.showError("message-error-telephone-instructor", this.inputTelephone.id, "O telefone informado está em uso.");
+                Utils.hideError();
+                return true;
+            },
+            specialty: () => {
+                if (!this.inputSpecialty.value.match(academyRegex.specialty)) {
+                    return Utils.showError("message-error-specialty-instructor", this.inputSpecialty.id, "Nome da especialidade inválido. Tente novamante...");
+                }
+                Utils.hideError();
                 return true;
             }
         };
     }
     create() {
-        const listInstructors = document.querySelector("#list-instructors");
         const buttonRegister = document.querySelector(".button-save-register-instructor");
         this.inputName.addEventListener("input", () => {
             this.validations().name();
@@ -106,10 +127,19 @@ class Instructor {
         this.inputCPF.addEventListener("input", () => {
             this.validations().cpf();
         });
+        this.inputTelephone.addEventListener("input", () => {
+            this.validations().telephone();
+        });
+        this.inputSpecialty.addEventListener("input", () => {
+            this.validations().specialty();
+        });
         buttonRegister.addEventListener("click", () => {
-            if (!this.validations().name() ||
-                !this.validations().cpf())
+            if (!this.validations().name() || !this.validations().cpf() || !this.validations().telephone() || !this.validations().specialty())
                 return;
+            const optionsListInstructors = document.querySelector("#list-instructors");
+            const option = document.createElement("option");
+            option.textContent = this.inputName.value;
+            optionsListInstructors.appendChild(option);
         });
     }
     ;

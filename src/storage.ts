@@ -13,7 +13,7 @@ for (const key of keysLocalStorage) {
     };
 };
 
-type KeysLocalStorage = "dashboard" | "workouts" | "students" | "instructors";
+export type KeysLocalStorage = "dashboard" | "workouts" | "students" | "instructors";
 
 class Storage {
     constructor() {};
