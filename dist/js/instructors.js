@@ -23,7 +23,6 @@ class Section {
                         const indexQuery = indexTarget.querySelector(`.${containerInformations[indexInformation]}`);
                         indexQuery.classList.toggle("show");
                     }
-                    ;
                 });
             });
         }));
@@ -140,6 +139,48 @@ class Instructor {
             const option = document.createElement("option");
             option.textContent = this.inputName.value;
             optionsListInstructors.appendChild(option);
+            const instructorsDOM = document.querySelector(".instructors");
+            const box = document.createElement("div");
+            box.classList.add("box-instructor");
+            box.innerHTML =
+                `
+                <div class="container-informations-instructors">
+                    <p class="">
+                        Instrutor:
+                        <span class="informations-instructors-box-instructor">${this.inputName.value}</span>
+                    </p>
+                    <p class="">
+                        CPF:
+                        <span class="informations-instructors-box-instructor info-cpf-instructor">${this.inputCPF.value}</span>
+                    </p>
+                    <p class="">
+                        Telefone
+                        <span class="informations-instructors-box-instructor">${this.inputTelephone.value}</span>
+                    </p>
+                    <p class="">
+                        Especialidade
+                        <span class="informations-instructors-box-instructor">${this.inputSpecialty.value}</span>
+                    </p>
+                    <p class="">
+                        Status
+                        <span class="informations-instructors-box-instructor">Ativo</span>
+                    </p>
+                </div>
+                <div class="container-actions-box-instructors">
+                    <i class="fa-solid fa-pen-to-square icon-edit-instructor"></i>
+                    <i class="fa-solid fa-trash icon-remove-instructor"></i>
+                    <div class="information-action-edit-instructor information-action">
+                        <p class="">Editar</p>
+                    </div>
+                    <div class="information-action-remove-instructor information-action">
+                        <p class="">Remover</p>
+                    </div>
+                </div>
+            `;
+            instructorsDOM.appendChild(box);
+            alert(`Instrutor adicionado com sucesso!`);
+            Utils.clearnInputs();
+            dashboard.update("create").instructors();
         });
     }
     ;
@@ -172,12 +213,12 @@ class Instructor {
 const instructor = new Instructor();
 export class Instructors {
     static actions() {
-        Section.showBoxActionInformation();
-        Section.openSectionAddInstructors();
-        Section.openSectionEditStudents();
         instructor.create();
         instructor.edit();
         instructor.delete();
+        Section.showBoxActionInformation();
+        Section.openSectionAddInstructors();
+        Section.openSectionEditStudents();
     }
     ;
 }

@@ -1,3 +1,5 @@
+import { Utils } from "./utils.js";
+
 class Section {
     private sections;
     private buttons;
@@ -13,8 +15,12 @@ class Section {
             const id = button.getAttribute("id");
             this.sections.forEach((section) => {
                 section.style.display = 'none';
-                if (id === section.getAttribute("data-section")) section.style.display = 'block'
-                
+                if (id === section.getAttribute("data-section")) {
+                    section.style.display = 'block';
+                    Utils.closeAllSection(true);
+                    Utils.hideError();
+                    Utils.clearnInputs();
+                }
             })
         }))
     };

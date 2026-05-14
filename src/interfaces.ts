@@ -4,3 +4,9 @@ export interface InstructorType {
     telephone: string;
     specialty: string;
 };
+
+export interface DashboardType {
+    totalWorkouts: number;
+    totalStudents: number;
+    totalInstructors: number;
+};

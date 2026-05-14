@@ -642,3 +642,7 @@ select.box-input-error {
 #input-instructor-cpf-edit {
     pointer-events: none;
 }
+
+._______example_______ {
+    display: none;
+}

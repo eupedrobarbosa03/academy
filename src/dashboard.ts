@@ -1,3 +1,5 @@
+import { storage, KeysLocalStorage } from "./storage.js";
+import { DashboardType } from "./interfaces.js";
 
 class Dashboard {
     private students;
@@ -23,11 +25,23 @@ class Dashboard {
                 }; this.students.textContent = `${currentNumber - 1}`
             },
             instructors: () => {
+                const dashboard = storage.get<DashboardType, KeysLocalStorage>("dashboard");
                 const currentNumber = +this.instructors.textContent;
+                const currentStats = document.querySelector("#stats-instructors-total") as HTMLDivElement;
+                let increment = false;
+                currentStats.removeAttribute("class");
                 if (type === "create") {
-                    this.instructors.textContent = `${currentNumber + 1}`;     
-                    return;
-                }; this.instructors.textContent = `${currentNumber - 1}`  
+                    this.instructors.textContent = `${currentNumber + 1}`;
+                    currentStats.setAttribute("class", "fa-solid fa-caret-up");
+                    if (dashboard) dashboard.totalInstructors += 1;
+                } else {
+                    this.instructors.textContent = `${currentNumber - 1}`;
+                    currentStats.setAttribute("class", "fa-solid fa-caret-down");
+                    if (dashboard) dashboard.totalInstructors -= 1;
+                };
+
+                localStorage.setItem("dashboard", JSON.stringify(dashboard));
+                
             },
             workouts: () => {
                 const currentNumberWorkoutsConclude = +this.concludeWorkouts.textContent
