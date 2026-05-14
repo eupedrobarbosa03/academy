@@ -63,17 +63,16 @@ class Instructor {
     private inputCPF;
     private inputTelephone;
     private inputSpecialty
-    private instructors;
     constructor() {
         this.boxInstructor = document.querySelectorAll<HTMLDivElement>(".box-instructor");
         this.inputName = document.querySelector("#input-instructor-name-register") as HTMLInputElement;
         this.inputCPF = document.querySelector("#input-instructor-cpf-register") as HTMLInputElement;
         this.inputTelephone = document.querySelector("#input-instructor-telephone-register") as HTMLInputElement;
         this.inputSpecialty = document.querySelector("#input-instructor-specialty-register") as HTMLInputElement;
-        this.instructors = storage.get<InstructorType[], KeysLocalStorage>("instructors");
     };
 
     private validations() {
+        const instructors = storage.get<InstructorType[], KeysLocalStorage>("instructors") || [];
         return {
             name: () => {
                 if (!this.inputName.value.match(academyRegex.name)) {
@@ -90,9 +89,6 @@ class Instructor {
                     return Utils.showError("message-error-cpf-instructor", this.inputCPF.id, `CPF inválido. Verifique o formato.`
                     );  
                 };
-
-                if (!this.instructors) return null;
-
                 
                 if (!this.inputCPF.value.includes("-")) {
                     const format = `${this.inputCPF.value.slice(0, 3)}.${this.inputCPF.value.slice(3, 6)}.${this.inputCPF.value.slice(6, 9)}-${this.inputCPF.value.slice(9, 11)}`;
@@ -100,7 +96,7 @@ class Instructor {
                     
                 };
 
-                const existingCFP = this.instructors.find((instructor) =>
+                const existingCFP = instructors.find((instructor) =>
                     instructor.cpf === this.inputCPF.value);
 
                 if (existingCFP) return Utils.showError("message-error-cpf-instructor", this.inputCPF.id, "O CPF informado está em uso."
@@ -118,9 +114,7 @@ class Instructor {
 
                 Utils.hideError();
 
-                if (!this.instructors) return null;
-
-                const existingTelephone = this.instructors.find((instructor) => instructor.telephone === this.inputTelephone.value);
+                const existingTelephone = instructors.find((instructor) => instructor.telephone === this.inputTelephone.value);
 
                 if (existingTelephone) return Utils.showError("message-error-telephone-instructor", this.inputTelephone.id, "O telefone informado está em uso.");
 
@@ -181,15 +175,15 @@ class Instructor {
                         <span class="informations-instructors-box-instructor info-cpf-instructor">${this.inputCPF.value}</span>
                     </p>
                     <p class="">
-                        Telefone
+                        Telefone:
                         <span class="informations-instructors-box-instructor">${this.inputTelephone.value}</span>
                     </p>
                     <p class="">
-                        Especialidade
+                        Especialidade:
                         <span class="informations-instructors-box-instructor">${this.inputSpecialty.value}</span>
                     </p>
                     <p class="">
-                        Status
+                        Status:
                         <span class="informations-instructors-box-instructor">Ativo</span>
                     </p>
                 </div>
@@ -238,8 +232,20 @@ class Instructor {
             if (target.classList.contains("icon-remove-instructor")) {
                 const indexTarget = target.closest(".box-instructor");
                 if (!indexTarget) return;
-                indexTarget.remove();
+                const instructorCPF = indexTarget.querySelector(".info-cpf-instructor") as HTMLSpanElement;
+
+                const instructosUpdated = storage.get<InstructorType[], KeysLocalStorage>("instructors");
+
+                if (instructosUpdated === null) return;
+
+                const indexInstructorCPF = instructosUpdated.findIndex((instructor) =>
+                    instructor.cpf === instructorCPF.textContent);
+                if (indexInstructorCPF === -1) return;
+
                 dashboard.update("delete").instructors();
+                storage.delete<InstructorType, "instructors">("instructors", indexInstructorCPF)
+                indexTarget.remove();
+
             }
         }))
     };

@@ -32,10 +32,16 @@ class Storage {
         localStorage.setItem(key, JSON.stringify(storage));
     }
 
+    delete<T extends Category, K extends KeysLocalStorage>(key: K, index: number) {
+        const storage = this.get<T[], KeysLocalStorage>(key);
+        if (storage === null) return;
+        storage.splice(index, 1);
+        localStorage.setItem(key, JSON.stringify(storage));
+    }
+
     dom() {
         return {
             instructor: () => {
-                alert("teste");
                 const instructors = this.get<InstructorType[], KeysLocalStorage>("instructors");
                 if (instructors === null) return;
                 instructors.forEach((newInstructor) => {
@@ -54,15 +60,15 @@ class Storage {
                             <span class="informations-instructors-box-instructor info-cpf-instructor">${newInstructor.cpf}</span>
                         </p>
                         <p class="">
-                            Telefone
+                            Telefone:
                             <span class="informations-instructors-box-instructor">${newInstructor.telephone}</span>
                         </p>
                         <p class="">
-                            Especialidade
+                            Especialidade:
                             <span class="informations-instructors-box-instructor">${newInstructor.specialty}</span>
                         </p>
                         <p class="">
-                            Status
+                            Status:
                             <span class="informations-instructors-box-instructor">Ativo</span>
                         </p>
                     </div>

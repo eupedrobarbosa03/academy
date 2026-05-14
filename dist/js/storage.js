@@ -30,10 +30,16 @@ class Storage {
         storage.push(category);
         localStorage.setItem(key, JSON.stringify(storage));
     }
+    delete(key, index) {
+        const storage = this.get(key);
+        if (storage === null)
+            return;
+        storage.splice(index, 1);
+        localStorage.setItem(key, JSON.stringify(storage));
+    }
     dom() {
         return {
             instructor: () => {
-                alert("teste");
                 const instructors = this.get("instructors");
                 if (instructors === null)
                     return;
@@ -53,15 +59,15 @@ class Storage {
                             <span class="informations-instructors-box-instructor info-cpf-instructor">${newInstructor.cpf}</span>
                         </p>
                         <p class="">
-                            Telefone
+                            Telefone:
                             <span class="informations-instructors-box-instructor">${newInstructor.telephone}</span>
                         </p>
                         <p class="">
-                            Especialidade
+                            Especialidade:
                             <span class="informations-instructors-box-instructor">${newInstructor.specialty}</span>
                         </p>
                         <p class="">
-                            Status
+                            Status:
                             <span class="informations-instructors-box-instructor">Ativo</span>
                         </p>
                     </div>
