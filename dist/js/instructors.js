@@ -85,15 +85,15 @@ class Instructor {
                 ;
                 if (!this.instructors)
                     return null;
-                const existingCFP = this.instructors.find((instructor) => instructor.cpf === this.inputCPF.value);
-                if (existingCFP)
-                    return Utils.showError("message-error-cpf-instructor", this.inputCPF.id, "O CPF informado está em uso.");
-                Utils.hideError();
                 if (!this.inputCPF.value.includes("-")) {
                     const format = `${this.inputCPF.value.slice(0, 3)}.${this.inputCPF.value.slice(3, 6)}.${this.inputCPF.value.slice(6, 9)}-${this.inputCPF.value.slice(9, 11)}`;
                     this.inputCPF.value = format;
                 }
                 ;
+                const existingCFP = this.instructors.find((instructor) => instructor.cpf === this.inputCPF.value);
+                if (existingCFP)
+                    return Utils.showError("message-error-cpf-instructor", this.inputCPF.id, "O CPF informado está em uso.");
+                Utils.hideError();
                 return true;
             },
             telephone: () => {
@@ -178,8 +178,14 @@ class Instructor {
                 </div>
             `;
             instructorsDOM.appendChild(box);
-            alert(`Instrutor adicionado com sucesso!`);
+            storage.add({
+                name: this.inputName.value,
+                cpf: this.inputCPF.value,
+                telephone: this.inputTelephone.value,
+                specialty: this.inputSpecialty.value
+            }, "instructors");
             Utils.clearnInputs();
+            alert(`Instrutor adicionado com sucesso!`);
             dashboard.update("create").instructors();
         });
     }

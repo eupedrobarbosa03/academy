@@ -93,6 +93,13 @@ class Instructor {
 
                 if (!this.instructors) return null;
 
+                
+                if (!this.inputCPF.value.includes("-")) {
+                    const format = `${this.inputCPF.value.slice(0, 3)}.${this.inputCPF.value.slice(3, 6)}.${this.inputCPF.value.slice(6, 9)}-${this.inputCPF.value.slice(9, 11)}`;
+                    this.inputCPF.value = format;
+                    
+                };
+
                 const existingCFP = this.instructors.find((instructor) =>
                     instructor.cpf === this.inputCPF.value);
 
@@ -101,11 +108,6 @@ class Instructor {
 
                 Utils.hideError();
 
-                if (!this.inputCPF.value.includes("-")) {
-                    const format = `${this.inputCPF.value.slice(0, 3)}.${this.inputCPF.value.slice(3, 6)}.${this.inputCPF.value.slice(6, 9)}-${this.inputCPF.value.slice(9, 11)}`;
-                    this.inputCPF.value = format;
-                    
-                };
                 return true
             },
             telephone: () => {
@@ -205,8 +207,15 @@ class Instructor {
 
             instructorsDOM.appendChild(box);
 
-            alert(`Instrutor adicionado com sucesso!`);
+            storage.add<InstructorType, "instructors">({
+                name: this.inputName.value,
+                cpf: this.inputCPF.value,
+                telephone: this.inputTelephone.value,
+                specialty: this.inputSpecialty.value
+            }, "instructors");
+
             Utils.clearnInputs();
+            alert(`Instrutor adicionado com sucesso!`);
             dashboard.update("create").instructors();
 
         })

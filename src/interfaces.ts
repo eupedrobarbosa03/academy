@@ -10,3 +10,5 @@ export interface DashboardType {
     totalStudents: number;
     totalInstructors: number;
 };
+
+export type Category = InstructorType | DashboardType;
