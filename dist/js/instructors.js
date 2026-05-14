@@ -1,4 +1,6 @@
 import { dashboard } from "./dashboard.js";
+import { academyRegex } from "./regex.js";
+import { Utils } from "./utils.js";
 class Section {
     constructor() { }
     ;
@@ -57,6 +59,22 @@ class Instructor {
         this.boxInstructor = document.querySelectorAll(".box-instructor");
     }
     ;
+    create() {
+        const listInstructors = document.querySelector("#list-instructors");
+        const buttonRegister = document.querySelector(".button-save-register-instructor");
+        const inputName = document.querySelector("#input-instructor-name-register");
+        const inputCPF = document.querySelector("#input-instructor-cpf-register");
+        const inputTelephone = document.querySelector("#input-instructor-telephone-register");
+        const inputSpecialty = document.querySelector("#input-instructor-specialty-register");
+        buttonRegister.addEventListener("click", () => {
+            if (!inputName.value.match(academyRegex.name)) {
+                return Utils.showError("message-error-name-instructor", inputName.id, `Nome inválido. Tente novamente...`);
+            }
+            ;
+            Utils.hideError();
+        });
+    }
+    ;
     edit() {
         this.boxInstructor.forEach((box) => document.body.addEventListener("click", (e) => {
             const target = e.target;
@@ -64,12 +82,6 @@ class Instructor {
                 const indexTarget = target.closest(".box-instructor");
                 if (!indexTarget)
                     return;
-                const inputName = document.getElementById("input-instructor-name-edit");
-                const inputCPF = document.querySelector("#input-instructor-cpf-edit");
-                const inputTelephone = document.querySelector("#input-instructor-telephone-edit");
-                inputName.value = 'Alessandro';
-                inputCPF.value = '123.456.789.10';
-                inputTelephone.value = "(61) 99131-3359";
             }
         }));
     }
@@ -95,6 +107,7 @@ export class Instructors {
         Section.showBoxActionInformation();
         Section.openSectionAddInstructors();
         Section.openSectionEditStudents();
+        instructor.create();
         instructor.edit();
         instructor.delete();
     }

@@ -587,6 +587,7 @@ select.box-input-error {
     color: rgb(241, 71, 71);
     opacity: 0;
     transition: .3s;
+    height: 20px;
 }
 
 .message-error.show-error {

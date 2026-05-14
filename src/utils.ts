@@ -1,7 +1,7 @@
 //Função para fechamento de seções de ações de cadastrar alunos, marcar aulas e editar alunos e instrutores
 
-export class CloseAllSection {
-    static close() {
+export class Utils {
+    static closeAllSection() {
         const buttonsCloseSection = document.querySelectorAll<HTMLDivElement>(".close-the-section");
         const sections = ["section-container-addition-items", "section-container-edit-items"];
 
@@ -21,4 +21,25 @@ export class CloseAllSection {
             }
         })
     };
+
+    static showError(id: string, idBoxInput: string,  message: string) {
+        const indexError = document.querySelector(`#${id}`) as HTMLParagraphElement;
+        const boxInputError = document.querySelector(`#${idBoxInput}`) as HTMLInputElement;     
+        indexError.textContent = `${message}`;
+        indexError.classList.add("show-error");
+        boxInputError.classList.add("box-input-error");
+    };
+
+    static hideError() {
+        const messagesError = document.querySelectorAll<HTMLParagraphElement>(".message-error");
+        const inputs = document.querySelectorAll<HTMLInputElement>("input");
+        const selects = document.querySelectorAll<HTMLSelectElement>("select");
+        messagesError.forEach((message) => {
+            message.textContent = '';
+            message.classList.remove("show-error")
+        });
+        inputs.forEach((input) => input.classList.remove("box-input-error"));
+        selects.forEach((select) => select.classList.remove("box-input-error"));
+    };
+
 }

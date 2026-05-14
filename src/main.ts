@@ -4,7 +4,7 @@ import { menu } from "./menu-responsive.js";
 import { Students } from "./students.js";
 import { Workouts } from "./workouts.js";
 import { Instructors } from "./instructors.js";
-import { CloseAllSection } from "./utils.js";
+import { Utils } from "./utils.js";
 
 section.change();
 menu.responsive();
@@ -13,7 +13,7 @@ theme.storage();
 Workouts.actions();
 Students.actions();
 Instructors.actions();
-CloseAllSection.close();
+Utils.closeAllSection();
 
 const appendStudents = document.querySelector(".instructors") as HTMLDivElement;
 
