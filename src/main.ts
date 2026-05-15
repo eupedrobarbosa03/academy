@@ -7,6 +7,8 @@ import { Instructors } from "./instructors.js";
 import { Utils } from "./utils.js";
 import { storage } from "./storage.js";
 
+storage.dom().instructor();
+
 section.change();
 menu.responsive();
 theme.change();
@@ -16,5 +18,4 @@ Students.actions();
 Instructors.actions();
 Utils.closeAllSection();
 
-storage.dom().instructor();
 

@@ -381,6 +381,12 @@
     }
 }
 
+.box-student.hide,
+.box-workout.hide,
+.box-instructor.hide {
+    display: none;
+}
+
 .container-informations-workouts,
 .container-informations-students,
 .container-informations-instructors {

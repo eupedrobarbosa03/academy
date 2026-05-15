@@ -234,6 +234,26 @@ class Instructor {
         }));
     }
     ;
+    search() {
+        const instructorsInformations = document.querySelectorAll(".info-for-search");
+        const inputSearch = document.querySelector("#input-search-instructors");
+        const boxInstructor = document.querySelectorAll(".box-instructor");
+        const instructors = document.querySelector(".instructors");
+        inputSearch.addEventListener("input", () => {
+            if (!inputSearch.value)
+                boxInstructor.forEach((box) => box.classList.remove("hide"));
+            instructorsInformations.forEach((information) => {
+                if (inputSearch.value.trim() === "" || !inputSearch.value)
+                    return;
+                if (information.textContent.toLowerCase().includes(inputSearch.value.toLowerCase())) {
+                    const index = information.parentNode?.parentNode?.parentNode;
+                    boxInstructor.forEach((box) => box.classList.add("hide"));
+                    index.classList.remove("hide");
+                }
+            });
+        });
+    }
+    ;
 }
 ;
 const instructor = new Instructor();
@@ -242,6 +262,7 @@ export class Instructors {
         instructor.create();
         instructor.edit();
         instructor.delete();
+        instructor.search();
         Section.showBoxActionInformation();
         Section.openSectionAddInstructors();
         Section.openSectionEditStudents();

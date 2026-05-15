@@ -6,11 +6,11 @@ export class BoxCategory {
                 <div class="container-informations-instructors">
                     <p class="">
                         Instrutor:
-                        <span class="informations-instructors-box-instructor">${name}</span>
+                        <span class="informations-instructors-box-instructor info-for-search">${name}</span>
                     </p>
                     <p class="">
                         CPF:
-                        <span class="informations-instructors-box-instructor info-cpf-instructor">${cpf}</span>
+                        <span class="informations-instructors-box-instructor info-cpf-instructor info-for-search">${cpf}</span>
                     </p>
                     <p class="">
                         Telefone:
