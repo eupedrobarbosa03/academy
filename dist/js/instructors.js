@@ -93,11 +93,13 @@ class Instructor {
                 Utils.hideError();
                 return true;
             },
-            telephone: () => {
+            telephone: (isEdit, valueEdit) => {
                 if (!inputValue.match(academyRegex.telephone)) {
                     return Utils.showError(className, id, "Número de telefone inválido.");
                 }
                 Utils.hideError();
+                if (isEdit && inputValue === valueEdit)
+                    return true;
                 const existingTelephone = instructors.find((instructor) => instructor.telephone === inputValue);
                 if (existingTelephone)
                     return Utils.showError(className, id, "O telefone informado está em uso.");
@@ -216,10 +218,53 @@ class Instructor {
                     this.validations(inputNameEdit.value, "message-error-name-instructor-edit", inputNameEdit.id).name();
                 });
                 inputTelephoneEdit.addEventListener("input", () => {
-                    this.validations(inputTelephoneEdit.value, "message-error-telephone-instructor-edit", inputTelephoneEdit.id).telephone();
+                    this.validations(inputTelephoneEdit.value, "message-error-telephone-instructor-edit", inputTelephoneEdit.id).telephone(true, instructor.telephone);
                 });
                 inputSpecialtyEdit.addEventListener("input", () => {
                     this.validations(inputSpecialtyEdit.value, "message-error-specialty-instructor-edit", inputSpecialtyEdit.id).specialty();
+                });
+                buttonSaveEdit.addEventListener("click", () => {
+                    if (!this.validations(inputNameEdit.value, "message-error-name-instructor-edit", inputNameEdit.id).name())
+                        return;
+                    if (!this.validations(inputTelephoneEdit.value, "message-error-telephone-instructor-edit", inputTelephoneEdit.id).telephone(true, instructor.telephone))
+                        return;
+                    if (!this.validations(inputSpecialtyEdit.value, "message-error-specialty-instructor-edit", inputSpecialtyEdit.id).specialty())
+                        return;
+                    indexTarget.innerHTML =
+                        `
+                        <div class="container-informations-instructors">
+                            <p class="">
+                                Instrutor:
+                                <span class="informations-instructors-box-instructor">${this.inputName.value}</span>
+                            </p>
+                            <p class="">
+                                CPF:
+                                <span class="informations-instructors-box-instructor info-cpf-instructor">${this.inputCPF.value}</span>
+                            </p>
+                            <p class="">
+                                Telefone:
+                                <span class="informations-instructors-box-instructor">${this.inputTelephone.value}</span>
+                            </p>
+                            <p class="">
+                                Especialidade:
+                                <span class="informations-instructors-box-instructor">${this.inputSpecialty.value}</span>
+                            </p>
+                            <p class="">
+                                Status:
+                                <span class="informations-instructors-box-instructor">Ativo</span>
+                            </p>
+                        </div>
+                        <div class="container-actions-box-instructors">
+                            <i class="fa-solid fa-pen-to-square icon-edit-instructor"></i>
+                            <i class="fa-solid fa-trash icon-remove-instructor"></i>
+                            <div class="information-action-edit-instructor information-action">
+                                <p class="">Editar</p>
+                            </div>
+                            <div class="information-action-remove-instructor information-action">
+                                <p class="">Remover</p>
+                            </div>
+                        </div>
+                    `;
                 });
             }
         }));
