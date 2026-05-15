@@ -51,4 +51,25 @@ export class Utils {
         inputs.forEach((input) => input.value = '');
     }
     ;
+    static search(inputSearchID, classNameBoxCategory, valueForSearch) {
+        const inputSearch = document.querySelector(`#${inputSearchID}`);
+        inputSearch.addEventListener("input", () => {
+            const box = document.querySelectorAll(`.${classNameBoxCategory}`);
+            const instructorsInformations = document.querySelectorAll(`.${valueForSearch}`);
+            if (!inputSearch.value)
+                box.forEach((box) => box.classList.remove("hide"));
+            let listNotHide = [];
+            instructorsInformations.forEach((information) => {
+                if (inputSearch.value.trim() === "" || !inputSearch.value)
+                    return;
+                if (information.textContent.toLowerCase().includes(inputSearch.value.toLowerCase())) {
+                    box.forEach((box) => box.classList.add("hide"));
+                    const index = information.parentNode?.parentNode?.parentNode;
+                    listNotHide.push(index);
+                    listNotHide.forEach((box) => box.classList.remove("hide"));
+                }
+            });
+        });
+    }
+    ;
 }

@@ -1,3 +1,4 @@
+import { BoxCategory } from "./dom-box-category-utils.js";
 import { Utils } from "./utils.js";
 class Section {
     sections;
@@ -19,6 +20,7 @@ class Section {
                     Utils.closeAllSection(true);
                     Utils.hideError();
                     Utils.clearnInputs();
+                    new BoxCategory().removeHide();
                 }
             });
         }));

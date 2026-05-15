@@ -282,24 +282,6 @@ class Instructor {
             }
         }))
     };
-    
-    search() {
-        const instructorsInformations = document.querySelectorAll<HTMLDivElement>(".info-for-search");
-        const inputSearch = document.querySelector("#input-search-instructors") as HTMLInputElement;
-        const boxInstructor = document.querySelectorAll<HTMLDivElement>(".box-instructor");
-        const instructors = document.querySelector(".instructors") as HTMLDivElement;
-        inputSearch.addEventListener("input", () => {
-            if (!inputSearch.value) boxInstructor.forEach((box) => box.classList.remove("hide"));
-            instructorsInformations.forEach((information) => {
-                if (inputSearch.value.trim() === "" || !inputSearch.value) return;
-                if (information.textContent.toLowerCase().includes(inputSearch.value.toLowerCase())) {
-                    const index = information.parentNode?.parentNode?.parentNode as HTMLDivElement;
-                    boxInstructor.forEach((box) => box.classList.add("hide"));
-                    index.classList.remove("hide");
-                }
-            });
-        })
-    };
 
 };
 
@@ -310,7 +292,7 @@ export class Instructors {
         instructor.create();
         instructor.edit();
         instructor.delete();
-        instructor.search();
+        Utils.search("input-search-instructors", "box-instructor", "info-for-search")
         Section.showBoxActionInformation();
         Section.openSectionAddInstructors();
         Section.openSectionEditStudents();

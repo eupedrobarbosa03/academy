@@ -1,6 +1,14 @@
 export class BoxCategory {
     constructor() {};
 
+    removeHide() {
+        const categories = ["box-instructor", "box-workout", "box-student"];
+        categories.forEach((category) => {
+            const query = document.querySelectorAll<HTMLDivElement>(`.${category}`);
+            query.forEach((q) => q.classList.remove("hide"));
+        })
+    };
+
     instructor(name: string, cpf: string, telephone: string, specialty: string) {
         const box = 
             `

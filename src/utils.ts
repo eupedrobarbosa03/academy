@@ -56,5 +56,23 @@ export class Utils {
         inputs.forEach((input) => input.value = '');
     };
 
+    static search(inputSearchID: string, classNameBoxCategory: string, valueForSearch: string) {
+        const inputSearch = document.querySelector(`#${inputSearchID}`) as HTMLInputElement;
+        inputSearch.addEventListener("input", () => {
+            const box = document.querySelectorAll<HTMLDivElement>(`.${classNameBoxCategory}`);
+            const instructorsInformations = document.querySelectorAll<HTMLDivElement>(`.${valueForSearch}`);
+            if (!inputSearch.value) box.forEach((box) => box.classList.remove("hide"));
+            let listNotHide: HTMLDivElement[] = [];
+            instructorsInformations.forEach((information) => {
+                if (inputSearch.value.trim() === "" || !inputSearch.value) return;
+                if (information.textContent.toLowerCase().includes(inputSearch.value.toLowerCase())) {
+                    box.forEach((box) => box.classList.add("hide"));
+                    const index = information.parentNode?.parentNode?.parentNode as HTMLDivElement;
+                    listNotHide.push(index)
+                    listNotHide.forEach((box) => box.classList.remove("hide"));
+                }
+            });
+        })
+    };
 
 }
