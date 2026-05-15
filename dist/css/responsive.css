@@ -134,4 +134,11 @@
         height: auto;
     }
 
+    .button-to-register-instructors,
+    .button-to-register-students,
+    .button-to-mark-workouts {
+        align-self: flex-end;
+        user-select: none;
+    }
+
 }
