@@ -2,6 +2,7 @@ import { dashboard } from "./dashboard.js";
 import { academyRegex } from "./regex.js";
 import { storage } from "./storage.js";
 import { Utils } from "./utils.js";
+import { BoxCategory } from "./dom-box-category-utils.js";
 class Section {
     constructor() { }
     ;
@@ -29,6 +30,8 @@ class Section {
     }
     ;
     static openSectionAddInstructors() {
+        Utils.clearnInputs();
+        Utils.hideError();
         const buttonAddWStudents = document.querySelector(".button-to-register-instructors");
         buttonAddWStudents.addEventListener("click", () => {
             const sectionAddWorkouts = document.querySelector("#section-container-addition-instructors");
@@ -37,6 +40,8 @@ class Section {
     }
     ;
     static openSectionEditStudents() {
+        Utils.clearnInputs();
+        Utils.hideError();
         const sectionEditInstructors = document.querySelector("#section-container-edit-instructors");
         const boxInstructor = document.querySelectorAll(".box-instructor");
         boxInstructor.forEach((box) => document.body.addEventListener("click", (e) => {
@@ -145,41 +150,7 @@ class Instructor {
             const instructorsDOM = document.querySelector(".instructors");
             const box = document.createElement("div");
             box.classList.add("box-instructor");
-            box.innerHTML =
-                `
-                <div class="container-informations-instructors">
-                    <p class="">
-                        Instrutor:
-                        <span class="informations-instructors-box-instructor">${this.inputName.value}</span>
-                    </p>
-                    <p class="">
-                        CPF:
-                        <span class="informations-instructors-box-instructor info-cpf-instructor">${this.inputCPF.value}</span>
-                    </p>
-                    <p class="">
-                        Telefone:
-                        <span class="informations-instructors-box-instructor">${this.inputTelephone.value}</span>
-                    </p>
-                    <p class="">
-                        Especialidade:
-                        <span class="informations-instructors-box-instructor">${this.inputSpecialty.value}</span>
-                    </p>
-                    <p class="">
-                        Status:
-                        <span class="informations-instructors-box-instructor">Ativo</span>
-                    </p>
-                </div>
-                <div class="container-actions-box-instructors">
-                    <i class="fa-solid fa-pen-to-square icon-edit-instructor"></i>
-                    <i class="fa-solid fa-trash icon-remove-instructor"></i>
-                    <div class="information-action-edit-instructor information-action">
-                        <p class="">Editar</p>
-                    </div>
-                    <div class="information-action-remove-instructor information-action">
-                        <p class="">Remover</p>
-                    </div>
-                </div>
-            `;
+            box.innerHTML = new BoxCategory().instructor(this.inputName.value, this.inputCPF.value, this.inputTelephone.value, this.inputSpecialty.value);
             instructorsDOM.appendChild(box);
             storage.add({
                 name: this.inputName.value,
@@ -230,48 +201,20 @@ class Instructor {
                         return;
                     if (!this.validations(inputSpecialtyEdit.value, "message-error-specialty-instructor-edit", inputSpecialtyEdit.id).specialty())
                         return;
-                    indexTarget.innerHTML =
-                        `
-                        <div class="container-informations-instructors">
-                            <p class="">
-                                Instrutor:
-                                <span class="informations-instructors-box-instructor">${this.inputName.value}</span>
-                            </p>
-                            <p class="">
-                                CPF:
-                                <span class="informations-instructors-box-instructor info-cpf-instructor">${this.inputCPF.value}</span>
-                            </p>
-                            <p class="">
-                                Telefone:
-                                <span class="informations-instructors-box-instructor">${this.inputTelephone.value}</span>
-                            </p>
-                            <p class="">
-                                Especialidade:
-                                <span class="informations-instructors-box-instructor">${this.inputSpecialty.value}</span>
-                            </p>
-                            <p class="">
-                                Status:
-                                <span class="informations-instructors-box-instructor">Ativo</span>
-                            </p>
-                        </div>
-                        <div class="container-actions-box-instructors">
-                            <i class="fa-solid fa-pen-to-square icon-edit-instructor"></i>
-                            <i class="fa-solid fa-trash icon-remove-instructor"></i>
-                            <div class="information-action-edit-instructor information-action">
-                                <p class="">Editar</p>
-                            </div>
-                            <div class="information-action-remove-instructor information-action">
-                                <p class="">Remover</p>
-                            </div>
-                        </div>
-                    `;
+                    indexTarget.innerHTML = new BoxCategory().instructor(inputNameEdit.value, inputCPFEdit.value, inputTelephoneEdit.value, inputSpecialtyEdit.value);
+                    instructor.name = inputNameEdit.value;
+                    instructor.cpf = inputCPFEdit.value;
+                    instructor.telephone = inputTelephoneEdit.value;
+                    instructor.specialty = inputSpecialtyEdit.value;
+                    storage.edit(instructors, "instructors");
+                    alert(`Instrutor atualizado com sucesso!`);
                 });
             }
         }));
     }
     ;
     delete() {
-        this.boxInstructor.forEach((box) => document.body.addEventListener("click", (e) => {
+        this.boxInstructor.forEach(() => document.body.addEventListener("click", (e) => {
             const target = e.target;
             if (target.classList.contains("icon-remove-instructor")) {
                 const indexTarget = target.closest(".box-instructor");
