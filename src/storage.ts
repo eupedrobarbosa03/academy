@@ -1,5 +1,6 @@
 import { BoxCategory } from "./dom-box-category-utils.js";
-import { Category, InstructorType } from "./interfaces.js";
+import { DashboardType, InstructorType } from "./interfaces.js";
+
 
 const keysLocalStorage = ["dashboard", "workouts", "students", "instructors"];
 for (const key of keysLocalStorage) {
@@ -46,7 +47,18 @@ class Storage {
 
     dom() {
         return {
+            dashboard: () => {
+                const dashboard = this.get<DashboardType, KeysLocalStorage>("dashboard");
+                if (dashboard === null) return;
+                const totalWorkouts = document.querySelector("#total-workouts") as HTMLParagraphElement;
+                const totalStudents = document.querySelector("#total-students") as HTMLParagraphElement;
+                const totalInstructors = document.querySelector("#total-instructors") as HTMLParagraphElement;
+                totalWorkouts.textContent = `${dashboard.totalWorkouts}`;
+                totalStudents.textContent = `${dashboard.totalStudents}`;
+                totalInstructors.textContent = `${dashboard.totalInstructors}`;
+            },
             instructor: () => {
+                const listOptionsForWorkout = document.querySelector("#list-instructors") as HTMLSelectElement;
                 const instructors = this.get<InstructorType[], KeysLocalStorage>("instructors");
                 if (instructors === null) return;
                 instructors.forEach((newInstructor) => {
@@ -55,6 +67,9 @@ class Storage {
                     newBoxInstructor.classList.add("box-instructor");
                     newBoxInstructor.innerHTML = new BoxCategory().instructor(newInstructor.name, newInstructor.cpf, newInstructor.telephone, newInstructor.specialty)
                     instructorsDOM.appendChild(newBoxInstructor);
+                    const option = document.createElement("option");
+                    option.textContent = `${newInstructor.name}`;
+                    listOptionsForWorkout.appendChild(option);
                 }); 
             }
         }

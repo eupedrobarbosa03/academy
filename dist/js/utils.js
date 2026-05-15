@@ -3,6 +3,8 @@ export class Utils {
     static closeAllSection(changeSection) {
         const buttonsCloseSection = document.querySelectorAll(".close-the-section");
         const sections = ["section-container-addition-items", "section-container-edit-items"];
+        this.hideError();
+        this.clearnInputs();
         if (!changeSection) {
             buttonsCloseSection.forEach((button) => button.addEventListener("click", () => {
                 sections.forEach((section) => {

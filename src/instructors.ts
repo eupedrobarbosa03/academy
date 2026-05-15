@@ -18,19 +18,18 @@ class Section {
             "information-action-edit-instructor"
         ];
 
-        boxInstructor.forEach((workout) => events.forEach((typeEvent) => {
-            document.body.addEventListener(typeEvent, (e) => {
-                const target = e.target as HTMLDivElement;
-                iconsButtons.forEach((button) => {
-                    if (target.classList.contains(button)) {
-                        const indexInformation = containerInformations.findIndex((information) => information.includes(`${button.split("-")[1]}`));
-                        const indexTarget = target.closest(".box-instructor") as HTMLDivElement;
-                        const indexQuery = indexTarget.querySelector(`.${containerInformations[indexInformation]}`) as HTMLDivElement;
-                        indexQuery.classList.toggle("show")
-                    }
-                }) 
-            })
-        }))
+        boxInstructor.forEach(() => events.forEach((typeEvent) => document.body.addEventListener(typeEvent, (e) => {
+            const target = e.target as HTMLDivElement;
+            iconsButtons.forEach((button) => {
+                if (target.classList.contains(button)) {
+                    const indexInformation = containerInformations.findIndex((information) => information.includes(`${button.split("-")[1]}`));
+                    const indexTarget = target.closest(".box-instructor") as HTMLDivElement;
+                    const indexQuery = indexTarget.querySelector(`.${containerInformations[indexInformation]}`) as HTMLDivElement;
+                    indexQuery.classList.toggle("show")
+                }
+            });
+        })));
+
     };
 
     static openSectionAddInstructors() {
@@ -171,6 +170,7 @@ class Instructor {
             const optionsListInstructors = document.querySelector("#list-instructors") as HTMLSelectElement
             const option = document.createElement("option");
             option.textContent = this.inputName.value;
+            option.classList.add(this.inputName.value);
             optionsListInstructors.appendChild(option);
 
             const instructorsDOM = document.querySelector(".instructors") as HTMLDivElement;
@@ -205,7 +205,7 @@ class Instructor {
         const inputTelephoneEdit = document.querySelector("#input-instructor-telephone-edit") as HTMLInputElement;
         const inputSpecialtyEdit = document.querySelector("#input-instructor-specialty-edit") as HTMLInputElement;
 
-        this.boxInstructor.forEach((box) => document.body.addEventListener("click", (e) => {
+        this.boxInstructor.forEach(() => document.body.addEventListener("click", (e) => {
             const target = e.target as HTMLDivElement;
             if (target.classList.contains("icon-edit-instructor")) {
                 const indexTarget = target.closest(".box-instructor");
@@ -216,6 +216,8 @@ class Instructor {
                     instructor.cpf === indexInstructorCPF.textContent);
 
                 if (!instructor) return;
+
+                Utils.hideError();
                 
                 inputNameEdit.value = instructor.name;
                 inputCPFEdit.value = instructor.cpf;
@@ -252,6 +254,14 @@ class Instructor {
                     storage.edit<InstructorType[], KeysLocalStorage>(instructors, "instructors");
                     alert(`Instrutor atualizado com sucesso!`);
 
+                    const listOptionsForWorkout = document.querySelectorAll<HTMLDivElement>("#list-instructors option");
+                    
+                    listOptionsForWorkout.forEach((option) => {
+                        const instructorName = option.textContent.toLowerCase();
+                        if (instructorName === instructor.name) {
+                            option.textContent = instructor.name;
+                        }
+                    })
                 });
 
             }
@@ -271,12 +281,21 @@ class Instructor {
 
                 if (instructosUpdated === null) return;
 
-                const indexInstructorCPF = instructosUpdated.findIndex((instructor) =>
+                const indexInstructor = instructosUpdated.findIndex((instructor) =>
                     instructor.cpf === instructorCPF.textContent);
-                if (indexInstructorCPF === -1) return;
+                if (indexInstructor === -1) return;
+
+                const listOptionsForWorkout = document.querySelectorAll<HTMLDivElement>("#list-instructors option");
+                
+                listOptionsForWorkout.forEach((option) => {
+                    const instructorName = option.textContent.toLowerCase();
+                    if (instructorName === instructosUpdated[indexInstructor]?.name.toLowerCase()) {
+                        option.remove();
+                    }
+                })
 
                 dashboard.update("delete").instructors();
-                storage.delete<InstructorType, "instructors">("instructors", indexInstructorCPF)
+                storage.delete<InstructorType, "instructors">("instructors", indexInstructor)
                 indexTarget.remove();
 
             }

@@ -7,15 +7,20 @@ import { Instructors } from "./instructors.js";
 import { Utils } from "./utils.js";
 import { storage } from "./storage.js";
 
+storage.dom().dashboard();
 storage.dom().instructor();
 
-section.change();
-menu.responsive();
 theme.change();
 theme.storage();
+
+section.change();
+
+menu.responsive();
+
 Workouts.actions();
 Students.actions();
 Instructors.actions();
+
 Utils.closeAllSection();
 
 

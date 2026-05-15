@@ -43,7 +43,19 @@ class Storage {
     }
     dom() {
         return {
+            dashboard: () => {
+                const dashboard = this.get("dashboard");
+                if (dashboard === null)
+                    return;
+                const totalWorkouts = document.querySelector("#total-workouts");
+                const totalStudents = document.querySelector("#total-students");
+                const totalInstructors = document.querySelector("#total-instructors");
+                totalWorkouts.textContent = `${dashboard.totalWorkouts}`;
+                totalStudents.textContent = `${dashboard.totalStudents}`;
+                totalInstructors.textContent = `${dashboard.totalInstructors}`;
+            },
             instructor: () => {
+                const listOptionsForWorkout = document.querySelector("#list-instructors");
                 const instructors = this.get("instructors");
                 if (instructors === null)
                     return;
@@ -53,6 +65,9 @@ class Storage {
                     newBoxInstructor.classList.add("box-instructor");
                     newBoxInstructor.innerHTML = new BoxCategory().instructor(newInstructor.name, newInstructor.cpf, newInstructor.telephone, newInstructor.specialty);
                     instructorsDOM.appendChild(newBoxInstructor);
+                    const option = document.createElement("option");
+                    option.textContent = `${newInstructor.name}`;
+                    listOptionsForWorkout.appendChild(option);
                 });
             }
         };
