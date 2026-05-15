@@ -6,14 +6,14 @@ class Section {
     constructor() { }
     ;
     static showBoxActionInformation() {
-        const boxWorkout = document.querySelectorAll(".box-instructor");
+        const boxInstructor = document.querySelectorAll(".box-instructor");
         const events = ["mouseover", "mouseout"];
         const iconsButtons = ["icon-remove-instructor", "icon-edit-instructor"];
         const containerInformations = [
             "information-action-remove-instructor",
             "information-action-edit-instructor"
         ];
-        boxWorkout.forEach((workout) => events.forEach((typeEvent) => {
+        boxInstructor.forEach((workout) => events.forEach((typeEvent) => {
             document.body.addEventListener(typeEvent, (e) => {
                 const target = e.target;
                 iconsButtons.forEach((button) => {
@@ -203,6 +203,24 @@ class Instructor {
                 const indexTarget = target.closest(".box-instructor");
                 if (!indexTarget)
                     return;
+                const indexInstructorCPF = indexTarget.querySelector(".info-cpf-instructor");
+                const instructors = storage.get("instructors") || [];
+                const instructor = instructors.find((instructor) => instructor.cpf === indexInstructorCPF.textContent);
+                if (!instructor)
+                    return;
+                inputNameEdit.value = instructor.name;
+                inputCPFEdit.value = instructor.cpf;
+                inputTelephoneEdit.value = instructor.telephone;
+                inputSpecialtyEdit.value = instructor.specialty;
+                inputNameEdit.addEventListener("input", () => {
+                    this.validations(inputNameEdit.value, "message-error-name-instructor-edit", inputNameEdit.id).name();
+                });
+                inputTelephoneEdit.addEventListener("input", () => {
+                    this.validations(inputTelephoneEdit.value, "message-error-telephone-instructor-edit", inputTelephoneEdit.id).telephone();
+                });
+                inputSpecialtyEdit.addEventListener("input", () => {
+                    this.validations(inputSpecialtyEdit.value, "message-error-specialty-instructor-edit", inputSpecialtyEdit.id).specialty();
+                });
             }
         }));
     }

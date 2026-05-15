@@ -9,7 +9,7 @@ class Section {
     constructor() {};
 
     static showBoxActionInformation() {
-        const boxWorkout = document.querySelectorAll<HTMLDivElement>(".box-instructor");
+        const boxInstructor = document.querySelectorAll<HTMLDivElement>(".box-instructor");
         const events = ["mouseover", "mouseout"];
         const iconsButtons = ["icon-remove-instructor", "icon-edit-instructor"];
         const containerInformations = [
@@ -17,7 +17,7 @@ class Section {
             "information-action-edit-instructor"
         ];
 
-        boxWorkout.forEach((workout) => events.forEach((typeEvent) => {
+        boxInstructor.forEach((workout) => events.forEach((typeEvent) => {
             document.body.addEventListener(typeEvent, (e) => {
                 const target = e.target as HTMLDivElement;
                 iconsButtons.forEach((button) => {
@@ -230,13 +230,35 @@ class Instructor {
         const inputTelephoneEdit = document.querySelector("#input-instructor-telephone-edit") as HTMLInputElement;
         const inputSpecialtyEdit = document.querySelector("#input-instructor-specialty-edit") as HTMLInputElement;
 
-
-
         this.boxInstructor.forEach((box) => document.body.addEventListener("click", (e) => {
             const target = e.target as HTMLDivElement;
             if (target.classList.contains("icon-edit-instructor")) {
                 const indexTarget = target.closest(".box-instructor");
                 if (!indexTarget) return;
+                const indexInstructorCPF = indexTarget.querySelector(".info-cpf-instructor") as HTMLSpanElement;
+                const instructors = storage.get<InstructorType[], KeysLocalStorage>("instructors") || [];
+                const instructor = instructors.find((instructor) =>
+                    instructor.cpf === indexInstructorCPF.textContent);
+
+                if (!instructor) return;
+                
+                inputNameEdit.value = instructor.name;
+                inputCPFEdit.value = instructor.cpf;
+                inputTelephoneEdit.value = instructor.telephone;
+                inputSpecialtyEdit.value = instructor.specialty;
+
+                inputNameEdit.addEventListener("input", () => {
+                    this.validations(inputNameEdit.value, "message-error-name-instructor-edit", inputNameEdit.id).name();
+                })
+
+                inputTelephoneEdit.addEventListener("input", () => {
+                    this.validations(inputTelephoneEdit.value, "message-error-telephone-instructor-edit", inputTelephoneEdit.id).telephone();
+                })
+
+                inputSpecialtyEdit.addEventListener("input", () => {
+                    this.validations(inputSpecialtyEdit.value, "message-error-specialty-instructor-edit", inputSpecialtyEdit.id).specialty();
+                })
+
             }
 
         }))
