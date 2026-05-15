@@ -62,7 +62,7 @@ class Instructor {
     private inputName;
     private inputCPF;
     private inputTelephone;
-    private inputSpecialty
+    private inputSpecialty;
     constructor() {
         this.boxInstructor = document.querySelectorAll<HTMLDivElement>(".box-instructor");
         this.inputName = document.querySelector("#input-instructor-name-register") as HTMLInputElement;
@@ -71,12 +71,12 @@ class Instructor {
         this.inputSpecialty = document.querySelector("#input-instructor-specialty-register") as HTMLInputElement;
     };
 
-    private validations() {
+    private validations(inputValue: string, className: string, id: string) {
         const instructors = storage.get<InstructorType[], KeysLocalStorage>("instructors") || [];
         return {
             name: () => {
-                if (!this.inputName.value.match(academyRegex.name)) {
-                    return Utils.showError("message-error-name-instructor", this.inputName.id,
+                if (!inputValue.match(academyRegex.name)) {
+                    return Utils.showError(className, id,
                         `Nome inválido. Tente novamente...`
                     );  
                 };
@@ -85,21 +85,20 @@ class Instructor {
             },
             cpf: () => {
 
-                if (!this.inputCPF.value.match(academyRegex.cpf)) {
-                    return Utils.showError("message-error-cpf-instructor", this.inputCPF.id, `CPF inválido. Verifique o formato.`
+                if (!inputValue.match(academyRegex.cpf)) {
+                    return Utils.showError(className, id, `CPF inválido. Verifique o formato.`
                     );  
                 };
                 
-                if (!this.inputCPF.value.includes("-")) {
-                    const format = `${this.inputCPF.value.slice(0, 3)}.${this.inputCPF.value.slice(3, 6)}.${this.inputCPF.value.slice(6, 9)}-${this.inputCPF.value.slice(9, 11)}`;
+                if (!inputValue.includes("-")) {
+                    const format = `${inputValue.slice(0, 3)}.${inputValue.slice(3, 6)}.${inputValue.slice(6, 9)}-${inputValue.slice(9, 11)}`;
                     this.inputCPF.value = format;
-                    
                 };
 
                 const existingCFP = instructors.find((instructor) =>
-                    instructor.cpf === this.inputCPF.value);
+                    instructor.cpf === inputValue);
 
-                if (existingCFP) return Utils.showError("message-error-cpf-instructor", this.inputCPF.id, "O CPF informado está em uso."
+                if (existingCFP) return Utils.showError(className, id, "O CPF informado está em uso."
                 )
 
                 Utils.hideError();
@@ -108,22 +107,22 @@ class Instructor {
             },
             telephone: () => {
 
-                if (!this.inputTelephone.value.match(academyRegex.telephone)) {
-                    return Utils.showError("message-error-telephone-instructor", this.inputTelephone.id, "Número de telefone inválido.");
+                if (!inputValue.match(academyRegex.telephone)) {
+                    return Utils.showError(className, id, "Número de telefone inválido.");
                 }
 
                 Utils.hideError();
 
-                const existingTelephone = instructors.find((instructor) => instructor.telephone === this.inputTelephone.value);
+                const existingTelephone = instructors.find((instructor) => instructor.telephone === inputValue);
 
-                if (existingTelephone) return Utils.showError("message-error-telephone-instructor", this.inputTelephone.id, "O telefone informado está em uso.");
+                if (existingTelephone) return Utils.showError(className, id, "O telefone informado está em uso.");
 
                 Utils.hideError();
                 return true;
             },
             specialty: () => {
-                if (!this.inputSpecialty.value.match(academyRegex.specialty)) {
-                    return Utils.showError("message-error-specialty-instructor", this.inputSpecialty.id, "Nome da especialidade inválido. Tente novamante...")
+                if (!inputValue.match(academyRegex.specialty)) {
+                    return Utils.showError(className, id, "Nome da especialidade inválido. Tente novamante...")
                 }
                 Utils.hideError();
                 return true;
@@ -135,23 +134,30 @@ class Instructor {
         const buttonRegister = document.querySelector(".button-save-register-instructor") as HTMLDivElement;
 
         this.inputName.addEventListener("input", () => {
-            this.validations().name();
+            this.validations(this.inputName.value, "message-error-name-instructor", this.inputName.id).name();
         })
 
         this.inputCPF.addEventListener("input", () => {
-            this.validations().cpf();
+            this.validations(this.inputCPF.value, "message-error-cpf-instructor", this.inputCPF.id).cpf();
         })
 
         this.inputTelephone.addEventListener("input", () => {
-            this.validations().telephone();
+            this.validations(this.inputTelephone.value, "message-error-telephone-instructor", this.inputTelephone.id).telephone();
         })
 
         this.inputSpecialty.addEventListener("input", () => {
-            this.validations().specialty();
+            this.validations(this.inputSpecialty.value, "message-error-specialty-instructor", this.inputSpecialty.id).specialty();
         })
 
         buttonRegister.addEventListener("click", () => {
-            if (!this.validations().name() || !this.validations().cpf() || !this.validations().telephone() || !this.validations().specialty()) return;
+
+            if (!this.validations(this.inputName.value, "message-error-name-instructor", this.inputName.id).name()) return;
+
+            if (!this.validations(this.inputCPF.value, "message-error-cpf-instructor", this.inputCPF.id).cpf()) return;
+
+            if (!this.validations(this.inputTelephone.value, "message-error-telephone-instructor", this.inputTelephone.id).telephone()) return;
+
+            if (!this.validations(this.inputSpecialty.value, "message-error-specialty-instructor", this.inputSpecialty.id).specialty()) return;
 
             const optionsListInstructors = document.querySelector("#list-instructors") as HTMLSelectElement
             const option = document.createElement("option");
@@ -216,6 +222,16 @@ class Instructor {
     };
     
     edit() {
+
+        const buttonSaveEdit = document.querySelector(".button-save-edit-instructor") as HTMLButtonElement;
+
+        const inputNameEdit = document.querySelector("#input-instructor-name-edit") as HTMLInputElement;
+        const inputCPFEdit = document.querySelector("#input-instructor-cpf-edit") as HTMLInputElement;
+        const inputTelephoneEdit = document.querySelector("#input-instructor-telephone-edit") as HTMLInputElement;
+        const inputSpecialtyEdit = document.querySelector("#input-instructor-specialty-edit") as HTMLInputElement;
+
+
+
         this.boxInstructor.forEach((box) => document.body.addEventListener("click", (e) => {
             const target = e.target as HTMLDivElement;
             if (target.classList.contains("icon-edit-instructor")) {
