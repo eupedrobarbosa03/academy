@@ -148,9 +148,8 @@ class Student {
             this.validations(this.planSelected.value, "message-error-plan-student", this.planSelected.id).plan();
         });
         buttonRegister.addEventListener("click", () => {
-            if (!this.validations(this.inputName.value, "message-error-name-student", this.inputName.id).name()) {
+            if (!this.validations(this.inputName.value, "message-error-name-student", this.inputName.id).name())
                 return;
-            }
             if (!this.validations(this.inputCPF.value, "message-error-cpf-student", this.inputCPF.id).cpf())
                 return;
             if (!this.validations(this.inputTelephone.value, "message-error-telephone-student", this.inputTelephone.id).telephone())

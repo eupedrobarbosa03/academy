@@ -45,8 +45,7 @@ class Section {
     static openSectionEditStudents() {
         const sectionEditInstructors = document.querySelector("#section-container-edit-instructors") as HTMLDivElement;
         const boxInstructor = document.querySelectorAll<HTMLDivElement>(".box-instructor");
-        boxInstructor.forEach((box) => document.body.addEventListener("click", (e) => {
-            Utils.hideError();
+        boxInstructor.forEach(() => document.body.addEventListener("click", (e) => {
             const target = e.target as HTMLDivElement;
             if (target.classList.contains("icon-edit-instructor")) {
                 const indexTarget = target.closest(".box-instructor");
