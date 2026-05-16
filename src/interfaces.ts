@@ -18,6 +18,3 @@ export interface InstructorType {
     telephone: string;
     specialty: string;
 };
-
-
-export type Category = InstructorType | DashboardType;

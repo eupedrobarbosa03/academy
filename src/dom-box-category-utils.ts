@@ -1,5 +1,53 @@
-export class BoxCategory {
+import { Utils } from "./utils.js";
+
+export class Category {
     constructor() {};
+
+    section() {
+        return {
+            actionsBoxInformation: function(queryCategory: string, buttonsCategory: [string, string], queryInformations: [string, string]) {
+
+                const BoxCategory = document.querySelectorAll<HTMLDivElement>(`.${queryCategory}`);
+                const events = ["mouseover", "mouseout"];
+                const buttons = [...buttonsCategory];
+                const informations = [...queryInformations];
+
+                BoxCategory.forEach(() => events.forEach((typeEvent) => document.body.addEventListener(typeEvent, (e) => {
+                    const target = e.target as HTMLDialogElement;
+                    buttons.forEach((button) => {
+                        if (target.classList.contains(button)) {
+                            const information = informations.findIndex((info) =>
+                                info.includes(`${button.split("-")[1]}`));
+                            const indexBoxCategory = target.closest(`.${queryCategory}`) as HTMLDivElement;
+                            if (!indexBoxCategory) return;
+                            const queryBoxCategory = indexBoxCategory.querySelector(`.${informations[information]}`) as HTMLDivElement;
+                            queryBoxCategory.classList.toggle("show")
+                        };
+                    });
+                })));
+            },
+            addition: function(button: string, querySectionCategory: string) {
+                const buttonAddition = document.querySelector(`.${button}`) as HTMLButtonElement;
+                buttonAddition.addEventListener("click", () => {
+                    Utils.hideError();
+                    const section = document.querySelector(`#${querySectionCategory}`) as HTMLDivElement;
+                    section.classList.add("show")
+                });
+            },
+            edit: function(querySectionCategory: string, queryCategory: string, queryButtonEditCategory: string) {
+                const section = document.querySelector(`#${querySectionCategory}`) as HTMLDivElement;
+                const boxCategory = document.querySelectorAll<HTMLDivElement>(`.${queryCategory}`);
+                boxCategory.forEach(() => document.body.addEventListener("click", (e) => {
+                    const target = e.target as HTMLDivElement;
+                    if (target.classList.contains(queryButtonEditCategory)) {
+                        const indexBoxCategory = target.closest(`.${queryCategory}`) as HTMLDivElement;
+                        if (!indexBoxCategory) return;
+                        section.classList.add("show");
+                    }
+                }))
+            }
+        };
+    };
 
     removeHide() {
         const categories = ["box-instructor", "box-workout", "box-student"];

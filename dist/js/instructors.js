@@ -2,56 +2,7 @@ import { dashboard } from "./dashboard.js";
 import { academyRegex } from "./regex.js";
 import { storage } from "./storage.js";
 import { Utils } from "./utils.js";
-import { BoxCategory } from "./dom-box-category-utils.js";
-class Section {
-    constructor() { }
-    ;
-    static showBoxActionInformation() {
-        const boxInstructor = document.querySelectorAll(".box-instructor");
-        const events = ["mouseover", "mouseout"];
-        const iconsButtons = ["icon-remove-instructor", "icon-edit-instructor"];
-        const containerInformations = [
-            "information-action-remove-instructor",
-            "information-action-edit-instructor"
-        ];
-        boxInstructor.forEach(() => events.forEach((typeEvent) => document.body.addEventListener(typeEvent, (e) => {
-            const target = e.target;
-            iconsButtons.forEach((button) => {
-                if (target.classList.contains(button)) {
-                    const indexInformation = containerInformations.findIndex((information) => information.includes(`${button.split("-")[1]}`));
-                    const indexTarget = target.closest(".box-instructor");
-                    const indexQuery = indexTarget.querySelector(`.${containerInformations[indexInformation]}`);
-                    indexQuery.classList.toggle("show");
-                }
-            });
-        })));
-    }
-    ;
-    static openSectionAddInstructors() {
-        const buttonAddWStudents = document.querySelector(".button-to-register-instructors");
-        buttonAddWStudents.addEventListener("click", () => {
-            Utils.hideError();
-            const sectionAddWorkouts = document.querySelector("#section-container-addition-instructors");
-            sectionAddWorkouts.classList.add("show");
-        });
-    }
-    ;
-    static openSectionEditStudents() {
-        const sectionEditInstructors = document.querySelector("#section-container-edit-instructors");
-        const boxInstructor = document.querySelectorAll(".box-instructor");
-        boxInstructor.forEach(() => document.body.addEventListener("click", (e) => {
-            const target = e.target;
-            if (target.classList.contains("icon-edit-instructor")) {
-                const indexTarget = target.closest(".box-instructor");
-                if (!indexTarget)
-                    return;
-                sectionEditInstructors.classList.add("show");
-            }
-        }));
-    }
-    ;
-}
-;
+import { Category } from "./dom-box-category-utils.js";
 class Instructor {
     boxInstructor;
     inputName;
@@ -70,6 +21,8 @@ class Instructor {
         const instructors = storage.get("instructors") || [];
         return {
             name: () => {
+                if (!inputValue)
+                    return Utils.hideError();
                 if (!inputValue.match(academyRegex.name)) {
                     return Utils.showError(className, id, `Nome inválido. Tente novamente...`);
                 }
@@ -78,6 +31,8 @@ class Instructor {
                 return true;
             },
             cpf: () => {
+                if (!inputValue)
+                    return Utils.hideError();
                 if (!inputValue.match(academyRegex.cpf)) {
                     return Utils.showError(className, id, `CPF inválido. Verifique o formato.`);
                 }
@@ -94,6 +49,8 @@ class Instructor {
                 return true;
             },
             telephone: (isEdit, valueEdit) => {
+                if (!inputValue)
+                    return Utils.hideError();
                 if (!inputValue.match(academyRegex.telephone)) {
                     return Utils.showError(className, id, "Número de telefone inválido.");
                 }
@@ -107,6 +64,8 @@ class Instructor {
                 return true;
             },
             specialty: () => {
+                if (!inputValue)
+                    return Utils.hideError();
                 if (!inputValue.match(academyRegex.specialty)) {
                     return Utils.showError(className, id, "Nome da especialidade inválido. Tente novamante...");
                 }
@@ -146,7 +105,7 @@ class Instructor {
             const instructorsDOM = document.querySelector(".instructors");
             const box = document.createElement("div");
             box.classList.add("box-instructor");
-            box.innerHTML = new BoxCategory().instructor(this.inputName.value, this.inputCPF.value, this.inputTelephone.value, this.inputSpecialty.value);
+            box.innerHTML = new Category().instructor(this.inputName.value, this.inputCPF.value, this.inputTelephone.value, this.inputSpecialty.value);
             instructorsDOM.appendChild(box);
             storage.add({
                 name: this.inputName.value,
@@ -198,7 +157,7 @@ class Instructor {
                         return;
                     if (!this.validations(inputSpecialtyEdit.value, "message-error-specialty-instructor-edit", inputSpecialtyEdit.id).specialty())
                         return;
-                    indexTarget.innerHTML = new BoxCategory().instructor(inputNameEdit.value, inputCPFEdit.value, inputTelephoneEdit.value, inputSpecialtyEdit.value);
+                    indexTarget.innerHTML = new Category().instructor(inputNameEdit.value, inputCPFEdit.value, inputTelephoneEdit.value, inputSpecialtyEdit.value);
                     instructor.name = inputNameEdit.value;
                     instructor.cpf = inputCPFEdit.value;
                     instructor.telephone = inputTelephoneEdit.value;
@@ -254,9 +213,9 @@ export class Instructors {
         instructor.edit();
         instructor.delete();
         Utils.search("input-search-instructors", "box-instructor", "info-for-search");
-        Section.showBoxActionInformation();
-        Section.openSectionAddInstructors();
-        Section.openSectionEditStudents();
+        new Category().section().actionsBoxInformation("box-instructor", ["icon-remove-instructor", "icon-edit-instructor"], ["information-action-remove-instructor", "information-action-edit-instructor"]);
+        new Category().section().addition("button-to-register-instructors", "section-container-addition-instructors");
+        new Category().section().edit("section-container-edit-instructors", "box-instructor", "icon-edit-instructor");
     }
     ;
 }

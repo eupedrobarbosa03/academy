@@ -2,58 +2,7 @@ import { dashboard } from "./dashboard.js";
 import { academyRegex } from "./regex.js";
 import { Utils } from "./utils.js";
 import { storage } from "./storage.js";
-import { BoxCategory } from "./dom-box-category-utils.js";
-class Section {
-    constructor() { }
-    ;
-    static showBoxActionInformation() {
-        const boxStudent = document.querySelectorAll(".box-student");
-        const events = ["mouseover", "mouseout"];
-        const iconsButtons = ["icon-remove-student", "icon-edit-student"];
-        const containerInformations = [
-            "information-action-remove-student",
-            "information-action-edit-student"
-        ];
-        boxStudent.forEach((box) => events.forEach((typeEvent) => {
-            document.body.addEventListener(typeEvent, (e) => {
-                const target = e.target;
-                iconsButtons.forEach((button) => {
-                    if (target.classList.contains(button)) {
-                        const indexInformation = containerInformations.findIndex((information) => information.includes(`${button.split("-")[1]}`));
-                        const indexTarget = target.closest(".box-student");
-                        const indexQuery = indexTarget.querySelector(`.${containerInformations[indexInformation]}`);
-                        indexQuery.classList.toggle("show");
-                    }
-                    ;
-                });
-            });
-        }));
-    }
-    ;
-    static openSectionAddStudents() {
-        const buttonAddWStudents = document.querySelector(".button-to-register-students");
-        buttonAddWStudents.addEventListener("click", () => {
-            const sectionAddWorkouts = document.querySelector("#section-container-addition-students");
-            sectionAddWorkouts.classList.add("show");
-        });
-    }
-    ;
-    static openSectionEditStudents() {
-        const sectionEditStudents = document.querySelector("#section-container-edit-students");
-        const boxStudent = document.querySelectorAll(".box-student");
-        boxStudent.forEach((box) => document.body.addEventListener("click", (e) => {
-            const target = e.target;
-            if (target.classList.contains("icon-edit-student")) {
-                const indexTarget = target.closest(".box-student");
-                if (!indexTarget)
-                    return;
-                sectionEditStudents.classList.add("show");
-            }
-        }));
-    }
-    ;
-}
-;
+import { Category } from "./dom-box-category-utils.js";
 class Student {
     boxStudent;
     inputName;
@@ -88,13 +37,18 @@ class Student {
         const instructors = storage.get("students") || [];
         return {
             name: () => {
+                if (!inputValue)
+                    return Utils.hideError();
                 if (!inputValue.match(academyRegex.name)) {
                     return Utils.showError(className, id, `Nome inválido. Tente novamente...`);
                 }
                 ;
+                Utils.hideError();
                 return true;
             },
             cpf: () => {
+                if (!inputValue)
+                    return Utils.hideError();
                 if (!inputValue.match(academyRegex.cpf)) {
                     return Utils.showError(className, id, `CPF inválido. Verifique o formato.`);
                 }
@@ -112,6 +66,8 @@ class Student {
                 return true;
             },
             telephone: (isEdit, valueEdit) => {
+                if (!inputValue)
+                    return Utils.hideError();
                 if (!inputValue.match(academyRegex.telephone)) {
                     return Utils.showError(className, id, "Número de telefone inválido.");
                 }
@@ -121,13 +77,6 @@ class Student {
                 const existingTelephone = instructors.find((instructor) => instructor.telephone === inputValue);
                 if (existingTelephone)
                     return Utils.showError(className, id, "O telefone informado está em uso.");
-                Utils.hideError();
-                return true;
-            },
-            plan: () => {
-                if (!inputValue) {
-                    return Utils.showError(className, id, `Selecione um plano.`);
-                }
                 Utils.hideError();
                 return true;
             }
@@ -144,9 +93,6 @@ class Student {
         this.inputTelephone.addEventListener("input", () => {
             this.validations(this.inputTelephone.value, "message-error-telephone-student", this.inputTelephone.id).telephone();
         });
-        this.planSelected.addEventListener("input", () => {
-            this.validations(this.planSelected.value, "message-error-plan-student", this.planSelected.id).plan();
-        });
         buttonRegister.addEventListener("click", () => {
             if (!this.validations(this.inputName.value, "message-error-name-student", this.inputName.id).name())
                 return;
@@ -154,13 +100,11 @@ class Student {
                 return;
             if (!this.validations(this.inputTelephone.value, "message-error-telephone-student", this.inputTelephone.id).telephone())
                 return;
-            if (!this.validations(this.planSelected.value, "message-error-plan-student", this.planSelected.id).plan())
-                return;
             const studentsDOM = document.querySelector(".students");
             const box = document.createElement("div");
-            box.classList.add("box-students");
+            box.classList.add("box-student");
             const register = this.numberOfRegister();
-            box.innerHTML = new BoxCategory().student(register, this.inputName.value, this.inputCPF.value, this.inputTelephone.value, this.planSelected.value);
+            box.innerHTML = new Category().student(register, this.inputName.value, this.inputCPF.value, this.inputTelephone.value, this.planSelected.value);
             studentsDOM.appendChild(box);
             storage.add({
                 register: register,
@@ -177,7 +121,7 @@ class Student {
     ;
     edit() {
         const boxStudent = document.querySelectorAll(".box-student");
-        boxStudent.forEach((box) => document.body.addEventListener("click", (e) => {
+        boxStudent.forEach(() => document.body.addEventListener("click", (e) => {
             const target = e.target;
             if (target.classList.contains("icon-edit-student")) {
                 const indexTarget = target.closest(".box-student");
@@ -209,9 +153,10 @@ export class Students {
         student.create();
         student.edit();
         student.delete();
-        Section.showBoxActionInformation();
-        Section.openSectionAddStudents();
-        Section.openSectionEditStudents();
+        Utils.search("input-search-students", "box-student", "info-for-search");
+        new Category().section().actionsBoxInformation("box-student", ["icon-remove-student", "icon-edit-student"], ["information-action-remove-student", "information-action-edit-student"]);
+        new Category().section().addition("button-to-register-students", "section-container-addition-students");
+        new Category().section().edit("section-container-edit-students", "box-student", "icon-edit-student");
     }
     ;
 }

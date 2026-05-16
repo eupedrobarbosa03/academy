@@ -57,6 +57,8 @@ export class Utils {
     static clearnInputs() {
         const inputs = document.querySelectorAll<HTMLInputElement>("input");
         inputs.forEach((input) => input.value = '');
+        const planSelected = document.querySelector("#student-plan-for-register") as HTMLSelectElement;
+        planSelected.value = 'basic';
     };
 
     static search(inputSearchID: string, classNameBoxCategory: string, valueForSearch: string) {

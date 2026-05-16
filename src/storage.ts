@@ -1,5 +1,5 @@
-import { BoxCategory } from "./dom-box-category-utils.js";
-import { DashboardType, InstructorType } from "./interfaces.js";
+import { Category } from "./dom-box-category-utils.js";
+import { DashboardType, InstructorType, StudentType } from "./interfaces.js";
 
 
 const keysLocalStorage = ["dashboard", "workouts", "students", "instructors"];
@@ -57,6 +57,17 @@ class Storage {
                 totalStudents.textContent = `${dashboard.totalStudents}`;
                 totalInstructors.textContent = `${dashboard.totalInstructors}`;
             },
+            student: () => {
+                const students = this.get<StudentType[], KeysLocalStorage>("students");
+                if (students === null) return;
+                students.forEach((student) => {
+                    const studentsDOM = document.querySelector(".students") as HTMLDivElement;
+                    const newBoxStudent = document.createElement("div");
+                    newBoxStudent.classList.add("box-student");
+                    newBoxStudent.innerHTML = new Category().student(student.register, student.name, student.cpf, student.telephone, student.plan);
+                    studentsDOM.appendChild(newBoxStudent);
+                }); 
+            },
             instructor: () => {
                 const listOptionsForWorkout = document.querySelector("#list-instructors") as HTMLSelectElement;
                 const instructors = this.get<InstructorType[], KeysLocalStorage>("instructors");
@@ -65,7 +76,7 @@ class Storage {
                     const instructorsDOM = document.querySelector(".instructors") as HTMLDivElement;
                     const newBoxInstructor = document.createElement("div");
                     newBoxInstructor.classList.add("box-instructor");
-                    newBoxInstructor.innerHTML = new BoxCategory().instructor(newInstructor.name, newInstructor.cpf, newInstructor.telephone, newInstructor.specialty)
+                    newBoxInstructor.innerHTML = new Category().instructor(newInstructor.name, newInstructor.cpf, newInstructor.telephone, newInstructor.specialty)
                     instructorsDOM.appendChild(newBoxInstructor);
                     const option = document.createElement("option");
                     option.textContent = `${newInstructor.name}`;

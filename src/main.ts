@@ -8,6 +8,7 @@ import { Utils } from "./utils.js";
 import { storage } from "./storage.js";
 
 storage.dom().dashboard();
+storage.dom().student();
 storage.dom().instructor();
 
 theme.change();
