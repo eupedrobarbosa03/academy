@@ -1,3 +1,17 @@
+export interface DashboardType {
+    totalWorkouts: number;
+    totalStudents: number;
+    totalInstructors: number;
+};
+
+export interface StudentType {
+    register: string;
+    name: string;
+    cpf: string;
+    telephone: string;
+    plan: string;
+}
+
 export interface InstructorType {
     name: string;
     cpf: string;
@@ -5,10 +19,5 @@ export interface InstructorType {
     specialty: string;
 };
 
-export interface DashboardType {
-    totalWorkouts: number;
-    totalStudents: number;
-    totalInstructors: number;
-};
 
 export type Category = InstructorType | DashboardType;

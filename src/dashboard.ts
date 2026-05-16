@@ -18,17 +18,30 @@ class Dashboard {
     update(type: "create" | "delete" | "conclude" | "cancel") {
         return {
             students: () => {
+                const dashboard = storage.get<DashboardType, KeysLocalStorage>("dashboard");
                 const currentNumber = +this.students.textContent;
+                const currentStats = document.querySelector("#stats-students-total") as HTMLDivElement;
+
+                currentStats.removeAttribute("class");
+
                 if (type === "create") {
                     this.students.textContent = `${currentNumber + 1}`;     
-                    return;
-                }; this.students.textContent = `${currentNumber - 1}`
+                    currentStats.setAttribute("class", "fa-solid fa-caret-up");
+                    if (dashboard) dashboard.totalStudents += 1;
+                } else {
+                    this.students.textContent = `${currentNumber - 1}`;
+                    currentStats.setAttribute("class", "fa-solid fa-caret-down");
+                    if (dashboard) dashboard.totalStudents -= 1;
+                }
+
+                localStorage.setItem("dashboard", JSON.stringify(dashboard));
+
             },
             instructors: () => {
                 const dashboard = storage.get<DashboardType, KeysLocalStorage>("dashboard");
                 const currentNumber = +this.instructors.textContent;
                 const currentStats = document.querySelector("#stats-instructors-total") as HTMLDivElement;
-                let increment = false;
+
                 currentStats.removeAttribute("class");
                 if (type === "create") {
                     this.instructors.textContent = `${currentNumber + 1}`;
@@ -41,6 +54,7 @@ class Dashboard {
                 };
 
                 localStorage.setItem("dashboard", JSON.stringify(dashboard));
+
                 
             },
             workouts: () => {

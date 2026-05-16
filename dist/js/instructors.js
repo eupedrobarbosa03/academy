@@ -28,21 +28,19 @@ class Section {
     }
     ;
     static openSectionAddInstructors() {
-        Utils.clearnInputs();
-        Utils.hideError();
         const buttonAddWStudents = document.querySelector(".button-to-register-instructors");
         buttonAddWStudents.addEventListener("click", () => {
+            Utils.hideError();
             const sectionAddWorkouts = document.querySelector("#section-container-addition-instructors");
             sectionAddWorkouts.classList.add("show");
         });
     }
     ;
     static openSectionEditStudents() {
-        Utils.clearnInputs();
-        Utils.hideError();
         const sectionEditInstructors = document.querySelector("#section-container-edit-instructors");
         const boxInstructor = document.querySelectorAll(".box-instructor");
         boxInstructor.forEach((box) => document.body.addEventListener("click", (e) => {
+            Utils.hideError();
             const target = e.target;
             if (target.classList.contains("icon-edit-instructor")) {
                 const indexTarget = target.closest(".box-instructor");

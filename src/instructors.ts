@@ -33,22 +33,20 @@ class Section {
     };
 
     static openSectionAddInstructors() {
-        Utils.clearnInputs();
-        Utils.hideError();
         const buttonAddWStudents = document.querySelector(".button-to-register-instructors") as HTMLButtonElement;
 
         buttonAddWStudents.addEventListener("click", () => {
+            Utils.hideError();
             const sectionAddWorkouts = document.querySelector("#section-container-addition-instructors") as HTMLDivElement;
             sectionAddWorkouts.classList.add("show")
         });
     };
 
     static openSectionEditStudents() {
-        Utils.clearnInputs();
-        Utils.hideError();
         const sectionEditInstructors = document.querySelector("#section-container-edit-instructors") as HTMLDivElement;
         const boxInstructor = document.querySelectorAll<HTMLDivElement>(".box-instructor");
         boxInstructor.forEach((box) => document.body.addEventListener("click", (e) => {
+            Utils.hideError();
             const target = e.target as HTMLDivElement;
             if (target.classList.contains("icon-edit-instructor")) {
                 const indexTarget = target.closest(".box-instructor");
