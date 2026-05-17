@@ -21,8 +21,6 @@ class Instructor {
         const instructors = storage.get("instructors") || [];
         return {
             name: () => {
-                if (!inputValue)
-                    return Utils.hideError();
                 if (!inputValue.match(academyRegex.name)) {
                     return Utils.showError(className, id, `Nome inválido. Tente novamente...`);
                 }
@@ -31,8 +29,6 @@ class Instructor {
                 return true;
             },
             cpf: () => {
-                if (!inputValue)
-                    return Utils.hideError();
                 if (!inputValue.match(academyRegex.cpf)) {
                     return Utils.showError(className, id, `CPF inválido. Verifique o formato.`);
                 }
@@ -49,8 +45,6 @@ class Instructor {
                 return true;
             },
             telephone: (isEdit, valueEdit) => {
-                if (!inputValue)
-                    return Utils.hideError();
                 if (!inputValue.match(academyRegex.telephone)) {
                     return Utils.showError(className, id, "Número de telefone inválido.");
                 }
@@ -64,8 +58,6 @@ class Instructor {
                 return true;
             },
             specialty: () => {
-                if (!inputValue)
-                    return Utils.hideError();
                 if (!inputValue.match(academyRegex.specialty)) {
                     return Utils.showError(className, id, "Nome da especialidade inválido. Tente novamante...");
                 }
@@ -116,6 +108,8 @@ class Instructor {
             Utils.clearnInputs();
             alert(`Instrutor adicionado com sucesso!`);
             dashboard.update("create").instructors();
+            new Category().clearForRederingToStorage("box-instructor");
+            storage.dom().instructor();
         });
     }
     ;
@@ -164,6 +158,9 @@ class Instructor {
                     instructor.specialty = inputSpecialtyEdit.value;
                     storage.edit(instructors, "instructors");
                     alert(`Instrutor atualizado com sucesso!`);
+                    new Category().clearForRederingToStorage("box-instructor");
+                    storage.dom().instructor();
+                    Utils.closeAllSection();
                     const listOptionsForWorkout = document.querySelectorAll("#list-instructors option");
                     listOptionsForWorkout.forEach((option) => {
                         const instructorName = option.value.toLowerCase();
@@ -201,6 +198,8 @@ class Instructor {
                 dashboard.update("delete").instructors();
                 storage.delete("instructors", indexInstructor);
                 indexTarget.remove();
+                new Category().clearForRederingToStorage("box-instructor");
+                storage.dom().instructor();
             }
         }));
     }

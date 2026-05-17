@@ -9,7 +9,7 @@ export class Category {
                 const events = ["mouseover", "mouseout"];
                 const buttons = [...buttonsCategory];
                 const informations = [...queryInformations];
-                BoxCategory.forEach(() => events.forEach((typeEvent) => document.body.addEventListener(typeEvent, (e) => {
+                events.forEach((event) => document.body.addEventListener(event, (e) => {
                     const target = e.target;
                     buttons.forEach((button) => {
                         if (target.classList.contains(button)) {
@@ -22,7 +22,7 @@ export class Category {
                         }
                         ;
                     });
-                })));
+                }));
             },
             addition: function (button, querySectionCategory) {
                 const buttonAddition = document.querySelector(`.${button}`);
@@ -99,6 +99,13 @@ export class Category {
     }
     clearForRederingToStorage(category) {
         const queryCategory = document.querySelectorAll(`.${category}`);
+        if (category === "box-instructor") {
+            const optionsListInstructors = document.querySelectorAll("#list-instructors option");
+            optionsListInstructors.forEach((option) => {
+                if (option.getAttribute("class") !== "default")
+                    option.remove();
+            });
+        }
         queryCategory.forEach((box) => {
             if (!box.getAttribute("class")?.includes("example")) {
                 box.remove();

@@ -3,8 +3,6 @@ import { Utils } from "./utils.js";
 export class Category {
     constructor() {};
 
-    
-
     section() {
         return {
             actionsBoxInformation: function(queryCategory: string, buttonsCategory: [string, string], queryInformations: [string, string]) {
@@ -14,7 +12,7 @@ export class Category {
                 const buttons = [...buttonsCategory];
                 const informations = [...queryInformations];
 
-                BoxCategory.forEach(() => events.forEach((typeEvent) => document.body.addEventListener(typeEvent, (e) => {
+                events.forEach((event) => document.body.addEventListener(event, (e) => {
                     const target = e.target as HTMLDialogElement;
                     buttons.forEach((button) => {
                         if (target.classList.contains(button)) {
@@ -26,7 +24,8 @@ export class Category {
                             queryBoxCategory.classList.toggle("show")
                         };
                     });
-                })));
+                }))
+
             },
             addition: function(button: string, querySectionCategory: string) {
                 const buttonAddition = document.querySelector(`.${button}`) as HTMLButtonElement;
@@ -106,6 +105,12 @@ export class Category {
 
     clearForRederingToStorage(category: "box-student" | "box-instructor" | "box-workout") {
         const queryCategory = document.querySelectorAll<HTMLDivElement>(`.${category}`)
+        if (category === "box-instructor") {
+            const optionsListInstructors = document.querySelectorAll<HTMLOptionElement>("#list-instructors option");
+            optionsListInstructors.forEach((option) => {
+                if (option.getAttribute("class") !== "default") option.remove();
+            });
+        }
         queryCategory.forEach((box) => {
             if (!box.getAttribute("class")?.includes("example")) {
                 box.remove();

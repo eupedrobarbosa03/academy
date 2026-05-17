@@ -35,8 +35,6 @@ class Student {
         const instructors = storage.get("students") || [];
         return {
             name: () => {
-                if (!inputValue)
-                    return Utils.hideError();
                 if (!inputValue.match(academyRegex.name)) {
                     return Utils.showError(className, id, `Nome inválido. Tente novamente...`);
                 }
@@ -45,8 +43,6 @@ class Student {
                 return true;
             },
             cpf: () => {
-                if (!inputValue)
-                    return Utils.hideError();
                 if (!inputValue.match(academyRegex.cpf)) {
                     return Utils.showError(className, id, `CPF inválido. Verifique o formato.`);
                 }
@@ -64,8 +60,6 @@ class Student {
                 return true;
             },
             telephone: (valueEdit) => {
-                if (!inputValue)
-                    return Utils.hideError();
                 if (!inputValue.match(academyRegex.telephone)) {
                     return Utils.showError(className, id, "Número de telefone inválido.");
                 }
