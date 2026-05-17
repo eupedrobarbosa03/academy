@@ -17,7 +17,7 @@
         <i class="fa-solid fa-bars" id="menu-navbar"></i>
         <div class="title-container">
             <img src="assets/icons/academy_icon_dark.png" id="icon-academy" width="36" height="36" alt="academy icon">
-            <h2 class="">Academy</h2>
+            <h2>Academy</h2>
         </div>
         <div class="container-greet-user-more-change-theme">
             <button data-change-theme id="button-change-theme">
@@ -48,7 +48,7 @@
                 <p>Instrutores</p>
             </button>
         </nav>
-        <section data-section="dashboard" class="section-option" style="display: none;">
+        <section data-section="dashboard" class="section-option">
             <section class="section-container-informations-academy">
                 <section class="informations-academy">
                     <div class="box-information">
@@ -94,20 +94,13 @@
                             </div>
                         </div>
                     </div>
-
-<!-- 
-<i class="fa-solid fa-caret-up" style="color: #22c55e;"></i>
-
-<i class="fa-solid fa-caret-down" style="color: #ef4444;"></i>
-<i class="fa-solid fa-minus" style="color: #a1a1aa;"></i> -->
-
                 </section>
             </section>
         </section>
-        <section data-section="academy-workouts" class="section-option section-academy-workouts">
+        <section data-section="academy-workouts" class="section-option section-academy-workouts" style="display: none;">
             <div class="container-actions-workouts">
                 <div class="container-search-workouts">
-                    <input type="text" placeholder="Pesquisar treinos: digite o nome do aluno" id="input-search-workouts" class="">
+                    <input type="text" placeholder="Pesquisar treinos: digite o nome do aluno" id="input-search-workouts">
                 </div>
                 <button class="button-to-mark-workouts">
                     <i class="fa-solid fa-plus"></i>
@@ -118,23 +111,23 @@
                 <div class="workouts">
                     <div class="box-workout _______example_______">
                         <div class="container-informations-workouts">
-                            <p class="">
+                            <p>
                                 Aluno:
                                 <span class="informations-workouts-box-workout"></span>
                             </p>
-                            <p class="">
+                            <p>
                                 Professor:
                                 <span class="informations-workouts-box-workout"></span>
                             </p>
-                            <p class="">
+                            <p>
                                 Treino:
                                 <span class="informations-workouts-box-workout"></span>
                             </p>
-                            <p class="">
+                            <p>
                                 Data:
                                 <span class="informations-workouts-box-workout"></span>
                             </p>
-                            <p class="">
+                            <p>
                                 Horário:
                                 <span class="informations-workouts-box-workout"></span>
                             </p>
@@ -143,10 +136,10 @@
                             <i class="fa-solid fa-check icon-conclude-workout"></i>
                             <i class="fa-solid fa-xmark icon-cancel-workout"></i>
                             <div class="information-action-conclude information-action">
-                                <p class="">Concluir</p>
+                                <p>Concluir</p>
                             </div>
                             <div class="information-action-cancel information-action">
-                                <p class="">Cancelar</p>
+                                <p>Cancelar</p>
                             </div>
                         </div>
                     </div>
@@ -157,7 +150,7 @@
             <div class="container-actions-students">
                 <div class="container-search-students">
                     <div class="container-search-students">
-                        <input type="text" id="input-search-students" placeholder="Pesquisar aluno por nome, matrícula ou CPF" class="">
+                        <input type="text" id="input-search-students" placeholder="Pesquisar aluno por nome, matrícula ou CPF">
                     </div>
                 </div>
                 <button class="button-to-register-students">
@@ -169,27 +162,27 @@
                 <div class="students">
                     <div class="box-student _______example_______">
                         <div class="container-informations-students">
-                            <p class="">
+                            <p>
                                 Matrícula:
                                 <span class="informations-students-box-student">example</span>
                             </p>
-                            <p class="">
+                            <p>
                                 Aluno:
                                 <span class="informations-students-box-student">example</span>
                             </p>
-                            <p class="">
+                            <p>
                                 CPF:
                                 <span class="informations-students-box-student info-cpf-student">example</span>
                             </p>
-                            <p class="">
+                            <p>
                                 Telefone
                                 <span class="informations-students-box-student">example</span>
                             </p>
-                            <p class="">
+                            <p>
                                 Plano
                                 <span class="informations-students-box-student">example</span>
                             </p>
-                            <p class="">
+                            <p>
                                 Status
                                 <span class="informations-students-box-student">example</span>
                             </p>
@@ -198,10 +191,10 @@
                             <i class="fa-solid fa-pen-to-square icon-edit-student"></i>
                             <i class="fa-solid fa-trash icon-remove-student"></i>
                             <div class="information-action-edit-student information-action">
-                                <p class="">Editar</p>
+                                <p>Editar</p>
                             </div>
                             <div class="information-action-remove-student information-action">
-                                <p class="">Remover</p>
+                                <p>Remover</p>
                             </div>
                         </div>
                 </div>
@@ -212,7 +205,7 @@
             <div class="container-actions-instructors">
                 <div class="container-search-instructors">
                     <div class="container-search-instructors">
-                        <input type="text" id="input-search-instructors" placeholder="Pesquisar instrutor por nome ou CPF" class="">
+                        <input type="text" id="input-search-instructors" placeholder="Pesquisar instrutor por nome ou CPF">
                     </div>
                 </div>
                 <button class="button-to-register-instructors">
@@ -224,23 +217,23 @@
                 <div class="instructors">
                     <div class="box-instructor _______example_______">
                         <div class="container-informations-instructors">
-                            <p class="">
+                            <p>
                                 Instrutor:
                                 <span class="informations-instructors-box-instructor ">____________________</span>
                             </p>
-                            <p class="">
+                            <p>
                                 CPF:
                                 <span class="informations-instructors-box-instructor info-cpf-instructor">____________________</span>
                             </p>
-                            <p class="">
+                            <p>
                                 Telefone
                                 <span class="informations-instructors-box-instructor">____________________</span>
                             </p>
-                            <p class="">
+                            <p>
                                 Especialidade
                                 <span class="informations-instructors-box-instructor">____________________</span>
                             </p>
-                            <p class="">
+                            <p>
                                 Status
                                 <span class="informations-instructors-box-instructor">____________________</span>
                             </p>
@@ -249,10 +242,10 @@
                             <i class="fa-solid fa-pen-to-square icon-edit-instructor"></i>
                             <i class="fa-solid fa-trash icon-remove-instructor"></i>
                             <div class="information-action-edit-instructor information-action">
-                                <p class="">Editar</p>
+                                <p>Editar</p>
                             </div>
                             <div class="information-action-remove-instructor information-action">
-                                <p class="">Remover</p>
+                                <p>Remover</p>
                             </div>
                         </div>
                     </div>
@@ -266,24 +259,24 @@
         <div class="container-area-mark-to-workouts">
             <div class="container-inputs-workouts">
                 <div class="box-container-input">
-                    <label for="student-name-for-mark-workouts" class="">Nome do aluno</label>
-                    <input type="text" placeholder="Digite o nome do aluno" id="input-student-name-workout" class="">
+                    <label for="student-name-for-mark-workouts">Nome do aluno</label>
+                    <input type="text" placeholder="Digite o nome do aluno" id="input-student-name-workout">
                     <p id="message-error-student-name-workout" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="instructor-option-workout" class="">Escolha o professor</label>
-                    <select id="list-instructors" class="">
+                    <label for="instructor-option-workout">Escolha o professor</label>
+                    <select id="list-instructors">
                         <option disabled selected class="default" value="">Selecione um instrutor</option>
                     </select>
                     <p id="message-error-option-instructor" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="name-workout" class="">Treino</label>
+                    <label for="name-workout">Treino</label>
                     <input type="text" placeholder="Digite o nome do treino" id="input-workout-name">
                     <p id="message-error-workout-name" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="date-workout" class="">Data</label>
+                    <label for="date-workout">Data</label>
                     <input type="date" id="input-workout-date">
                     <p id="message-error-date-workout" class="message-error">Escolha uma data</p>
                 </div>
@@ -313,26 +306,26 @@
         <div class="container-area-register-students">
             <div class="container-inputs-students">
                 <div class="box-container-input">
-                    <label for="student-name-for-register" class="">Nome do aluno</label>
-                    <input type="text" placeholder="Digite o nome do aluno" id="input-student-name-register" class="">
+                    <label for="student-name-for-register">Nome do aluno</label>
+                    <input type="text" placeholder="Digite o nome do aluno" id="input-student-name-register">
                     <p id="message-error-name-student" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="student-cpf-for-register" class="">CPF</label>
-                    <input type="text" placeholder="Digite o CPF do aluno" id="input-student-cpf-register" class="">
+                    <label for="student-cpf-for-register">CPF</label>
+                    <input type="text" placeholder="Digite o CPF do aluno" id="input-student-cpf-register">
                     <p id="message-error-cpf-student" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="student-telephone-for-register" class="">Telefone</label>
-                    <input type="text" placeholder="Digite o telefone do aluno" id="input-student-telephone-register" class="">
+                    <label for="student-telephone-for-register">Telefone</label>
+                    <input type="text" placeholder="Digite o telefone do aluno" id="input-student-telephone-register">
                     <p id="message-error-telephone-student" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="student-plan-for-register" class="">Selecione um plano</label>
-                    <select id="student-plan-for-register" class="">
-                        <option value="basic" selected class="">Básico</option>
-                        <option value="plus" class="">Plus</option>
-                        <option value="ultra-plus" class="">Ultra Plus</option>
+                    <label for="student-plan-for-register">Selecione um plano</label>
+                    <select id="student-plan-for-register">
+                        <option value="basic" selected>Básico</option>
+                        <option value="plus">Plus</option>
+                        <option value="ultra-plus">Ultra Plus</option>
                     </select>
                     <p id="message-error-plan-student" class="message-error"></p>
                 </div>
@@ -348,23 +341,23 @@
         <div class="container-area-register-instructors">
             <div class="container-inputs-instructors">
                 <div class="box-container-input">
-                    <label for="instructor-name-for-register" class="">Nome do instrutor</label>
-                    <input type="text" placeholder="Digite o nome do instrutor" id="input-instructor-name-register" class="">
+                    <label for="instructor-name-for-register">Nome do instrutor</label>
+                    <input type="text" placeholder="Digite o nome do instrutor" id="input-instructor-name-register">
                     <p id="message-error-name-instructor" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="instructor-cpf-for-register" class="">CPF</label>
-                    <input type="text" placeholder="Digite o CPF do instrutor" id="input-instructor-cpf-register" class="">
+                    <label for="instructor-cpf-for-register">CPF</label>
+                    <input type="text" placeholder="Digite o CPF do instrutor" id="input-instructor-cpf-register">
                     <p id="message-error-cpf-instructor" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="instructor-telephone-for-register" class="">Telefone</label>
-                    <input type="text" placeholder="Digite o telefone do instrutor" id="input-instructor-telephone-register" class="">
+                    <label for="instructor-telephone-for-register">Telefone</label>
+                    <input type="text" placeholder="Digite o telefone do instrutor" id="input-instructor-telephone-register">
                     <p id="message-error-telephone-instructor" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="instructor-specialty-for-register" class="">Especialidade</label>
-                    <input type="text" placeholder="Digite a especialidade do instrutor" id="input-instructor-specialty-register" class="">
+                    <label for="instructor-specialty-for-register">Especialidade</label>
+                    <input type="text" placeholder="Digite a especialidade do instrutor" id="input-instructor-specialty-register">
                     <p id="message-error-specialty-instructor" class="message-error"></p>
                 </div>
             </div>
@@ -379,26 +372,26 @@
         <div class="container-area-edit-students">
             <div class="container-inputs-students">
                 <div class="box-container-input">
-                    <label for="student-name-for-edit" class="">Nome do aluno</label>
-                    <input type="text" placeholder="Digite o nome do aluno" id="input-student-name-edit" class="">
+                    <label for="student-name-for-edit">Nome do aluno</label>
+                    <input type="text" placeholder="Digite o nome do aluno" id="input-student-name-edit">
                     <p id="message-error-name-student-edit" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label class="">CPF</label>
+                    <label>CPF</label>
                     <input type="text" id="input-student-cpf-edit" disabled>
                     <p class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="student-telephone-for-edit" class="">Telefone</label>
-                    <input type="text" placeholder="Digite o telefone do aluno" id="input-student-telephone-edit" class="">
+                    <label for="student-telephone-for-edit">Telefone</label>
+                    <input type="text" placeholder="Digite o telefone do aluno" id="input-student-telephone-edit">
                     <p id="message-error-telephone-student-edit" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="student-plan-for-edit" class="">Selecione um plano</label>
-                    <select id="student-plan-for-edit" class="">
-                        <option value="basic" class="">Básico</option>
-                        <option value="plus" class="">Plus</option>
-                        <option value="ultra-plus" class="">Ultra Plus</option>
+                    <label for="student-plan-for-edit">Selecione um plano</label>
+                    <select id="student-plan-for-edit">
+                        <option value="basic">Básico</option>
+                        <option value="plus">Plus</option>
+                        <option value="ultra-plus">Ultra Plus</option>
                     </select>
                     <p id="message-error-plan-student-edit" class="message-error"></p>
                 </div>
@@ -414,23 +407,23 @@
         <div class="container-area-edit-instructors">
             <div class="container-inputs-instructors">
                 <div class="box-container-input">
-                    <label for="instructor-name-for-edit" class="">Nome do aluno</label>
-                    <input type="text" placeholder="Digite o nome do aluno" id="input-instructor-name-edit" class="">
+                    <label for="instructor-name-for-edit">Nome do aluno</label>
+                    <input type="text" placeholder="Digite o nome do aluno" id="input-instructor-name-edit">
                     <p id="message-error-name-instructor-edit" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label class="">CPF</label>
-                    <input type="text" id="input-instructor-cpf-edit" disabled class="">
+                    <label>CPF</label>
+                    <input type="text" id="input-instructor-cpf-edit" disabled>
                     <p class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="instructor-telephone-for-edit" class="">Telefone</label>
-                    <input type="text" placeholder="Digite o telefone do aluno" id="input-instructor-telephone-edit" class="">
+                    <label for="instructor-telephone-for-edit">Telefone</label>
+                    <input type="text" placeholder="Digite o telefone do aluno" id="input-instructor-telephone-edit">
                     <p id="message-error-telephone-instructor-edit" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="instructor-specialty-for-edit" class="">Especialidade</label>
-                    <input type="text" placeholder="Digite a especialidade do instrutor" id="input-instructor-specialty-edit" class="">
+                    <label for="instructor-specialty-for-edit">Especialidade</label>
+                    <input type="text" placeholder="Digite a especialidade do instrutor" id="input-instructor-specialty-edit">
                     <p id="message-error-specialty-instructor-edit" class="message-error"></p>
                 </div>
             </div>

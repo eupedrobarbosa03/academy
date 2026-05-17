@@ -3,10 +3,10 @@ export class Utils {
     static closeAllSection(changeSection) {
         const buttonsCloseSection = document.querySelectorAll(".close-the-section");
         const sections = ["section-container-addition-items", "section-container-edit-items"];
-        this.hideError();
-        this.clearnInputs();
         if (!changeSection) {
             buttonsCloseSection.forEach((button) => button.addEventListener("click", () => {
+                this.hideError();
+                this.clearnInputs();
                 sections.forEach((section) => {
                     const querySection = document.querySelectorAll(`.${section}`);
                     querySection.forEach((query) => query.classList.remove("show"));
@@ -14,6 +14,8 @@ export class Utils {
             }));
             window.addEventListener("keyup", (e) => {
                 if (e.key === "Escape") {
+                    this.hideError();
+                    this.clearnInputs();
                     sections.forEach((section) => {
                         const querySection = document.querySelectorAll(`.${section}`);
                         querySection.forEach((query) => query.classList.remove("show"));
