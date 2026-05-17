@@ -1,0 +1,154 @@
+body.theme {
+    background-color: #0f0f0f;
+    transition: .5s;
+    
+    .title-container h2 {
+        color: #fff;
+        transition: .5s;
+    }
+
+    .header-container-academy {
+        background-color: #050505;
+        transition: .5s;
+    }
+
+    .user {
+        color: #fff;
+        transition: .5s;
+    }
+
+    .box-information {
+        background-color: rgb(19, 19, 19);
+        transition: .3s;
+        border: 1px solid rgba(139, 139, 139, 0.13);
+        &:hover {
+            background-color: rgba(19, 19, 19, .1);
+        }
+    }
+
+    .box-information h2 {
+        color: rgba(255, 253, 253, .50)
+    }
+
+    .total p {
+        color: rgba(255, 253, 253, .50);
+    }
+
+    .navbar-container-options {
+        background-color: #000;
+    }
+
+    .button-option {
+        color: #fff;
+        background-color: rgba(19, 19, 19, .60);
+        &:hover {
+            background-color: rgba(19, 19, 19, .30);
+            color: #fff;
+        }
+        &.option-selected {
+            background-color: rgba(19, 19, 19, .30);
+            color: #fff;
+        }
+    }
+
+    #menu-navbar {
+        color: #fff;
+        &hover {
+            background-color: rgba(19, 19, 19, .5);
+        }
+    }
+
+    .box-workout,
+    .box-student,
+    .box-instructor {
+        background-color: #1b1b1b;
+        transition: .5s;
+        &:hover {
+            background-color: rgba(19, 19, 19, .5);
+        }
+    }
+
+    .box-workout p,
+    .box-student p,
+    .box-instructor p {
+        font-size: .68rem;
+        color: rgba(224, 224, 224, 0.5);
+    }
+
+    .box-workout p span,
+    .box-student p span,
+    .box-instructor p span {
+        color: rgba(255, 255, 255, 0.856);
+    }
+
+    #input-search-workouts,
+    #input-search-students,
+    #input-search-instructors {
+        border: 1px solid rgba(187, 187, 187, 0.2);
+        color: #ffffff7c;
+    }
+
+    .box-container-input input {
+        border: none;
+        border: 1px solid rgba(187, 187, 187, 0.2);
+        color: rgba(255, 255, 255, 0.582);
+    }
+
+    .box-container-input select {
+        color: rgba(255, 255, 255, 0.582);
+        border: 1px solid rgba(187, 187, 187, 0.2);
+    }
+
+    .box-container-input label {
+        color: rgba(255, 255, 255, 0.582);
+    }
+
+    option {
+        background-color: rgba(0, 0, 0, .90);
+        color: rgba(255, 253, 253, .50)
+    }
+
+    .box-container-input input.box-input-error {
+        border: 1px solid rgb(241, 71, 71);
+    }
+
+    select.box-input-error {
+        border: 1px solid rgb(241, 71, 71);
+    }
+
+    .section-container-addition-items,
+    .section-container-edit-items {
+        background-color: #1b1b1b;
+    }
+
+    .close-the-section {
+        color: rgba(255, 255, 255, 0.562);
+        &:hover {
+            color: rgba(255, 0, 0, 0.767);
+        }
+    }
+
+    .icon-cancel-workout,
+    .icon-conclude-workout,
+    .icon-remove-student,
+    .icon-edit-student,
+    .icon-remove-instructor,
+    .icon-edit-instructor {
+        color: rgba(255, 255, 255, 0.562);
+        &:hover {
+            color: rgba(255, 255, 255, 0.2)
+        }
+    }
+
+    .information-action {
+        background-color: #1b1b1b;
+        color: #fff;
+    }
+
+    .information-action p {
+        font-size: .5rem;
+    }
+
+
+}
+

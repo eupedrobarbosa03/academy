@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academy</title>
+    
+    <link rel="shortcut icon" href="assets/icons/gym.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/config.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
+</head>
+<body class="theme">
+    <header class="header-container-academy">
+        <i class="fa-solid fa-bars" id="menu-navbar"></i>
+        <div class="title-container">
+            <img src="assets/icons/academy_icon_dark.png" id="icon-academy" width="36" height="36" alt="academy icon">
+            <h2>Academy</h2>
+        </div>
+        <div class="container-greet-user-more-change-theme">
+            <button data-change-theme id="button-change-theme">
+                <i id="icon-change-theme" class="fa-solid fa-moon moon"></i>
+            </button>
+            <p class="user">USER</p>
+            <div class="container-profile">
+                <p>U</p>
+            </div>
+        </div>
+    </header>
+    <main class="main-container-academy">
+        <nav class="navbar-container-options">
+            <button class="button-option  option-selected" id="dashboard">
+                <i class="fa-solid fa-chart-line"></i>
+                <p>Dashboard</p>
+            </button>
+            <button class="button-option" id="academy-workouts">
+                <i class="fa-solid fa-dumbbell"></i>
+                <p>Treinos</p>
+            </button>
+            <button class="button-option" id="academy-students">
+                <i class="fa-solid fa-users"></i>
+                <p>Alunos</p>
+            </button>
+            <button class="button-option" id="academy-instructors">
+                <i class="fa-solid fa-chalkboard-teacher"></i>
+                <p>Instrutores</p>
+            </button>
+        </nav>
+        <section data-section="dashboard" class="section-option">
+            <section class="section-container-informations-academy">
+                <section class="informations-academy">
+                    <div class="box-information">
+                        <div class="container-icon-total">
+                            <div class="box-icon" id="box-icon-total-students">
+                                <i class="fa-solid fa-users icon-total"></i>
+                            </div>
+                        </div>
+                        <div class="container-content-total">
+                            <h2>Total de Alunos</h2>
+                            <div class="total">
+                                <p id="total-students">0</p>
+                                <i class="fa-solid fa-minus" id="stats-students-total"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-information">
+                        <div class="container-icon-total">
+                            <div class="box-icon" id="box-icon-total-instructors">
+                                <i class="fa-solid fa-chalkboard-teacher icon-total"></i>
+                            </div>
+                        </div>
+                        <div class="container-content-total">
+                            <h2>Total de Instrutores</h2>
+                            <div class="total">
+                                <p id="total-instructors">0</p>
+                                <i class="fa-solid fa-minus" id="stats-instructors-total"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-information">
+                        <div class="container-icon-total">
+                            <div class="box-icon" id="box-icon-total-workouts">
+                                <i class="fa-solid fa-dumbbell icon-total"></i>
+                            </div>
+                        </div>
+                        <div class="container-content-total">
+                            <h2>Total de treinos</h2>
+                            <div class="total">
+                                <p id="total-workouts">0</p>
+                                <i class="fa-solid fa-minus" id="stats-workouts-total"></i>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </section>
+        <section data-section="academy-workouts" class="section-option section-academy-workouts" style="display: none;">
+            <div class="container-actions-workouts">
+                <div class="container-search-workouts">
+                    <input type="text" placeholder="Pesquisar treinos: digite o nome do aluno" id="input-search-workouts">
+                </div>
+                <button class="button-to-mark-workouts">
+                    <i class="fa-solid fa-plus"></i>
+                    <p>marcar</p>
+                </button>
+            </div>
+            <div class="container-workouts">
+                <div class="workouts">
+                    <div class="box-workout _______example_______">
+                        <div class="container-informations-workouts">
+                            <p>
+                                Aluno:
+                                <span class="informations-workouts-box-workout"></span>
+                            </p>
+                            <p>
+                                Professor:
+                                <span class="informations-workouts-box-workout"></span>
+                            </p>
+                            <p>
+                                Treino:
+                                <span class="informations-workouts-box-workout"></span>
+                            </p>
+                            <p>
+                                Data:
+                                <span class="informations-workouts-box-workout"></span>
+                            </p>
+                            <p>
+                                Horário:
+                                <span class="informations-workouts-box-workout"></span>
+                            </p>
+                        </div>
+                        <div class="single-container-action-box-workout">
+                            <i class="fa-solid fa-check icon-conclude-workout"></i>
+                            <i class="fa-solid fa-xmark icon-cancel-workout"></i>
+                            <div class="information-action-conclude information-action">
+                                <p>Concluir</p>
+                            </div>
+                            <div class="information-action-cancel information-action">
+                                <p>Cancelar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section data-section="academy-students" class="section-option section-academy-students" style="display: none;">
+            <div class="container-actions-students">
+                <div class="container-search-students">
+                    <div class="container-search-students">
+                        <input type="text" id="input-search-students" placeholder="Pesquisar aluno por nome, matrícula ou CPF">
+                    </div>
+                </div>
+                <button class="button-to-register-students">
+                    <i class="fa-solid fa-plus"></i>
+                    <p>cadastrar</p>
+                </button>
+            </div>
+            <div class="container-students">
+                <div class="students">
+                    <div class="box-student _______example_______">
+                        <div class="container-informations-students">
+                            <p>
+                                Matrícula:
+                                <span class="informations-students-box-student">example</span>
+                            </p>
+                            <p>
+                                Aluno:
+                                <span class="informations-students-box-student">example</span>
+                            </p>
+                            <p>
+                                CPF:
+                                <span class="informations-students-box-student info-cpf-student">example</span>
+                            </p>
+                            <p>
+                                Telefone
+                                <span class="informations-students-box-student">example</span>
+                            </p>
+                            <p>
+                                Plano
+                                <span class="informations-students-box-student">example</span>
+                            </p>
+                            <p>
+                                Status
+                                <span class="informations-students-box-student">example</span>
+                            </p>
+                        </div>
+                        <div class="container-actions-box-students">
+                            <i class="fa-solid fa-pen-to-square icon-edit-student"></i>
+                            <i class="fa-solid fa-trash icon-remove-student"></i>
+                            <div class="information-action-edit-student information-action">
+                                <p>Editar</p>
+                            </div>
+                            <div class="information-action-remove-student information-action">
+                                <p>Remover</p>
+                            </div>
+                        </div>
+                </div>
+                </div>
+            </div>
+        </section>
+        <section data-section="academy-instructors" class="section-option section-academy-instructors" style="display: none;">
+            <div class="container-actions-instructors">
+                <div class="container-search-instructors">
+                    <div class="container-search-instructors">
+                        <input type="text" id="input-search-instructors" placeholder="Pesquisar instrutor por nome ou CPF">
+                    </div>
+                </div>
+                <button class="button-to-register-instructors">
+                    <i class="fa-solid fa-plus"></i>
+                    <p>cadastrar</p>
+                </button>
+            </div>
+            <div class="container-instructors">
+                <div class="instructors">
+                    <div class="box-instructor _______example_______">
+                        <div class="container-informations-instructors">
+                            <p>
+                                Instrutor:
+                                <span class="informations-instructors-box-instructor ">____________________</span>
+                            </p>
+                            <p>
+                                CPF:
+                                <span class="informations-instructors-box-instructor info-cpf-instructor">____________________</span>
+                            </p>
+                            <p>
+                                Telefone
+                                <span class="informations-instructors-box-instructor">____________________</span>
+                            </p>
+                            <p>
+                                Especialidade
+                                <span class="informations-instructors-box-instructor">____________________</span>
+                            </p>
+                            <p>
+                                Status
+                                <span class="informations-instructors-box-instructor">____________________</span>
+                            </p>
+                        </div>
+                        <div class="container-actions-box-instructors">
+                            <i class="fa-solid fa-pen-to-square icon-edit-instructor"></i>
+                            <i class="fa-solid fa-trash icon-remove-instructor"></i>
+                            <div class="information-action-edit-instructor information-action">
+                                <p>Editar</p>
+                            </div>
+                            <div class="information-action-remove-instructor information-action">
+                                <p>Remover</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="section-container-addition-items" id="section-container-addition-workouts">
+        <i class="fa-solid fa-xmark close-the-section"></i>
+        <div class="container-area-mark-to-workouts">
+            <div class="container-inputs-workouts">
+                <div class="box-container-input">
+                    <label for="student-name-for-mark-workouts">Nome do aluno</label>
+                    <input type="text" placeholder="Digite o nome do aluno" id="input-student-name-workout">
+                    <p id="message-error-student-name-workout" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="instructor-option-workout">Escolha o professor</label>
+                    <select id="list-instructors">
+                        <option disabled selected class="default" value="">Selecione um instrutor</option>
+                    </select>
+                    <p id="message-error-option-instructor" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="name-workout">Treino</label>
+                    <input type="text" placeholder="Digite o nome do treino" id="input-workout-name">
+                    <p id="message-error-workout-name" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="date-workout">Data</label>
+                    <input type="date" id="input-workout-date">
+                    <p id="message-error-date-workout" class="message-error">Escolha uma data</p>
+                </div>
+                <div class="box-container-input">
+                    <label for="option-time-workout">Horário</label>
+                    <select id="option-time-workout">
+                        <option value="08:00" >08:00</option>
+                        <option value="10:00" >10:00</option>
+                        <option value="12:00" >12:00</option>
+                        <option value="14:00" >14:00</option>
+                        <option value="16:00" >16:00</option>
+                        <option value="18:00" >18:00</option>
+                        <option value="20:00" >20:00</option>
+                        <option value="22:00" >22:00</option>
+                    </select>
+                    <p id="message-error-time-workout" class="message-error"></p>
+                </div>
+            </div>
+            <div class="container-button-save-workouts">
+                <button class="button-save-workout">Salvar</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container-addition-items" id="section-container-addition-students">
+        <i class="fa-solid fa-xmark close-the-section"></i>
+        <div class="container-area-register-students">
+            <div class="container-inputs-students">
+                <div class="box-container-input">
+                    <label for="student-name-for-register">Nome do aluno</label>
+                    <input type="text" placeholder="Digite o nome do aluno" id="input-student-name-register">
+                    <p id="message-error-name-student" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="student-cpf-for-register">CPF</label>
+                    <input type="text" placeholder="Digite o CPF do aluno" id="input-student-cpf-register">
+                    <p id="message-error-cpf-student" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="student-telephone-for-register">Telefone</label>
+                    <input type="text" placeholder="Digite o telefone do aluno" id="input-student-telephone-register">
+                    <p id="message-error-telephone-student" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="student-plan-for-register">Selecione um plano</label>
+                    <select id="student-plan-for-register">
+                        <option value="basic" selected>Básico</option>
+                        <option value="plus">Plus</option>
+                        <option value="ultra-plus">Ultra Plus</option>
+                    </select>
+                    <p id="message-error-plan-student" class="message-error"></p>
+                </div>
+            </div>
+            <div class="container-button-save-register-student">
+                <button class="button-save-register-student">Salvar</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container-addition-items" id="section-container-addition-instructors">
+        <i class="fa-solid fa-xmark close-the-section"></i>
+        <div class="container-area-register-instructors">
+            <div class="container-inputs-instructors">
+                <div class="box-container-input">
+                    <label for="instructor-name-for-register">Nome do instrutor</label>
+                    <input type="text" placeholder="Digite o nome do instrutor" id="input-instructor-name-register">
+                    <p id="message-error-name-instructor" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="instructor-cpf-for-register">CPF</label>
+                    <input type="text" placeholder="Digite o CPF do instrutor" id="input-instructor-cpf-register">
+                    <p id="message-error-cpf-instructor" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="instructor-telephone-for-register">Telefone</label>
+                    <input type="text" placeholder="Digite o telefone do instrutor" id="input-instructor-telephone-register">
+                    <p id="message-error-telephone-instructor" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="instructor-specialty-for-register">Especialidade</label>
+                    <input type="text" placeholder="Digite a especialidade do instrutor" id="input-instructor-specialty-register">
+                    <p id="message-error-specialty-instructor" class="message-error"></p>
+                </div>
+            </div>
+            <div class="container-button-save-register-instructor">
+                <button class="button-save-register-instructor">Salvar</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container-edit-items" id="section-container-edit-students">
+        <i class="fa-solid fa-xmark close-the-section"></i>
+        <div class="container-area-edit-students">
+            <div class="container-inputs-students">
+                <div class="box-container-input">
+                    <label for="student-name-for-edit">Nome do aluno</label>
+                    <input type="text" placeholder="Digite o nome do aluno" id="input-student-name-edit">
+                    <p id="message-error-name-student-edit" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label>CPF</label>
+                    <input type="text" id="input-student-cpf-edit" disabled>
+                    <p class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="student-telephone-for-edit">Telefone</label>
+                    <input type="text" placeholder="Digite o telefone do aluno" id="input-student-telephone-edit">
+                    <p id="message-error-telephone-student-edit" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="student-plan-for-edit">Selecione um plano</label>
+                    <select id="student-plan-for-edit">
+                        <option value="basic">Básico</option>
+                        <option value="plus">Plus</option>
+                        <option value="ultra-plus">Ultra Plus</option>
+                    </select>
+                    <p id="message-error-plan-student-edit" class="message-error"></p>
+                </div>
+            </div>
+            <div class="container-button-save-edit-student">
+                <button class="button-save-edit-student">Editar</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container-edit-items" id="section-container-edit-instructors">
+        <i class="fa-solid fa-xmark close-the-section"></i>
+        <div class="container-area-edit-instructors">
+            <div class="container-inputs-instructors">
+                <div class="box-container-input">
+                    <label for="instructor-name-for-edit">Nome do aluno</label>
+                    <input type="text" placeholder="Digite o nome do aluno" id="input-instructor-name-edit">
+                    <p id="message-error-name-instructor-edit" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label>CPF</label>
+                    <input type="text" id="input-instructor-cpf-edit" disabled>
+                    <p class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="instructor-telephone-for-edit">Telefone</label>
+                    <input type="text" placeholder="Digite o telefone do aluno" id="input-instructor-telephone-edit">
+                    <p id="message-error-telephone-instructor-edit" class="message-error"></p>
+                </div>
+                <div class="box-container-input">
+                    <label for="instructor-specialty-for-edit">Especialidade</label>
+                    <input type="text" placeholder="Digite a especialidade do instrutor" id="input-instructor-specialty-edit">
+                    <p id="message-error-specialty-instructor-edit" class="message-error"></p>
+                </div>
+            </div>
+            <div class="container-button-save-edit-instructor">
+                <button class="button-save-edit-instructor">Editar</button>
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="js/storage.js"></script>
+    <script type="module" src="js/main.js"></script>
+
+</body>
+</html>

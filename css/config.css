@@ -1,0 +1,21 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+    outline: none;
+}
+
+body {
+    height: 100vh;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    transition: .5s;
+    position: relative;
+}
