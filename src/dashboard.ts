@@ -64,7 +64,7 @@ class Dashboard {
                     currentStats.setAttribute("class", "fa-solid fa-caret-up");
                     if (dashboard) dashboard.totalWorkouts += 1;
                 } else {
-                    this.workouts.textContent = `${currentNumber + 1}`;
+                    this.workouts.textContent = `${currentNumber - 1}`;
                     currentStats.setAttribute("class", "fa-solid fa-caret-down");
                     if (dashboard) dashboard.totalWorkouts -= 1;
                 }

@@ -35,7 +35,7 @@ export class Utils {
 
     static showError(id: string, idBoxInput: string,  message: string) {
         const indexError = document.querySelector(`#${id}`) as HTMLParagraphElement;
-        const boxInputError = document.querySelector(`#${idBoxInput}`) as HTMLInputElement;     
+        const boxInputError = document.querySelector(`#${idBoxInput}`) as HTMLInputElement || HTMLSelectElement;     
         indexError.textContent = `${message}`;
         indexError.classList.add("show-error");
         boxInputError.classList.add("box-input-error");
@@ -58,7 +58,11 @@ export class Utils {
         const inputs = document.querySelectorAll<HTMLInputElement>("input");
         inputs.forEach((input) => input.value = '');
         const planSelected = document.querySelector("#student-plan-for-register") as HTMLSelectElement;
+        const listInstructores = document.querySelector("#list-instructors") as HTMLSelectElement;
+        const optionsTime = document.querySelector("#option-time-workout") as HTMLSelectElement;
         planSelected.value = 'basic';
+        optionsTime.value = '08:00'
+        listInstructores.value = ''
     };
 
     static search(inputSearchID: string, classNameBoxCategory: string, valueForSearch: string) {

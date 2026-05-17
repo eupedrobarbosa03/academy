@@ -27,7 +27,7 @@ class Workout {
                 ;
                 Utils.hideError();
                 const students = storage.get("students") || [];
-                const findStudent = students.find((student) => student.name === inputValue);
+                const findStudent = students.find((student) => student.name.toLowerCase() === inputValue.toLowerCase());
                 if (!findStudent)
                     return Utils.showError(className, id, `Aluno não encontrado...`);
                 Utils.hideError();
@@ -53,18 +53,15 @@ class Workout {
                 Utils.hideError();
                 return true;
             },
-            time: () => {
-                if (!inputValue)
-                    return Utils.showError(className, id, "Horário indefinido.");
-                Utils.hideError();
-                return true;
-            },
-            schedule: (date, time, instructor) => {
-                const scheduledWorkouts = workouts.find((workout) => workout.instructor.toLowerCase() === instructor.toLowerCase());
-                if (!scheduledWorkouts)
-                    return true;
-                if (scheduledWorkouts.date === date && scheduledWorkouts.time === time) {
-                    return Utils.showError(id, className, "Horário ocupado.");
+            time: (date, instructor) => {
+                const instructorWorkout = workouts.filter((workout) => workout.instructor === instructor);
+                const avaiableDate = instructorWorkout.filter((workout) => {
+                    if (workout.date === date && workout.time === inputValue)
+                        return workout;
+                });
+                if (avaiableDate.length !== 0) {
+                    Utils.showError(this.timeSelected.id, this.timeSelected.id, "message de error");
+                    return;
                 }
                 Utils.hideError();
                 return true;
@@ -86,8 +83,7 @@ class Workout {
             this.validations(this.dateSelected.value, "message-error-date-workout", this.dateSelected.id).date();
         });
         this.timeSelected.addEventListener("input", () => {
-            this.validations(this.timeSelected.value, "message-error-time-workout", this.timeSelected.id).time();
-            this.validations(this.timeSelected.value, "message-error-time-workout", this.timeSelected.id).schedule(this.dateSelected.value, this.timeSelected.value, this.instructorSelected.value);
+            this.validations(this.timeSelected.value, "message-error-time-workout", this.timeSelected.id).time(this.dateSelected.value, this.instructorSelected.value);
         });
         buttonMark.addEventListener("click", () => {
             if (!this.validations(this.inputStudent.value, "message-error-student-name-workout", this.inputStudent.id).student())
@@ -98,7 +94,7 @@ class Workout {
                 return;
             if (!this.validations(this.dateSelected.value, "message-error-date-workout", this.dateSelected.id).date())
                 return;
-            if (!this.validations(this.timeSelected.value, "message-error-time-workout", this.timeSelected.id).time() || !this.validations(this.timeSelected.value, "message-error-time-workout", this.timeSelected.id).schedule(this.dateSelected.value, this.timeSelected.value, this.instructorSelected.value))
+            if (!this.validations(this.timeSelected.value, "message-error-time-workout", this.timeSelected.id).time(this.dateSelected.value, this.instructorSelected.value))
                 return;
             const workoutsDOM = document.querySelector(".workouts");
             const box = document.createElement("div");
@@ -112,11 +108,11 @@ class Workout {
                 date: this.dateSelected.value,
                 time: this.timeSelected.value
             }, "workouts");
-            Utils.clearnInputs();
             alert(`Treino adicionado com sucesso!`);
             dashboard.update("create").workouts();
             new Category().clearForRederingToStorage("box-workout");
             storage.dom().workout();
+            Utils.clearnInputs();
         });
     }
     ;
@@ -127,8 +123,18 @@ class Workout {
                 const targetIndex = target.closest(".box-workout");
                 if (!targetIndex)
                     return;
+                const studentName = targetIndex.querySelector(".info-student-workout");
+                const workoutsUpdated = storage.get("workouts");
+                if (workoutsUpdated === null)
+                    return;
+                const workoutStudent = workoutsUpdated.findIndex((workout) => workout.student === studentName.textContent);
+                if (workoutStudent === -1)
+                    return;
+                storage.delete("workouts", workoutStudent);
                 targetIndex.remove();
                 dashboard.update('conclude').workouts();
+                new Category().clearForRederingToStorage("box-workout");
+                storage.dom().workout();
             }
         });
     }
@@ -140,8 +146,18 @@ class Workout {
                 const targetIndex = target.closest(".box-workout");
                 if (!targetIndex)
                     return;
+                const studentName = targetIndex.querySelector(".info-student-workout");
+                const workoutsUpdated = storage.get("workouts");
+                if (workoutsUpdated === null)
+                    return;
+                const workoutStudent = workoutsUpdated.findIndex((workout) => workout.student === studentName.textContent);
+                if (workoutStudent === -1)
+                    return;
+                storage.delete("workouts", workoutStudent);
                 targetIndex.remove();
-                dashboard.update("cancel").workouts();
+                dashboard.update('conclude').workouts();
+                new Category().clearForRederingToStorage("box-workout");
+                storage.dom().workout();
             }
             ;
         });

@@ -30,7 +30,7 @@ export class Utils {
     ;
     static showError(id, idBoxInput, message) {
         const indexError = document.querySelector(`#${id}`);
-        const boxInputError = document.querySelector(`#${idBoxInput}`);
+        const boxInputError = document.querySelector(`#${idBoxInput}`) || HTMLSelectElement;
         indexError.textContent = `${message}`;
         indexError.classList.add("show-error");
         boxInputError.classList.add("box-input-error");
@@ -52,7 +52,11 @@ export class Utils {
         const inputs = document.querySelectorAll("input");
         inputs.forEach((input) => input.value = '');
         const planSelected = document.querySelector("#student-plan-for-register");
+        const listInstructores = document.querySelector("#list-instructors");
+        const optionsTime = document.querySelector("#option-time-workout");
         planSelected.value = 'basic';
+        optionsTime.value = '08:00';
+        listInstructores.value = '';
     }
     ;
     static search(inputSearchID, classNameBoxCategory, valueForSearch) {

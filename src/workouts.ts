@@ -32,7 +32,7 @@ class Workout {
                 Utils.hideError();
 
                 const students = storage.get<StudentType[], KeysLocalStorage>("students") || [];
-                const findStudent = students.find((student) => student.name === inputValue);
+                const findStudent = students.find((student) => student.name.toLowerCase() === inputValue.toLowerCase());
 
                 if (!findStudent) return Utils.showError(className, id, `Aluno não encontrado...`)
 
@@ -44,6 +44,7 @@ class Workout {
                     return Utils.showError(className, id, `Instrutor indefinido.`)
                 }
                 Utils.hideError();
+                
                 return true;
             },
             workout: () => {
@@ -60,28 +61,29 @@ class Workout {
                 return true;
             },
 
-            time: () => {
-                if (!inputValue) return Utils.showError(className, id, "Horário indefinido.");
-                Utils.hideError();
-                return true;
-            },
+            time: (date: string, instructor: string) => {
+                const instructorWorkout = workouts.filter((workout) =>
+                    workout.instructor === instructor);
+                const avaiableDate = instructorWorkout.filter((workout) => {
+                    if (workout.date === date && workout.time === inputValue) return workout;
+                })
 
-            schedule: (date: string, time: string, instructor: string) => {
-                const scheduledWorkouts = workouts.find((workout) =>
-                    workout.instructor.toLowerCase() === instructor.toLowerCase())
-                if (!scheduledWorkouts) return true;
-                if (scheduledWorkouts.date === date && scheduledWorkouts.time === time) {
-                    return Utils.showError(id, className, "Horário ocupado.")
+                if (avaiableDate.length !== 0) {
+                    Utils.showError(this.timeSelected.id, this.timeSelected.id, "message de error")
+                    return
                 }
+
                 Utils.hideError();
+
                 return true;
             }
+
         }
     }
 
     create() {
 
-        const buttonMark = document.querySelector(".button-save-workout") as HTMLDivElement;
+        const buttonMark = document.querySelector(".button-save-workout") as HTMLButtonElement;
 
         this.inputStudent.addEventListener("input", () => {
             this.validations(this.inputStudent.value, "message-error-student-name-workout", this.inputStudent.id).student();
@@ -100,8 +102,7 @@ class Workout {
         })
 
         this.timeSelected.addEventListener("input", () => {
-            this.validations(this.timeSelected.value, "message-error-time-workout", this.timeSelected.id).time();
-            this.validations(this.timeSelected.value, "message-error-time-workout", this.timeSelected.id).schedule(this.dateSelected.value, this.timeSelected.value, this.instructorSelected.value);
+            this.validations(this.timeSelected.value, "message-error-time-workout", this.timeSelected.id).time(this.dateSelected.value, this.instructorSelected.value);
         })
 
 
@@ -115,7 +116,7 @@ class Workout {
 
             if (!this.validations(this.dateSelected.value, "message-error-date-workout", this.dateSelected.id).date()) return;
 
-            if (!this.validations(this.timeSelected.value, "message-error-time-workout", this.timeSelected.id).time() || !this.validations(this.timeSelected.value, "message-error-time-workout", this.timeSelected.id).schedule(this.dateSelected.value, this.timeSelected.value, this.instructorSelected.value)) return;
+            if (!this.validations(this.timeSelected.value, "message-error-time-workout", this.timeSelected.id).time(this.dateSelected.value, this.instructorSelected.value)) return;
 
             const workoutsDOM = document.querySelector(".workouts") as HTMLDivElement;
 
@@ -140,12 +141,13 @@ class Workout {
                 time: this.timeSelected.value
             }, "workouts");
 
-            Utils.clearnInputs();
             alert(`Treino adicionado com sucesso!`);
             dashboard.update("create").workouts();
 
             new Category().clearForRederingToStorage("box-workout");
             storage.dom().workout();
+
+            Utils.clearnInputs();
 
         })
     };
@@ -156,8 +158,25 @@ class Workout {
             if (target.classList.contains("icon-conclude-workout")) {
                 const targetIndex = target.closest(".box-workout");
                 if (!targetIndex) return;
+
+                const studentName = targetIndex.querySelector(".info-student-workout") as HTMLSpanElement;
+
+                const workoutsUpdated = storage.get<WorkoutType[], KeysLocalStorage>("workouts");
+
+                if (workoutsUpdated === null) return;
+
+                const workoutStudent = workoutsUpdated.findIndex((workout) =>
+                    workout.student === studentName.textContent);
+                if (workoutStudent === -1) return;
+
+                storage.delete<WorkoutType, "workouts">("workouts", workoutStudent)
+
                 targetIndex.remove();
                 dashboard.update('conclude').workouts();
+
+                new Category().clearForRederingToStorage("box-workout");
+                storage.dom().workout();
+
             }
         })
     };
@@ -168,8 +187,24 @@ class Workout {
             if (target.classList.contains("icon-cancel-workout")) {
                 const targetIndex = target.closest(".box-workout");
                 if (!targetIndex) return;
+
+                const studentName = targetIndex.querySelector(".info-student-workout") as HTMLSpanElement;
+
+                const workoutsUpdated = storage.get<WorkoutType[], KeysLocalStorage>("workouts");
+
+                if (workoutsUpdated === null) return;
+
+                const workoutStudent = workoutsUpdated.findIndex((workout) =>
+                    workout.student === studentName.textContent);
+                if (workoutStudent === -1) return;
+
+                storage.delete<WorkoutType, "workouts">("workouts", workoutStudent)
+
                 targetIndex.remove();
-                dashboard.update("cancel").workouts()
+                dashboard.update('conclude').workouts();
+
+                new Category().clearForRederingToStorage("box-workout");
+                storage.dom().workout();
             };
         });
     };
