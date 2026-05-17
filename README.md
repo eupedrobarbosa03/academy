@@ -32,3 +32,50 @@ Academy é um gerenciador de academia que possibilita cadastro de alunos e instr
 **[✅] Mensagens de erros e borda vermelha nos input's** para uma experiência de usuário agradável.  
 
 ---
+
+## 📸 Demonstração do Sistema
+
+### 📊 Dashboard
+
+<p align="left">
+  <img src="images/dashboard-theme-light.png" width="800"/>
+  <br/>
+  <img src="images/dashboard-theme-dark.png" width="800"/>
+  <br/>
+</p>
+
+---
+
+### 📊 Treinos
+
+<p align="left">
+  <img src="images/treinos.png" width="800"/>
+  <br/>
+  <img src="images/marcar-treinos.png" width="800"/>
+  <br/>
+</p>
+
+---
+
+### 📊 Alunos
+
+<p align="left">
+  <img src="images/alunos.png" width="800"/>
+  <br/>
+  <img src="images/adicionar-alunos.png" width="800"/>
+  <br/>
+</p>
+
+---
+
+### 📊 Instrutores
+
+<p align="left">
+  <img src="images/instrutores.png" width="800"/>
+  <br/>
+  <img src="images/adicionar-instrutores.png" width="800"/>
+  <br/>
+</p>
+
+---
+
