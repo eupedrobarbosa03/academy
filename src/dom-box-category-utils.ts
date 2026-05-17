@@ -63,7 +63,7 @@ export class Category {
             <div class="container-informations-workouts">
                 <p class="">
                     Aluno:
-                    <span class="informations-workouts-box-workout info-student-workout">${student}</span>
+                    <span class="informations-workouts-box-workout info-student-workout info-for-search">${student}</span>
                 </p>
                 <p class="">
                     Instrutor:

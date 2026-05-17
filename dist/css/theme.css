@@ -84,11 +84,8 @@ body.theme {
     #input-search-workouts,
     #input-search-students,
     #input-search-instructors {
-        border-top: 1px solid rgba(187, 187, 187, 0.2);
-        border-right: 0px;
-        border-left: 1px solid rgba(187, 187, 187, 0.2);
-        border-bottom: 1px solid rgba(187, 187, 187, 0.2);
-        color: #fff;
+        border: 1px solid rgba(187, 187, 187, 0.2);
+        color: #ffffff7c;
     }
 
     .box-container-input input {

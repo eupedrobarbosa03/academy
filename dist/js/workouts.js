@@ -60,8 +60,8 @@ class Workout {
                         return workout;
                 });
                 if (avaiableDate.length !== 0) {
-                    Utils.showError(this.timeSelected.id, this.timeSelected.id, "message de error");
-                    return;
+                    Utils.showError(className, id, "Horário ocupado.");
+                    return false;
                 }
                 Utils.hideError();
                 return true;
@@ -171,6 +171,7 @@ export class Workouts {
         workout.create();
         workout.conclude();
         workout.cancel();
+        Utils.search("input-search-workouts", "box-workout", "info-for-search");
         new Category().section().actionsBoxInformation("box-workout", ["icon-cancel-workout", "icon-conclude-workout"], ["information-action-conclude", "information-action-cancel"]);
         new Category().section().addition("button-to-mark-workouts", "section-container-addition-workouts");
     }

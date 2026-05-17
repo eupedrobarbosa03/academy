@@ -314,35 +314,17 @@
 #input-search-workouts,
 #input-search-students,
 #input-search-instructors {
-    width: 350px;
-    border-radius: 10px 0px 0px 10px;
-    border-top: 1px solid rgba(0, 0, 0, .20);
-    border-right: 0px;
-    border-left: 1px solid rgba(0, 0, 0, .20);
-    border-bottom: 1px solid rgba(0, 0, 0, .20);
-    padding: 0 .5rem;
+    width: 450px;
+    border: 1px solid rgba(0, 0, 0, .20);
+    padding: 0 1rem;
     background-color: transparent;
+    height: 50px;
 }
 
 #input-search-workouts::placeholder,
 #input-search-students::placeholder, 
 #input-search-instructors::placeholder {
-    font-size: .8rem;
-}
-
-#button-search-workouts,
-#button-search-students,
-#button-search-instructors {
-    width: 50px;
-    border-radius: 0px 10px 10px 0px;
-    background-color: rgba(56, 102, 255);
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: .3s;
-    &:hover {
-        background-color: rgba(56, 102, 255, .90);
-    }
+    font-size: .75rem;
 }
 
 .container-workouts,
