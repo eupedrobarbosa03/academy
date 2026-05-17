@@ -3,14 +3,10 @@ class Dashboard {
     students;
     instructors;
     workouts;
-    concludeWorkouts;
-    canceledWorkouts;
     constructor() {
         this.students = document.querySelector("#total-students");
         this.instructors = document.querySelector("#total-instructors");
         this.workouts = document.querySelector("#total-workouts");
-        this.concludeWorkouts = document.querySelector("#total-workouts-conclude");
-        this.canceledWorkouts = document.querySelector("#total-workouts-canceled");
     }
     ;
     update(type) {
@@ -55,18 +51,23 @@ class Dashboard {
                 localStorage.setItem("dashboard", JSON.stringify(dashboard));
             },
             workouts: () => {
-                const currentNumberWorkoutsConclude = +this.concludeWorkouts.textContent;
-                const currentNumberWorkoutsCanceled = +this.canceledWorkouts.textContent;
+                const dashboard = storage.get("dashboard");
+                const currentNumber = +this.workouts.textContent;
+                const currentStats = document.querySelector("#stats-workouts-total");
+                currentStats.removeAttribute("class");
                 if (type === "create") {
-                    const currentNumber = +this.workouts.textContent;
                     this.workouts.textContent = `${currentNumber + 1}`;
+                    currentStats.setAttribute("class", "fa-solid fa-caret-up");
+                    if (dashboard)
+                        dashboard.totalWorkouts += 1;
                 }
-                else if (type === "conclude") {
-                    this.concludeWorkouts.textContent = `${currentNumberWorkoutsConclude + 1}`;
-                    return;
+                else {
+                    this.workouts.textContent = `${currentNumber + 1}`;
+                    currentStats.setAttribute("class", "fa-solid fa-caret-down");
+                    if (dashboard)
+                        dashboard.totalWorkouts -= 1;
                 }
-                ;
-                this.canceledWorkouts.textContent = `${currentNumberWorkoutsCanceled + 1}`;
+                localStorage.setItem("dashboard", JSON.stringify(dashboard));
             }
         };
     }

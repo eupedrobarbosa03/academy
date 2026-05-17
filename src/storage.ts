@@ -1,5 +1,5 @@
 import { Category } from "./dom-box-category-utils.js";
-import { DashboardType, InstructorType, StudentType } from "./interfaces.js";
+import { DashboardType, InstructorType, StudentType, WorkoutType } from "./interfaces.js";
 
 
 const keysLocalStorage = ["dashboard", "workouts", "students", "instructors"];
@@ -56,6 +56,23 @@ class Storage {
                 totalWorkouts.textContent = `${dashboard.totalWorkouts}`;
                 totalStudents.textContent = `${dashboard.totalStudents}`;
                 totalInstructors.textContent = `${dashboard.totalInstructors}`;
+            },
+            workout: () => {
+                const workouts = this.get<WorkoutType[], KeysLocalStorage>("workouts");
+                if (workouts === null) return;
+                workouts.forEach((workout) => {
+                    const workoutsDOM = document.querySelector(".workouts") as HTMLDivElement
+                    const newBoxWorkout = document.createElement("div");
+                    newBoxWorkout.classList.add("box-workout");
+                    newBoxWorkout.innerHTML = new Category().workout(
+                        workout.student,
+                        workout.instructor,
+                        workout.workout,
+                        workout.date,
+                        workout.time
+                    )
+                    workoutsDOM.appendChild(newBoxWorkout)
+                })
             },
             student: () => {
                 const students = this.get<StudentType[], KeysLocalStorage>("students");

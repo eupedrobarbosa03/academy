@@ -7,7 +7,6 @@ export class Category {
         return {
             actionsBoxInformation: function(queryCategory: string, buttonsCategory: [string, string], queryInformations: [string, string]) {
 
-                const BoxCategory = document.querySelectorAll<HTMLDivElement>(`.${queryCategory}`);
                 const events = ["mouseover", "mouseout"];
                 const buttons = [...buttonsCategory];
                 const informations = [...queryInformations];
@@ -58,7 +57,44 @@ export class Category {
         })
     };
 
-
+    workout(student: string, instructor: string, workout: string, date: string, time: string) {
+        const box = 
+        `
+            <div class="container-informations-workouts">
+                <p class="">
+                    Aluno:
+                    <span class="informations-workouts-box-workout">${student}</span>
+                </p>
+                <p class="">
+                    Instrutor:
+                    <span class="informations-workouts-box-workout">${instructor}</span>
+                </p>
+                <p class="">
+                    Treino:
+                    <span class="informations-workouts-box-workout">${workout}</span>
+                </p>
+                <p class="">
+                    Data:
+                    <span class="informations-workouts-box-workout">${date}</span>
+                </p>
+                <p class="">
+                    Horário:
+                    <span class="informations-workouts-box-workout">${time}</span>
+                </p>
+            </div>
+            <div class="single-container-action-box-workout">
+                <i class="fa-solid fa-check icon-conclude-workout"></i>
+                <i class="fa-solid fa-xmark icon-cancel-workout"></i>
+                <div class="information-action-conclude information-action">
+                    <p class="">Concluir</p>
+                </div>
+                <div class="information-action-cancel information-action">
+                    <p class="">Cancelar</p>
+                </div>
+            </div>
+        `
+        return box;
+    }
 
     student(register: string, name: string, cpf: string, telephone: string, plan: string) {
         const box = 

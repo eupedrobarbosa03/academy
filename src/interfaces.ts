@@ -18,3 +18,11 @@ export interface InstructorType {
     telephone: string;
     specialty: string;
 };
+
+export interface WorkoutType {
+    student: string;
+    instructor: string;
+    workout: string;
+    date: string;
+    time: string;
+}

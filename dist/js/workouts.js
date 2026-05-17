@@ -1,14 +1,127 @@
 import { dashboard } from "./dashboard.js";
+import { Category } from "./dom-box-category-utils.js";
+import { academyRegex } from "./regex.js";
+import { Utils } from "./utils.js";
+import { storage } from "./storage.js";
 class Workout {
-    buttonConclude;
-    buttonCancel;
+    inputStudent;
+    instructorSelected;
+    inputWorkout;
+    dateSelected;
+    timeSelected;
     constructor() {
-        this.buttonConclude = document.querySelectorAll(".icon-conclude-workout");
-        this.buttonCancel = document.querySelectorAll(".icon-cancel-workout");
+        this.inputStudent = document.querySelector("#input-student-name-workout");
+        this.instructorSelected = document.querySelector("#list-instructors");
+        this.inputWorkout = document.querySelector("#input-workout-name");
+        this.dateSelected = document.querySelector("#input-workout-date");
+        this.timeSelected = document.querySelector("#option-time-workout");
+    }
+    ;
+    validations(inputValue, className, id) {
+        const workouts = storage.get("workouts") || [];
+        return {
+            student: () => {
+                if (!inputValue.match(academyRegex.name)) {
+                    return Utils.showError(className, id, `Nome inválido. Tente novamente...`);
+                }
+                ;
+                Utils.hideError();
+                const students = storage.get("students") || [];
+                const findStudent = students.find((student) => student.name === inputValue);
+                if (!findStudent)
+                    return Utils.showError(className, id, `Aluno não encontrado...`);
+                Utils.hideError();
+                return true;
+            },
+            instructor: () => {
+                if (!inputValue) {
+                    return Utils.showError(className, id, `Instrutor indefinido.`);
+                }
+                Utils.hideError();
+                return true;
+            },
+            workout: () => {
+                if (!inputValue.match(academyRegex.workout)) {
+                    return Utils.showError(className, id, "Nome de treino inválido...");
+                }
+                Utils.hideError();
+                return true;
+            },
+            date: () => {
+                if (!inputValue)
+                    return Utils.showError(className, id, "Data indefinida");
+                Utils.hideError();
+                return true;
+            },
+            time: () => {
+                if (!inputValue)
+                    return Utils.showError(className, id, "Horário indefinido.");
+                Utils.hideError();
+                return true;
+            },
+            schedule: (date, time, instructor) => {
+                const scheduledWorkouts = workouts.find((workout) => workout.instructor.toLowerCase() === instructor.toLowerCase());
+                if (!scheduledWorkouts)
+                    return true;
+                if (scheduledWorkouts.date === date && scheduledWorkouts.time === time) {
+                    return Utils.showError(id, className, "Horário ocupado.");
+                }
+                Utils.hideError();
+                return true;
+            }
+        };
+    }
+    create() {
+        const buttonMark = document.querySelector(".button-save-workout");
+        this.inputStudent.addEventListener("input", () => {
+            this.validations(this.inputStudent.value, "message-error-student-name-workout", this.inputStudent.id).student();
+        });
+        this.instructorSelected.addEventListener("input", () => {
+            this.validations(this.instructorSelected.value, "message-error-option-instructor", this.instructorSelected.id).instructor();
+        });
+        this.inputWorkout.addEventListener("input", () => {
+            this.validations(this.inputWorkout.value, "message-error-workout-name", this.inputWorkout.id).workout();
+        });
+        this.dateSelected.addEventListener("input", () => {
+            this.validations(this.dateSelected.value, "message-error-date-workout", this.dateSelected.id).date();
+        });
+        this.timeSelected.addEventListener("input", () => {
+            this.validations(this.timeSelected.value, "message-error-time-workout", this.timeSelected.id).time();
+            this.validations(this.timeSelected.value, "message-error-time-workout", this.timeSelected.id).schedule(this.dateSelected.value, this.timeSelected.value, this.instructorSelected.value);
+        });
+        buttonMark.addEventListener("click", () => {
+            if (!this.validations(this.inputStudent.value, "message-error-student-name-workout", this.inputStudent.id).student())
+                return;
+            if (!this.validations(this.instructorSelected.value, "message-error-option-instructor", this.instructorSelected.id).instructor())
+                return;
+            if (!this.validations(this.inputWorkout.value, "message-error-workout-name", this.inputWorkout.id).workout())
+                return;
+            if (!this.validations(this.dateSelected.value, "message-error-date-workout", this.dateSelected.id).date())
+                return;
+            if (!this.validations(this.timeSelected.value, "message-error-time-workout", this.timeSelected.id).time() || !this.validations(this.timeSelected.value, "message-error-time-workout", this.timeSelected.id).schedule(this.dateSelected.value, this.timeSelected.value, this.instructorSelected.value))
+                return;
+            const workoutsDOM = document.querySelector(".workouts");
+            const box = document.createElement("div");
+            box.classList.add("box-workout");
+            box.innerHTML = new Category().workout(this.inputStudent.value, this.instructorSelected.value, this.inputWorkout.value, this.dateSelected.value, this.timeSelected.value);
+            workoutsDOM.appendChild(box);
+            storage.add({
+                student: this.inputStudent.value,
+                instructor: this.instructorSelected.value,
+                workout: this.inputWorkout.value,
+                date: this.dateSelected.value,
+                time: this.timeSelected.value
+            }, "workouts");
+            Utils.clearnInputs();
+            alert(`Treino adicionado com sucesso!`);
+            dashboard.update("create").workouts();
+            new Category().clearForRederingToStorage("box-workout");
+            storage.dom().workout();
+        });
     }
     ;
     conclude() {
-        this.buttonConclude.forEach((button) => document.body.addEventListener("click", (e) => {
+        document.body.addEventListener("click", (e) => {
             const target = e.target;
             if (target.classList.contains("icon-conclude-workout")) {
                 const targetIndex = target.closest(".box-workout");
@@ -17,11 +130,11 @@ class Workout {
                 targetIndex.remove();
                 dashboard.update('conclude').workouts();
             }
-        }));
+        });
     }
     ;
     cancel() {
-        this.buttonCancel.forEach((button) => document.body.addEventListener("click", (e) => {
+        document.body.addEventListener("click", (e) => {
             const target = e.target;
             if (target.classList.contains("icon-cancel-workout")) {
                 const targetIndex = target.closest(".box-workout");
@@ -30,43 +143,7 @@ class Workout {
                 targetIndex.remove();
                 dashboard.update("cancel").workouts();
             }
-        }));
-    }
-    ;
-}
-;
-class Section {
-    constructor() { }
-    ;
-    static showBoxActionInformation() {
-        const boxWorkout = document.querySelectorAll(".box-workout");
-        const events = ["mouseover", "mouseout"];
-        const iconsButtons = ["icon-cancel-workout", "icon-conclude-workout"];
-        const containerInformations = [
-            "information-action-conclude",
-            "information-action-cancel"
-        ];
-        boxWorkout.forEach((workout) => events.forEach((typeEvent) => {
-            document.body.addEventListener(typeEvent, (e) => {
-                const target = e.target;
-                iconsButtons.forEach((button) => {
-                    if (target.classList.contains(button)) {
-                        const indexInformation = containerInformations.findIndex((information) => information.includes(`${button.split("-")[1]}`));
-                        const indexTarget = target.closest(".box-workout");
-                        const indexQuery = indexTarget.querySelector(`.${containerInformations[indexInformation]}`);
-                        indexQuery.classList.toggle("show");
-                    }
-                    ;
-                });
-            });
-        }));
-    }
-    ;
-    static openSectionAddWorkouts() {
-        const buttonAddWorkouts = document.querySelector(".button-to-mark-workouts");
-        buttonAddWorkouts.addEventListener("click", () => {
-            const sectionAddWorkouts = document.querySelector("#section-container-addition-workouts");
-            sectionAddWorkouts.classList.add("show");
+            ;
         });
     }
     ;
@@ -75,10 +152,11 @@ class Section {
 const workout = new Workout();
 export class Workouts {
     static actions() {
-        Section.showBoxActionInformation();
-        Section.openSectionAddWorkouts();
+        workout.create();
         workout.conclude();
         workout.cancel();
+        new Category().section().actionsBoxInformation("box-workout", ["icon-cancel-workout", "icon-conclude-workout"], ["information-action-conclude", "information-action-cancel"]);
+        new Category().section().addition("button-to-mark-workouts", "section-container-addition-workouts");
     }
     ;
 }

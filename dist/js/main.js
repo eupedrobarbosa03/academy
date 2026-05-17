@@ -7,6 +7,7 @@ import { Instructors } from "./instructors.js";
 import { Utils } from "./utils.js";
 import { storage } from "./storage.js";
 storage.dom().dashboard();
+storage.dom().workout();
 storage.dom().student();
 storage.dom().instructor();
 theme.change();

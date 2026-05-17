@@ -104,7 +104,7 @@
                 </section>
             </section>
         </section>
-        <section data-section="academy-workouts" class="section-option section-academy-workouts" style="display: none;">
+        <section data-section="academy-workouts" class="section-option section-academy-workouts">
             <div class="container-actions-workouts">
                 <div class="container-search-workouts">
                     <input type="text" placeholder="Pesquisar treinos: digite o nome do aluno" id="input-search-workouts" class="">
@@ -119,27 +119,27 @@
             </div>
             <div class="container-workouts">
                 <div class="workouts">
-                    <div class="box-workout">
+                    <div class="box-workout _______example_______">
                         <div class="container-informations-workouts">
                             <p class="">
                                 Aluno:
-                                <span class="informations-workouts-box-workout">Pedro</span>
+                                <span class="informations-workouts-box-workout"></span>
                             </p>
                             <p class="">
                                 Professor:
-                                <span class="informations-workouts-box-workout">Henrique</span>
+                                <span class="informations-workouts-box-workout"></span>
                             </p>
                             <p class="">
                                 Treino:
-                                <span class="informations-workouts-box-workout">Costas</span>
+                                <span class="informations-workouts-box-workout"></span>
                             </p>
                             <p class="">
                                 Data:
-                                <span class="informations-workouts-box-workout">27/05/2026</span>
+                                <span class="informations-workouts-box-workout"></span>
                             </p>
                             <p class="">
                                 Horário:
-                                <span class="informations-workouts-box-workout">12:00</span>
+                                <span class="informations-workouts-box-workout"></span>
                             </p>
                         </div>
                         <div class="single-container-action-box-workout">
@@ -156,7 +156,7 @@
                 </div>
             </div>
         </section>
-        <section data-section="academy-students" class="section-option section-academy-students">
+        <section data-section="academy-students" class="section-option section-academy-students" style="display: none;">
             <div class="container-actions-students">
                 <div class="container-search-students">
                     <div class="container-search-students">
@@ -276,30 +276,30 @@
             <div class="container-inputs-workouts">
                 <div class="box-container-input">
                     <label for="student-name-for-mark-workouts" class="">Nome do aluno</label>
-                    <input type="text" placeholder="Digite o nome do aluno" id="input-student-name-mark-workouts" class="">
-                    <p id="message-error-student-name-workouts" class="message-error"></p>
+                    <input type="text" placeholder="Digite o nome do aluno" id="input-student-name-workout" class="">
+                    <p id="message-error-student-name-workout" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="instructor-option-workouts" class="">Escolha o professor</label>
+                    <label for="instructor-option-workout" class="">Escolha o professor</label>
                     <select id="list-instructors" class="">
-                        <option disabled selected class="default">Selecione um instrutor</option>
+                        <option disabled selected class="default" value="">Selecione um instrutor</option>
                     </select>
                     <p id="message-error-option-instructor" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
-                    <label for="name-workouts" class="">Treino</label>
-                    <input type="text" placeholder="Digite o nome do treino" id="input-workouts" class="">
-                    <p id="message-error-workouts" class="message-error"></p>
+                    <label for="name-workout" class="">Treino</label>
+                    <input type="text" placeholder="Digite o nome do treino" id="input-workout-name">
+                    <p id="message-error-workout-name" class="message-error"></p>
                 </div>
                 <div class="box-container-input">
                     <label for="date-workout" class="">Data</label>
-                    <input type="date" id="input-workouts" class="">
-                    <p id="message-error-date-workouts" class="message-error">Escolha uma data</p>
+                    <input type="date" id="input-workout-date">
+                    <p id="message-error-date-workout" class="message-error">Escolha uma data</p>
                 </div>
                 <div class="box-container-input">
-                    <label for="option-time-workouts" class="">Horário</label>
-                    <select id="option-time-workouts" class="">
-                        <option disabled selected class="">------------</option>
+                    <label for="option-time-workout">Horário</label>
+                    <select id="option-time-workout">
+                        <option disabled selected value="">------------</option>
                         <option value="08:00" class="">08:00</option>
                         <option value="10:00" class="">10:00</option>
                         <option value="12:00" class="">12:00</option>
@@ -309,11 +309,11 @@
                         <option value="20:00" class="">20:00</option>
                         <option value="22:00" class="">22:00</option>
                     </select>
-                    <p id="message-error-time-workouts" class="message-error"></p>
+                    <p id="message-error-time-workout" class="message-error"></p>
                 </div>
             </div>
             <div class="container-button-save-workouts">
-                <button class="button-save-workouts">Salvar</button>
+                <button class="button-save-workout">Salvar</button>
             </div>
         </div>
     </section>

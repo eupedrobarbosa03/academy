@@ -54,6 +54,18 @@ class Storage {
                 totalStudents.textContent = `${dashboard.totalStudents}`;
                 totalInstructors.textContent = `${dashboard.totalInstructors}`;
             },
+            workout: () => {
+                const workouts = this.get("workouts");
+                if (workouts === null)
+                    return;
+                workouts.forEach((workout) => {
+                    const workoutsDOM = document.querySelector(".workouts");
+                    const newBoxWorkout = document.createElement("div");
+                    newBoxWorkout.classList.add("box-workout");
+                    newBoxWorkout.innerHTML = new Category().workout(workout.student, workout.instructor, workout.workout, workout.date, workout.time);
+                    workoutsDOM.appendChild(newBoxWorkout);
+                });
+            },
             student: () => {
                 const students = this.get("students");
                 if (students === null)

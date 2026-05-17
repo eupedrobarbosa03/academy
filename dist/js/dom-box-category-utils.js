@@ -5,7 +5,6 @@ export class Category {
     section() {
         return {
             actionsBoxInformation: function (queryCategory, buttonsCategory, queryInformations) {
-                const BoxCategory = document.querySelectorAll(`.${queryCategory}`);
                 const events = ["mouseover", "mouseout"];
                 const buttons = [...buttonsCategory];
                 const informations = [...queryInformations];
@@ -56,6 +55,43 @@ export class Category {
         });
     }
     ;
+    workout(student, instructor, workout, date, time) {
+        const box = `
+            <div class="container-informations-workouts">
+                <p class="">
+                    Aluno:
+                    <span class="informations-workouts-box-workout">${student}</span>
+                </p>
+                <p class="">
+                    Instrutor:
+                    <span class="informations-workouts-box-workout">${instructor}</span>
+                </p>
+                <p class="">
+                    Treino:
+                    <span class="informations-workouts-box-workout">${workout}</span>
+                </p>
+                <p class="">
+                    Data:
+                    <span class="informations-workouts-box-workout">${date}</span>
+                </p>
+                <p class="">
+                    Horário:
+                    <span class="informations-workouts-box-workout">${time}</span>
+                </p>
+            </div>
+            <div class="single-container-action-box-workout">
+                <i class="fa-solid fa-check icon-conclude-workout"></i>
+                <i class="fa-solid fa-xmark icon-cancel-workout"></i>
+                <div class="information-action-conclude information-action">
+                    <p class="">Concluir</p>
+                </div>
+                <div class="information-action-cancel information-action">
+                    <p class="">Cancelar</p>
+                </div>
+            </div>
+        `;
+        return box;
+    }
     student(register, name, cpf, telephone, plan) {
         const box = `
         <div class="container-informations-students">
