@@ -79,3 +79,5 @@ Academy é um gerenciador de academia que possibilita cadastro de alunos e instr
 
 ---
 
+Explorem, divirtam-se. Fiquem à vontade para melhoria do projeto — eu ficaria feliz com isso, mais feliz ainda se me notificar. 
+
