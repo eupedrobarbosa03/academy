@@ -2,7 +2,7 @@
 [👮] **Autor**: Pedro Henrique.  
 [📅] **Data**: 17/05/2026.  
 [📌] **Tipo**: Academia.  
-[💻] **Deploy**: [Academy](link).
+[💻] **Deploy**: [Academy](https://eupedrobarbosa03.github.io/academy/).
 
 ---
 
