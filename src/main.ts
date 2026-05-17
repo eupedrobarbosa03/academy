@@ -11,18 +11,13 @@ storage.dom().dashboard();
 storage.dom().workout();
 storage.dom().student();
 storage.dom().instructor();
-
 theme.change();
 theme.storage();
-
 section.change();
-
 menu.responsive();
-
 Workouts.actions();
 Students.actions();
 Instructors.actions();
-
 Utils.closeAllSection();
 
 
