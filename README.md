@@ -18,3 +18,17 @@ Academy é um gerenciador de academia que possibilita cadastro de alunos e instr
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+
+---
+### FUNCIONALIDADES DO SISTEMA ✅
+**[✅] RegExp** global para informações como: nome, cpf, telefone, especialidade e nome do treino. 
+**[✅] Tema** dark e light para a preferência do usuário.  
+**[✅] Dashboard** em tempo real por render, storage e DOM.  
+**[✅] Caixa de informação** para ações em: treinos, alunos e instrutores. Exemplo: passar o mouse em cima do ícone de editar.
+**[✅] Sistema de pesquisa** por cada letra digitada para encontrar o item procurado rapidamente.  
+**[✅] Marcação de treinos** com validações **regExp** e a não permissão de marcar treinos em horários já ocupados na data escolhida.  
+**[✅] Renderização por storage** para edição, adição de itens para evitar **bug's** desnecessários.  
+**[✅] Local storage** para salvar todas as informações necessários para o funcionamento correto do sistema.  
+**[✅] Mensagens de erros e borda vermelha nos input's** para uma experiência de usuário agradável.  
+
+---
