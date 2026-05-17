@@ -7,13 +7,11 @@ import { Category } from "./dom-box-category-utils.js";
 
 
 class Student {
-    private boxStudent;
     private inputName;
     private inputCPF;
     private inputTelephone;
     private planSelected
     constructor() {
-        this.boxStudent = document.querySelectorAll<HTMLDivElement>(".box-instructor");
         this.inputName = document.querySelector("#input-student-name-register") as HTMLInputElement;
         this.inputCPF = document.querySelector("#input-student-cpf-register") as HTMLInputElement;
         this.inputTelephone = document.querySelector("#input-student-telephone-register") as HTMLInputElement;
@@ -79,7 +77,7 @@ class Student {
 
                 return true
             },
-            telephone: (isEdit?: boolean, valueEdit?: string) => {
+            telephone: (valueEdit?: string) => {
 
                 if (!inputValue) return Utils.hideError();
 
@@ -87,16 +85,14 @@ class Student {
                     return Utils.showError(className, id, "Número de telefone inválido.");
                 }
 
-                Utils.hideError();
-
-
-                if (isEdit && inputValue === valueEdit) return true;
+                if (inputValue === valueEdit) return true;
 
                 const existingTelephone = instructors.find((instructor) => instructor.telephone === inputValue);
 
                 if (existingTelephone) return Utils.showError(className, id, "O telefone informado está em uso.");
 
                 Utils.hideError();
+
                 return true;
 
             }
@@ -152,32 +148,105 @@ class Student {
             alert(`Aluno adicionado com sucesso!`);
             dashboard.update("create").students();
 
+            new Category().clearForRederingToStorage("box-student");
+            storage.dom().student();
+
         })
     };
 
     edit() {
-        const boxStudent = document.querySelectorAll<HTMLDivElement>(".box-student");
-        boxStudent.forEach(() => document.body.addEventListener("click", (e) => {
-            const target = e.target as HTMLDivElement;
+        const buttonSaveEdit = document.querySelector(".button-save-edit-student") as HTMLButtonElement;
+        const inputNameEdit = document.querySelector("#input-student-name-edit") as HTMLInputElement;
+        const inputCPFEdit = document.querySelector("#input-student-cpf-edit") as HTMLInputElement;
+        const inputTelephoneEdit = document.querySelector("#input-student-telephone-edit") as HTMLInputElement;
+        const planSelectedEdit = document.querySelector("#student-plan-for-edit") as HTMLSelectElement;
+
+
+        document.body.addEventListener("click", (e) => {
+           const target = e.target as HTMLDivElement;
             if (target.classList.contains("icon-edit-student")) {
                 const indexTarget = target.closest(".box-student");
                 if (!indexTarget) return;
-            }
+                const indexStudentCPF = indexTarget.querySelector(".info-cpf-student") as HTMLSpanElement;
+                const students = storage.get<StudentType[], KeysLocalStorage>("students") || [];
+                const student = students.find((instructor) =>
+                    instructor.cpf === indexStudentCPF.textContent);
 
-        }))
+                if (!student) return;
+
+                Utils.hideError();
+                
+                inputNameEdit.value = student.name;
+                inputCPFEdit.value = student.cpf;
+                inputTelephoneEdit.value = student.telephone;
+                planSelectedEdit.value = student.plan;
+
+                inputNameEdit.addEventListener("input", () => {
+                    this.validations(inputNameEdit.value, "message-error-name-student-edit", inputNameEdit.id).name();
+                })
+
+                inputTelephoneEdit.addEventListener("input", () => {
+                    this.validations(inputTelephoneEdit.value, "message-error-telephone-student-edit", inputTelephoneEdit.id).telephone(student.telephone);
+                })
+
+                buttonSaveEdit.addEventListener("click", () => {
+
+                    if (!this.validations(inputNameEdit.value, "message-error-name-student-edit", inputNameEdit.id).name()) return;
+                    
+                    if (!this.validations(inputTelephoneEdit.value, "message-error-telephone-student-edit", inputTelephoneEdit.id).telephone(student.telephone)) return;
+
+
+                    indexTarget.innerHTML = new Category().student(
+                        student.register,
+                        inputNameEdit.value,
+                        inputCPFEdit.value,
+                        inputTelephoneEdit.value,
+                        planSelectedEdit.value
+                    );
+
+                    student.name = inputNameEdit.value;
+                    student.cpf = inputCPFEdit.value;
+                    student.telephone = inputTelephoneEdit.value;
+                    student.plan = planSelectedEdit.value;
+
+                    storage.edit<StudentType[], KeysLocalStorage>(students, "students");
+                    new Category().clearForRederingToStorage("box-student");
+                    storage.dom().student();
+                    alert(`Aluno atualizado com sucesso!`);
+
+                    Utils.closeAllSection();
+
+                });
+            }
+        });
     };
 
     delete() {
-        const boxStudent = document.querySelectorAll<HTMLDivElement>(".box-student");
-        boxStudent.forEach((box) => document.body.addEventListener("click", (e) => {
+        document.body.addEventListener("click", (e) => {
             const target = e.target as HTMLDivElement;
             if (target.classList.contains("icon-remove-student")) {
                 const indexTarget = target.closest(".box-student");
                 if (!indexTarget) return;
-                indexTarget.remove();
+                const studentCPF = indexTarget.querySelector(".info-cpf-student") as HTMLSpanElement;
+
+                const studentsUpdated = storage.get<StudentType[], KeysLocalStorage>("students");
+
+                if (studentsUpdated === null) return;
+
+                const indexStudent = studentsUpdated.findIndex((student) =>
+                    student.cpf === studentCPF.textContent);
+                if (indexStudent === -1) return;
+
+
                 dashboard.update("delete").students();
+                storage.delete<StudentType, "students">("students", indexStudent)
+                indexTarget.remove();
+
+                new Category().clearForRederingToStorage("box-student");
+                storage.dom().student();
+
             }
-        }))
+        })
     };
 
 };

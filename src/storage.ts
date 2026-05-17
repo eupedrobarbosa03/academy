@@ -80,6 +80,7 @@ class Storage {
                     instructorsDOM.appendChild(newBoxInstructor);
                     const option = document.createElement("option");
                     option.textContent = `${newInstructor.name}`;
+                    option.value = `${newInstructor.name}`;
                     listOptionsForWorkout.appendChild(option);
                 }); 
             }

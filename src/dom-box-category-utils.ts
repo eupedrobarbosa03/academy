@@ -3,6 +3,8 @@ import { Utils } from "./utils.js";
 export class Category {
     constructor() {};
 
+    
+
     section() {
         return {
             actionsBoxInformation: function(queryCategory: string, buttonsCategory: [string, string], queryInformations: [string, string]) {
@@ -57,6 +59,8 @@ export class Category {
         })
     };
 
+
+
     student(register: string, name: string, cpf: string, telephone: string, plan: string) {
         const box = 
         `
@@ -98,6 +102,15 @@ export class Category {
         </div>
         `
         return box
+    }
+
+    clearForRederingToStorage(category: "box-student" | "box-instructor" | "box-workout") {
+        const queryCategory = document.querySelectorAll<HTMLDivElement>(`.${category}`)
+        queryCategory.forEach((box) => {
+            if (!box.getAttribute("class")?.includes("example")) {
+                box.remove();
+            }
+        });
     }
 
     instructor(name: string, cpf: string, telephone: string, specialty: string) {

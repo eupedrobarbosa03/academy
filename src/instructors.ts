@@ -56,7 +56,9 @@ class Instructor {
                 return true
             },
             telephone: (isEdit?: boolean, valueEdit?: string) => {
+
                 if (!inputValue) return Utils.hideError();
+
                 if (!inputValue.match(academyRegex.telephone)) {
                     return Utils.showError(className, id, "Número de telefone inválido.");
                 }
@@ -176,7 +178,7 @@ class Instructor {
                 })
 
                 inputTelephoneEdit.addEventListener("input", () => {
-                    this.validations(inputTelephoneEdit.value, "message-error-telephone-instructor-edit", inputTelephoneEdit.id).telephone(true, instructor.telephone);
+                    this.validations(inputTelephoneEdit.value, "message-error-telephone-instructor-edit", inputTelephoneEdit.id).telephone(true, inputTelephoneEdit.value);
                 })
 
                 inputSpecialtyEdit.addEventListener("input", () => {
@@ -187,7 +189,7 @@ class Instructor {
 
                     if (!this.validations(inputNameEdit.value, "message-error-name-instructor-edit", inputNameEdit.id).name()) return;
                     
-                    if (!this.validations(inputTelephoneEdit.value, "message-error-telephone-instructor-edit", inputTelephoneEdit.id).telephone(true, instructor.telephone)) return;
+                    if (!this.validations(inputTelephoneEdit.value, "message-error-telephone-instructor-edit", inputTelephoneEdit.id).telephone(true, inputTelephoneEdit.value)) return;
 
                     if (!this.validations(inputSpecialtyEdit.value, "message-error-specialty-instructor-edit", inputSpecialtyEdit.id).specialty()) return;
 
@@ -201,12 +203,13 @@ class Instructor {
                     storage.edit<InstructorType[], KeysLocalStorage>(instructors, "instructors");
                     alert(`Instrutor atualizado com sucesso!`);
 
-                    const listOptionsForWorkout = document.querySelectorAll<HTMLDivElement>("#list-instructors option");
+                    const listOptionsForWorkout = document.querySelectorAll<HTMLOptionElement>("#list-instructors option");
                     
                     listOptionsForWorkout.forEach((option) => {
-                        const instructorName = option.textContent.toLowerCase();
-                        if (instructorName === instructor.name) {
-                            option.textContent = instructor.name;
+                        const instructorName = option.value.toLowerCase();
+                        if (instructor.name.toLowerCase() === instructorName) {
+                            option.value = `${instructor.name}`;
+                            option.textContent = `${instructor.name}`
                         }
                     })
                 });
@@ -258,7 +261,7 @@ export class Instructors {
         instructor.create();
         instructor.edit();
         instructor.delete();
-        Utils.search("input-search-instructors", "box-instructor", "info-for-search")
+        Utils.search("input-search-instructors", "box-instructor", "info-for-search");
         new Category().section().actionsBoxInformation("box-instructor", ["icon-remove-instructor", "icon-edit-instructor"], ["information-action-remove-instructor", "information-action-edit-instructor"]);
         new Category().section().addition("button-to-register-instructors", "section-container-addition-instructors")
         new Category().section().edit("section-container-edit-instructors", "box-instructor", "icon-edit-instructor");

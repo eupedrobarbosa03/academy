@@ -145,7 +145,7 @@ class Instructor {
                     this.validations(inputNameEdit.value, "message-error-name-instructor-edit", inputNameEdit.id).name();
                 });
                 inputTelephoneEdit.addEventListener("input", () => {
-                    this.validations(inputTelephoneEdit.value, "message-error-telephone-instructor-edit", inputTelephoneEdit.id).telephone(true, instructor.telephone);
+                    this.validations(inputTelephoneEdit.value, "message-error-telephone-instructor-edit", inputTelephoneEdit.id).telephone(true, inputTelephoneEdit.value);
                 });
                 inputSpecialtyEdit.addEventListener("input", () => {
                     this.validations(inputSpecialtyEdit.value, "message-error-specialty-instructor-edit", inputSpecialtyEdit.id).specialty();
@@ -153,7 +153,7 @@ class Instructor {
                 buttonSaveEdit.addEventListener("click", () => {
                     if (!this.validations(inputNameEdit.value, "message-error-name-instructor-edit", inputNameEdit.id).name())
                         return;
-                    if (!this.validations(inputTelephoneEdit.value, "message-error-telephone-instructor-edit", inputTelephoneEdit.id).telephone(true, instructor.telephone))
+                    if (!this.validations(inputTelephoneEdit.value, "message-error-telephone-instructor-edit", inputTelephoneEdit.id).telephone(true, inputTelephoneEdit.value))
                         return;
                     if (!this.validations(inputSpecialtyEdit.value, "message-error-specialty-instructor-edit", inputSpecialtyEdit.id).specialty())
                         return;
@@ -166,9 +166,10 @@ class Instructor {
                     alert(`Instrutor atualizado com sucesso!`);
                     const listOptionsForWorkout = document.querySelectorAll("#list-instructors option");
                     listOptionsForWorkout.forEach((option) => {
-                        const instructorName = option.textContent.toLowerCase();
-                        if (instructorName === instructor.name) {
-                            option.textContent = instructor.name;
+                        const instructorName = option.value.toLowerCase();
+                        if (instructor.name.toLowerCase() === instructorName) {
+                            option.value = `${instructor.name}`;
+                            option.textContent = `${instructor.name}`;
                         }
                     });
                 });

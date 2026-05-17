@@ -97,6 +97,14 @@ export class Category {
         `;
         return box;
     }
+    clearForRederingToStorage(category) {
+        const queryCategory = document.querySelectorAll(`.${category}`);
+        queryCategory.forEach((box) => {
+            if (!box.getAttribute("class")?.includes("example")) {
+                box.remove();
+            }
+        });
+    }
     instructor(name, cpf, telephone, specialty) {
         const box = `
                 <div class="container-informations-instructors">
